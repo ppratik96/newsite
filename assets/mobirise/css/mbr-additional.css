@@ -1363,6 +1363,11 @@ body {
   height: auto;
   min-height: 100vh;
 }
+.cid-qFm4htKZJx {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-image: url("../../../assets/images/08-wyektr5-2000x1333.jpg");
+}
 .cid-qFlE4fVxnO .navbar {
   background: #ffffff;
   transition: none;
@@ -1590,10 +1595,6 @@ body {
 .cid-qFlE4fVxnO .collapsed .navbar-collapse.show .navbar-nav .nav-item {
   clear: both;
 }
-.cid-qFlE4fVxnO .collapsed .navbar-collapse.collapsing .navbar-nav .nav-item:last-child,
-.cid-qFlE4fVxnO .collapsed .navbar-collapse.show .navbar-nav .nav-item:last-child {
-  margin-bottom: 1rem;
-}
 .cid-qFlE4fVxnO .collapsed .navbar-collapse.collapsing .navbar-buttons,
 .cid-qFlE4fVxnO .collapsed .navbar-collapse.show .navbar-buttons {
   text-align: center;
@@ -1688,10 +1689,6 @@ body {
   .cid-qFlE4fVxnO .navbar-collapse.show .navbar-nav .nav-item {
     clear: both;
   }
-  .cid-qFlE4fVxnO .navbar-collapse.collapsing .navbar-nav .nav-item:last-child,
-  .cid-qFlE4fVxnO .navbar-collapse.show .navbar-nav .nav-item:last-child {
-    margin-bottom: 1rem;
-  }
   .cid-qFlE4fVxnO .navbar-collapse.collapsing .navbar-buttons,
   .cid-qFlE4fVxnO .navbar-collapse.show .navbar-buttons {
     text-align: center;
@@ -1752,36 +1749,10 @@ body {
 .cid-qFlE4fVxnO .dropdown-item:hover {
   color: #767676 !important;
 }
-.cid-qFlEpwkxtL {
-  background-image: url("../../../assets/images/03.jpg");
-}
-.cid-qFlEpwkxtL .icons-media-container {
-  display: flex;
-  justify-content: center;
-  -webkit-justify-content: center;
-  flex-direction: row;
-  -webkit-flex-direction: row;
-  flex-wrap: wrap;
-  -webkit-flex-wrap: wrap;
-  padding-top: 4rem;
-}
-.cid-qFlEpwkxtL .icons-media-container .mbr-iconfont {
-  font-size: 96px;
-  color: #ffffff;
-}
-.cid-qFlEpwkxtL .icons-media-container .icon-block {
-  padding-bottom: 1rem;
-}
-.cid-qFlEpwkxtL .mbr-text {
-  color: #ffffff;
-}
-.cid-qFlEpwkxtL .card {
-  padding-bottom: 1.5rem;
-}
 .cid-qFlFC0BHnZ {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-color: #f8f8f8;
+  background-image: url("../../../assets/images/mbr-1620x1080.jpg");
 }
 .cid-qFlFC0BHnZ .mbr-section-subtitle {
   color: #767676;
@@ -1886,4 +1857,80 @@ body {
   .cid-qFlFC0BHnZ .reverse .timeline-text-content {
     margin-right: 0 !important;
   }
+}
+.cid-qFlFC0BHnZ .mbr-timeline-text {
+  text-align: left;
+}
+.cid-qFm6Ktkvlc {
+  padding-top: 45px;
+  padding-bottom: 30px;
+  background-color: #ffffff;
+}
+.cid-qFm6Ktkvlc .row-links {
+  width: 100%;
+  justify-content: center;
+}
+.cid-qFm6Ktkvlc .social-row {
+  width: 100%;
+  justify-content: center;
+}
+.cid-qFm6Ktkvlc .media-container-row {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.cid-qFm6Ktkvlc .media-container-row .foot-menu {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 0;
+}
+.cid-qFm6Ktkvlc .media-container-row .foot-menu li {
+  padding: 0 1rem 1rem 1rem;
+}
+.cid-qFm6Ktkvlc .media-container-row .foot-menu li p {
+  margin: 0;
+}
+.cid-qFm6Ktkvlc .media-container-row .social-list {
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  -webkit-justify-content: flex-end;
+}
+.cid-qFm6Ktkvlc .media-container-row .social-list .mbr-iconfont-social {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+.cid-qFm6Ktkvlc .media-container-row .social-list .soc-item {
+  margin: 0 .5rem;
+}
+.cid-qFm6Ktkvlc .media-container-row .social-list a {
+  margin: 0;
+  opacity: .5;
+  -webkit-transition: .2s linear;
+  transition: .2s linear;
+}
+.cid-qFm6Ktkvlc .media-container-row .social-list a:hover {
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  .cid-qFm6Ktkvlc .media-container-row .social-list {
+    justify-content: center;
+    -webkit-justify-content: center;
+  }
+}
+.cid-qFm6Ktkvlc .media-container-row .row-copirayt {
+  word-break: break-word;
+  width: 100%;
+}
+.cid-qFm6Ktkvlc .media-container-row .row-copirayt p {
+  width: 100%;
+}
+.cid-qFm6Ktkvlc .media-container-row .mbr-text {
+  color: #232323;
 }
