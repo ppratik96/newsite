@@ -752,7 +752,7 @@
             "overlayColor": "#232323",
             "overlayOpacity": 0.6
           },
-          "title": "WHAT I'M UP TO",
+          "title": "WHAT I've been UP TO",
           "buttons": "<a data-app-btn=\"true\" class=\"btn btn-md btn-primary display-4\" href=\"#\" data-max-id=\"1568518580111098678_181987846\" data-toolbar=\"-mbrBtnMove,-mbrBtnAdd,-mbrBtnRemove,-mbrLink\">SHOW MORE</a>",
           "display2": "display-2",
           "display4": "display-4",
