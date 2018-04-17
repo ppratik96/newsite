@@ -32,7 +32,7 @@
       ]
     },
     "versionFirst": "4.5.4",
-    "uniqCompNum": 20,
+    "uniqCompNum": 21,
     "versionPublish": "4.5.4",
     "path": "@PROJECT_PATH@",
     "robotsText": "User-agent: *\r\nDisallow: /cgi-bin\r\n",
