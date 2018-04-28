@@ -1,6 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i);
-@import url(https://fonts.googleapis.com/css?family=Bungee:400);
 @import url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700);
+@import url(https://fonts.googleapis.com/css?family=Russo+One:400);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i);
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,300i,400,400i,500,500i,700,700i,900,900i);
 
 
 
@@ -22,14 +23,14 @@ body {
   line-height: 1.6;
 }
 .display-1 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 4.25rem;
 }
 .display-1 > .mbr-iconfont {
   font-size: 6.8rem;
 }
 .display-2 {
-  font-family: 'Bungee', display;
+  font-family: 'Russo One', sans-serif;
   font-size: 2.2rem;
 }
 .display-2 > .mbr-iconfont {
@@ -43,14 +44,14 @@ body {
   font-size: 1.6rem;
 }
 .display-5 {
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Lato', sans-serif;
   font-size: 1.8rem;
 }
 .display-5 > .mbr-iconfont {
   font-size: 2.88rem;
 }
 .display-7 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 1rem;
 }
 .display-7 > .mbr-iconfont {
@@ -649,7 +650,7 @@ a:hover {
   background-color: #f5f5f5;
   box-shadow: none;
   color: #565656;
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Oswald', sans-serif;
   font-size: 1rem;
   line-height: 1.43;
   min-height: 3.5em;
@@ -1815,6 +1816,12 @@ body {
 .cid-qFruoK4uQi .mbr-text {
   text-align: left;
 }
+.cid-qFruoK4uQi P {
+  text-align: left;
+}
+.cid-qFruoK4uQi H2 {
+  text-align: left;
+}
 .cid-qFlFC0BHnZ {
   padding-top: 90px;
   padding-bottom: 90px;
@@ -1827,7 +1834,7 @@ body {
 }
 .cid-qFlFC0BHnZ .timeline-text-content {
   padding: 2rem 2.5rem;
-  background: #1b7bc9;
+  background: #879a9f;
   margin-left: 2rem;
 }
 .cid-qFlFC0BHnZ .timeline-text-content p {
@@ -1838,7 +1845,7 @@ body {
 }
 .cid-qFlFC0BHnZ .time-line-date-content p {
   padding: 2rem 2.5rem;
-  background: #1b7bc9;
+  background: #879a9f;
   float: right;
 }
 .cid-qFlFC0BHnZ .timeline-element {
@@ -1887,7 +1894,7 @@ body {
   border-radius: 50%;
   font-size: 30px;
   display: inline-block;
-  background-color: #1b7bc9;
+  background-color: #879a9f;
   top: 20px;
   margin-left: -10px;
 }
@@ -1897,7 +1904,7 @@ body {
   position: absolute;
   content: "";
   width: 2px;
-  background-color: #1b7bc9;
+  background-color: #879a9f;
   left: calc(50% - 1px);
   height: calc(100% + 4rem);
 }
