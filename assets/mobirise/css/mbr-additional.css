@@ -1825,7 +1825,7 @@ body {
 .cid-qTtxTSPMoK {
   padding-top: 90px;
   padding-bottom: 90px;
-  background-color: #f8f8f8;
+  background-image: url("../../../assets/images/mbr-1-1920x1080.jpg");
 }
 .cid-qTtxTSPMoK .mbr-section-subtitle {
   color: #767676;
@@ -1933,6 +1933,9 @@ body {
 }
 .cid-qTtxTSPMoK .mbr-timeline-text {
   text-align: left;
+}
+.cid-qTtxTSPMoK .mbr-section-title {
+  color: #ffffff;
 }
 #instagram-feed-block-i .inst__title {
   color: #ffffff;
