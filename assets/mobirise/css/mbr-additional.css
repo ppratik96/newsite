@@ -1834,7 +1834,7 @@ body {
 }
 .cid-qTtxTSPMoK .timeline-text-content {
   padding: 2rem 2.5rem;
-  background: #ffffff;
+  background: #c1c1c1;
   margin-left: 2rem;
 }
 .cid-qTtxTSPMoK .timeline-text-content p {
@@ -1845,7 +1845,7 @@ body {
 }
 .cid-qTtxTSPMoK .time-line-date-content p {
   padding: 2rem 2.5rem;
-  background: #ffffff;
+  background: #c1c1c1;
   float: right;
 }
 .cid-qTtxTSPMoK .timeline-element {
@@ -1894,7 +1894,7 @@ body {
   border-radius: 50%;
   font-size: 30px;
   display: inline-block;
-  background-color: #ffffff;
+  background-color: #c1c1c1;
   top: 20px;
   margin-left: -10px;
 }
@@ -1904,7 +1904,7 @@ body {
   position: absolute;
   content: "";
   width: 2px;
-  background-color: #ffffff;
+  background-color: #c1c1c1;
   left: calc(50% - 1px);
   height: calc(100% + 4rem);
 }
