@@ -2,7 +2,7 @@ body {
   font-family: Rubik;
 }
 .display-1 {
-  font-family: 'Rubik', sans-serif;
+  font-family: 'Newsreader', serif;
   font-size: 4.25rem;
   font-display: swap;
 }
@@ -678,91 +678,6 @@ iframe.lazy-placeholder,
 section.lazy-placeholder:after {
   opacity: 0.3;
 }
-.cid-qFrpCiczXi {
-  background-image: url("../../../assets/images/08-wyektr5-2000x1333.jpg");
-}
-.cid-qFrpCiczXi H3 {
-  color: #ffffff;
-}
-.cid-uF68aTrkF4 {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-  background-color: #ffffff;
-}
-.cid-uF68aTrkF4 .item:focus,
-.cid-uF68aTrkF4 span:focus {
-  outline: none;
-}
-.cid-uF68aTrkF4 .item {
-  cursor: pointer;
-}
-.cid-uF68aTrkF4 .grid-container {
-  grid-row-gap: 2rem;
-}
-@media (max-width: 767px) {
-  .cid-uF68aTrkF4 .grid-container {
-    grid-row-gap: 1rem;
-  }
-}
-.cid-uF68aTrkF4 .grid-container-1,
-.cid-uF68aTrkF4 .grid-container-2 {
-  gap: 0 2rem;
-}
-@media (max-width: 767px) {
-  .cid-uF68aTrkF4 .grid-container-1,
-  .cid-uF68aTrkF4 .grid-container-2 {
-    gap: 0 1rem;
-  }
-}
-.cid-uF68aTrkF4 .mbr-section-title {
-  color: #000000;
-}
-.cid-uF68aTrkF4 .mbr-text,
-.cid-uF68aTrkF4 .mbr-section-btn {
-  color: #000000;
-}
-.cid-uF68aTrkF4 .content-head {
-  max-width: 800px;
-}
-.cid-uF68aTrkF4 .container,
-.cid-uF68aTrkF4 .container-fluid {
-  overflow: hidden;
-}
-.cid-uF68aTrkF4 .grid-container {
-  display: grid;
-  transform: translate3d(-3rem, 0, 0);
-  width: 115vw;
-  grid-column-gap: 1rem;
-}
-.cid-uF68aTrkF4 .grid-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cid-uF68aTrkF4 .grid-item img {
-  min-width: 30vw;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
-@media (max-width: 767px) {
-  .cid-uF68aTrkF4 .grid-item img {
-    min-width: 35vw;
-  }
-}
-.cid-uF68aTrkF4 .grid-container-1,
-.cid-uF68aTrkF4 .grid-container-2 {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-columns: 1fr;
-  grid-auto-flow: column;
-}
-.cid-uF68aTrkF4 .grid-container-1 {
-  align-items: flex-end;
-}
-.cid-uF68aTrkF4 .grid-container-2 {
-  align-items: flex-start;
-}
 .cid-qFlE4fVxnO .navbar {
   background: #ffffff;
   transition: none;
@@ -1143,6 +1058,99 @@ section.lazy-placeholder:after {
 .cid-qFlE4fVxnO .nav-link:hover,
 .cid-qFlE4fVxnO .dropdown-item:hover {
   color: #767676 !important;
+}
+.cid-qFrpCiczXi {
+  background-image: url("../../../assets/images/08-wyektr5-2000x1333.jpg");
+}
+.cid-qFrpCiczXi H3 {
+  color: #ffffff;
+}
+.cid-vi95Ii6FVm {
+  padding-top: 90px;
+  padding-bottom: 90px;
+  background-image: url("../../../assets/images/03f57358-6acf-4549-891c-8020d13f6996-1024x559.jpg");
+}
+.cid-vi95Ii6FVm H1 {
+  color: #85341f;
+}
+.cid-uF68aTrkF4 {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  background-color: #ffffff;
+}
+.cid-uF68aTrkF4 .item:focus,
+.cid-uF68aTrkF4 span:focus {
+  outline: none;
+}
+.cid-uF68aTrkF4 .item {
+  cursor: pointer;
+}
+.cid-uF68aTrkF4 .grid-container {
+  grid-row-gap: 2rem;
+}
+@media (max-width: 767px) {
+  .cid-uF68aTrkF4 .grid-container {
+    grid-row-gap: 1rem;
+  }
+}
+.cid-uF68aTrkF4 .grid-container-1,
+.cid-uF68aTrkF4 .grid-container-2 {
+  gap: 0 2rem;
+}
+@media (max-width: 767px) {
+  .cid-uF68aTrkF4 .grid-container-1,
+  .cid-uF68aTrkF4 .grid-container-2 {
+    gap: 0 1rem;
+  }
+}
+.cid-uF68aTrkF4 .mbr-section-title {
+  color: #000000;
+}
+.cid-uF68aTrkF4 .mbr-text,
+.cid-uF68aTrkF4 .mbr-section-btn {
+  color: #000000;
+}
+.cid-uF68aTrkF4 .content-head {
+  max-width: 800px;
+}
+.cid-uF68aTrkF4 .container,
+.cid-uF68aTrkF4 .container-fluid {
+  overflow: hidden;
+}
+.cid-uF68aTrkF4 .grid-container {
+  display: grid;
+  transform: translate3d(-3rem, 0, 0);
+  width: 115vw;
+  grid-column-gap: 1rem;
+}
+.cid-uF68aTrkF4 .grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cid-uF68aTrkF4 .grid-item img {
+  min-width: 30vw;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 767px) {
+  .cid-uF68aTrkF4 .grid-item img {
+    min-width: 35vw;
+  }
+}
+.cid-uF68aTrkF4 .grid-container-1,
+.cid-uF68aTrkF4 .grid-container-2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+}
+.cid-uF68aTrkF4 .grid-container-1 {
+  align-items: flex-end;
+}
+.cid-uF68aTrkF4 .grid-container-2 {
+  align-items: flex-start;
 }
 .cid-qFruoK4uQi {
   padding-top: 30px;
