@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gravity Locked - AMOLED</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --amoled-black: #000000;
+            --neon-grid: #111111;
+            --neon-border: #00ffff;
+            --neon-shadow: rgba(0, 255, 255, 0.4);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--amoled-black);
+            color: white;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            touch-action: none; /* Prevent scrolling on mobile */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        #game-wrapper {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        canvas {
+            background-color: #050505;
+            border: 2px solid var(--neon-border);
+            border-radius: 12px;
+            box-shadow: 0 0 15px var(--neon-shadow), inset 0 0 15px var(--neon-shadow);
+            max-width: 95vw;
+            max-height: 70vh;
+            image-rendering: pixelated;
+        }
+
+        .hud {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            font-family: 'JetBrains Mono', monospace;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: #00ffff;
+            text-shadow: 0 0 8px rgba(0,255,255,0.6);
+        }
+
+        .controls {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 90%;
+            margin-top: 15px;
+        }
+        
+        .control-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .btn {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid var(--neon-border);
+            color: var(--neon-border);
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            user-select: none;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+            transition: all 0.1s;
+            flex: 1;
+        }
+
+        .btn:active {
+            background: rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            transform: scale(0.95);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+
+        .title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px #fff;
+        }
+
+        .start-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            font-size: 1rem;
+            font-family: 'JetBrains Mono', monospace;
+            background: transparent;
+            color: #00ffaa;
+            border: 2px solid #00ffaa;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 15px rgba(0, 255, 170, 0.4);
+            transition: transform 0.1s;
+        }
+        
+        .start-btn:active {
+            transform: scale(0.95);
+        }
+
+        .desktop-hint {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: #aaa;
+            line-height: 1.3;
+        }
+        
+        .hidden { display: none !important; }
+    </style>
+</head>
+<body>
+
+    <div id="game-wrapper">
+        <div class="hud">
+            <div>Score: <span id="score">0</span></div>
+            <div>Gyro: <span id="gyro-status">OFF</span></div>
+        </div>
+
+        <div style="position: relative;">
+            <canvas id="board" width="300" height="300"></canvas>
+            
+            <div id="start-screen" class="overlay">
+                <div class="title">GRAVITY LOCKED</div>
+                <p style="margin-bottom: 2px; font-size: 0.85rem;">The piece always falls down.</p>
+                <p style="color: #00ffff; font-size: 0.85rem; margin-bottom: 5px;">Rotate the WORLD around it.</p>
+                <button class="start-btn" onclick="startGame()">INITIALIZE (PLAY)</button>
+                <button class="start-btn" id="gyro-btn" style="border-color: #ff00ff; color: #ff00ff; margin-top: 8px;" onclick="requestGyro()">ENABLE GYRO</button>
+                <div class="desktop-hint">
+                    <strong>Desktop:</strong> [A]/[D] to Tilt &bull; Arrows to Move<br>
+                    <strong>Mobile:</strong> Enable Gyro to tilt!
+                </div>
+            </div>
+
+            <div id="game-over-screen" class="overlay hidden">
+                <div class="title" style="color: #ff0055; text-shadow: 0 0 10px #ff0055;">SYSTEM FAILURE</div>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button class="start-btn" style="color: #ff0055; border-color: #ff0055; box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);" onclick="resetGame()">REBOOT</button>
+            </div>
+        </div>
+
+        <!-- Touch Controls -->
+        <div class="controls">
+            <div class="control-group">
+                <div class="btn" ontouchstart="triggerRotation('ccw'); event.preventDefault();" onmousedown="triggerRotation('ccw')">↺</div>
+                <div class="btn" ontouchstart="triggerRotation('cw'); event.preventDefault();" onmousedown="triggerRotation('cw')">↻</div>
+            </div>
+            <div class="control-group">
+                <div class="btn" ontouchstart="handleMove(-1); event.preventDefault();" onmousedown="handleMove(-1)">◀</div>
+                <div class="btn" ontouchstart="handleDrop(); event.preventDefault();" onmousedown="handleDrop()">▼</div>
+                <div class="btn" ontouchstart="handleMove(1); event.preventDefault();" onmousedown="handleMove(1)">▶</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('board');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score');
+        const gyroStatusEl = document.getElementById('gyro-status');
+        
+        // Use a 15x15 square grid to allow for perfect 90-degree rotations mathematically
+        const GRID_SIZE = 15;
+        const CELL_SIZE = canvas.width / GRID_SIZE;
+        
+        let grid = [];
+        let score = 0;
+        let isGameOver = true;
+        let dropCounter = 0;
+        let dropInterval = 1000;
+        let lastTime = 0;
+        let animationFrameId;
+        
+        // Animation variables for the visual board rotation
+        let animAngle = 0; 
+        let isAnimating = false;
+
+        // Colors tailored for AMOLED (Pure Hex values)
+        const COLORS = [
+            null,
+            '#00FFFF', // 1: Cyan (I)
+            '#FFFF00', // 2: Yellow (O)
+            '#FF00FF', // 3: Purple (T)
+            '#00FF00', // 4: Green (S)
+            '#FF0000', // 5: Red (Z)
+            '#0088FF', // 6: Blue (J)
+            '#FF8800'  // 7: Orange (L)
+        ];
+
+        // Notice we only define ONE state for each piece. 
+        // In this game, the pieces NEVER rotate. The board rotates instead.
+        const PIECES = [
+            [], // 0 index buffer
+            [[0, 0, 0, 0], [1, 1, 1, 1], [0, 0, 0, 0], [0, 0, 0, 0]], // I (4x4)
+            [[2, 2], [2, 2]],                                         // O (2x2)
+            [[0, 3, 0], [3, 3, 3], [0, 0, 0]],                        // T (3x3)
+            [[0, 4, 4], [4, 4, 0], [0, 0, 0]],                        // S (3x3)
+            [[5, 5, 0], [0, 5, 5], [0, 0, 0]],                        // Z (3x3)
+            [[6, 0, 0], [6, 6, 6], [0, 0, 0]],                        // J (3x3)
+            [[0, 0, 7], [7, 7, 7], [0, 0, 0]]                         // L (3x3)
+        ];
+
+        let currentPiece = { matrix: [], x: 0, y: 0 };
+
+        // Initialize empty grid
+        function createGrid() {
+            grid = Array(GRID_SIZE).fill().map(() => Array(GRID_SIZE).fill(0));
+        }
+
+        function spawnPiece() {
+            const typeId = Math.floor(Math.random() * 7) + 1;
+            currentPiece.matrix = PIECES[typeId];
+            currentPiece.y = 0;
+            currentPiece.x = Math.floor(GRID_SIZE / 2) - Math.floor(currentPiece.matrix[0].length / 2);
+
+            // Check immediate game over
+            if (collide(grid, currentPiece)) {
+                gameOver();
+            }
+        }
+
+        function collide(board, piece) {
+            for (let y = 0; y < piece.matrix.length; ++y) {
+                for (let x = 0; x < piece.matrix[y].length; ++x) {
+                    if (piece.matrix[y][x] !== 0 &&
+                       (board[y + piece.y] && board[y + piece.y][x + piece.x]) !== 0) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        function merge(board, piece) {
+            piece.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        // Protect against out of bounds errors on merge
+                        if(board[y + piece.y]) {
+                            board[y + piece.y][x + piece.x] = value;
+                        }
+                    }
+                });
+            });
+        }
+
+        function handleMove(dir) {
+            if (isGameOver || isAnimating) return;
+            currentPiece.x += dir;
+            if (collide(grid, currentPiece)) {
+                currentPiece.x -= dir;
+            }
+        }
+
+        function handleDrop() {
+            if (isGameOver || isAnimating) return;
+            currentPiece.y++;
+            if (collide(grid, currentPiece)) {
+                currentPiece.y--;
+                merge(grid, currentPiece);
+                clearLines();
+                spawnPiece();
+            }
+            dropCounter = 0;
+        }
+
+        function clearLines() {
+            let linesCleared = 0;
+            outer: for (let y = grid.length - 1; y >= 0; --y) {
+                for (let x = 0; x < grid[y].length; ++x) {
+                    if (grid[y][x] === 0) continue outer;
+                }
+                const row = grid.splice(y, 1)[0].fill(0);
+                grid.unshift(row);
+                ++y;
+                linesCleared++;
+            }
+            if (linesCleared > 0) {
+                score += linesCleared * 100;
+                scoreEl.innerText = score;
+                dropInterval = Math.max(200, 1000 - (score / 10)); // Speed up as score increases
+            }
+        }
+
+        function triggerRotation(dir) {
+            if (isGameOver || isAnimating) return;
+            
+            // 1. Calculate the mathematically rotated grid (The entire world)
+            let newGrid = Array(GRID_SIZE).fill().map(() => Array(GRID_SIZE).fill(0));
+            
+            if (dir === 'cw') {
+                for (let y = 0; y < GRID_SIZE; y++) {
+                    for (let x = 0; x < GRID_SIZE; x++) {
+                        newGrid[x][GRID_SIZE - 1 - y] = grid[y][x];
+                    }
+                }
+            } else if (dir === 'ccw') {
+                for (let y = 0; y < GRID_SIZE; y++) {
+                    for (let x = 0; x < GRID_SIZE; x++) {
+                        newGrid[GRID_SIZE - 1 - x][y] = grid[y][x];
+                    }
+                }
+            }
+
+            // 2. Gravity check: Push floating blocks down if they rotate into empty space
+            // (In a perfect simulation we'd do real physics, but this is a puzzle hybrid)
+            applyGravityToGrid(newGrid);
+
+            // 3. Check if the newly rotated world crushes the active piece
+            if (collide(newGrid, currentPiece)) {
+                // Deny rotation visually
+                canvas.style.borderColor = '#ff0055';
+                canvas.style.boxShadow = '0 0 15px rgba(255,0,85,0.6)';
+                setTimeout(() => {
+                    canvas.style.borderColor = 'var(--neon-border)';
+                    canvas.style.boxShadow = '0 0 15px var(--neon-shadow), inset 0 0 15px var(--neon-shadow)';
+                }, 150);
+                return; 
+            }
+
+            // 4. Apply the mathematical rotation
+            grid = newGrid;
+
+            // 5. Setup the visual animation
+            // If we rotated CW mathematically, we start the visual angle at -90 (CCW) 
+            // and tween it back to 0. This creates the illusion of the board spinning into place!
+            animAngle = (dir === 'cw') ? -Math.PI / 2 : Math.PI / 2;
+            isAnimating = true;
+        }
+
+        // Helper function to make floating blocks fall after a rotation
+        function applyGravityToGrid(board) {
+            // Very simple pseudo-gravity: move everything down if there's space
+            let moved = true;
+            while(moved) {
+                moved = false;
+                for (let x = 0; x < GRID_SIZE; x++) {
+                    for (let y = GRID_SIZE - 2; y >= 0; y--) {
+                        if (board[y][x] !== 0 && board[y+1][x] === 0) {
+                            board[y+1][x] = board[y][x];
+                            board[y][x] = 0;
+                            moved = true;
+                        }
+                    }
+                }
+            }
+        }
+
+        function drawBlock(x, y, colorId) {
+            ctx.fillStyle = COLORS[colorId];
+            ctx.shadowBlur = 10;
+            ctx.shadowColor = COLORS[colorId];
+            // Inner block
+            ctx.fillRect(x * CELL_SIZE + 1, y * CELL_SIZE + 1, CELL_SIZE - 2, CELL_SIZE - 2);
+            
+            // Highlight for 3D/Neon feel
+            ctx.fillStyle = 'rgba(255,255,255,0.3)';
+            ctx.fillRect(x * CELL_SIZE + 1, y * CELL_SIZE + 1, CELL_SIZE - 2, 3);
+            
+            ctx.shadowBlur = 0; // Reset shadow
+        }
+
+        function draw() {
+            // Clear to AMOLED Black
+            ctx.fillStyle = '#000';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Draw faint grid lines
+            ctx.strokeStyle = '#111';
+            ctx.lineWidth = 1;
+            for(let i=0; i<=GRID_SIZE; i++) {
+                ctx.beginPath();
+                ctx.moveTo(i*CELL_SIZE, 0);
+                ctx.lineTo(i*CELL_SIZE, canvas.height);
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(0, i*CELL_SIZE);
+                ctx.lineTo(canvas.width, i*CELL_SIZE);
+                ctx.stroke();
+            }
+
+            // Draw Locked Board (WITH Rotation animation applied)
+            ctx.save();
+            if (isAnimating) {
+                // Smoothly interpolate angle to 0
+                animAngle *= 0.70; 
+                if (Math.abs(animAngle) < 0.02) {
+                    animAngle = 0;
+                    isAnimating = false;
+                }
+                // Translate to center, rotate, translate back
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate(animAngle);
+                ctx.translate(-canvas.width / 2, -canvas.height / 2);
+            }
+
+            grid.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) drawBlock(x, y, value);
+                });
+            });
+            ctx.restore();
+
+            // Draw Active Falling Piece (ALWAYS LOCKED TO SCREEN GRAVITY)
+            // It is drawn outside the ctx.save()/ctx.restore() block so it never rotates visually!
+            if (!isGameOver) {
+                currentPiece.matrix.forEach((row, y) => {
+                    row.forEach((value, x) => {
+                        if (value !== 0) {
+                            drawBlock(x + currentPiece.x, y + currentPiece.y, value);
+                        }
+                    });
+                });
+            }
+        }
+
+        function update(time = 0) {
+            if (isGameOver) return;
+            const deltaTime = time - lastTime;
+            lastTime = time;
+            dropCounter += deltaTime;
+
+            // Pause falling while board is actively spinning
+            if (dropCounter > dropInterval && !isAnimating) {
+                handleDrop();
+            }
+
+            draw();
+            animationFrameId = requestAnimationFrame(update);
+        }
+
+        document.addEventListener('keydown', event => {
+            if (isGameOver) return;
+            switch (event.keyCode) {
+                case 37: handleMove(-1); break; // Left Arrow
+                case 39: handleMove(1); break; // Right Arrow
+                case 40: handleDrop(); break; // Down Arrow
+                case 65: triggerRotation('ccw'); break; // A Key
+                case 68: triggerRotation('cw'); break; // D Key
+            }
+        });
+
+        let gyroReady = true; // Prevents continuous spinning
+        
+        function showError(msg) {
+            const gyroBtn = document.getElementById('gyro-btn');
+            gyroBtn.innerText = "ERROR: " + msg;
+            gyroBtn.style.color = "#ff0055";
+            gyroBtn.style.borderColor = "#ff0055";
+        }
+        
+        function requestGyro() {
+            const gyroBtn = document.getElementById('gyro-btn');
+            gyroBtn.innerText = "REQUESTING...";
+            
+            if (typeof DeviceOrientationEvent !== 'undefined' && 
+                typeof DeviceOrientationEvent.requestPermission === 'function') {
+                // iOS 13+ requirement
+                DeviceOrientationEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('deviceorientation', handleGyro);
+                            gyroStatusEl.innerText = "ON";
+                            gyroStatusEl.style.color = "#00ffaa";
+                            gyroBtn.innerText = "GYRO ENABLED!";
+                            gyroBtn.style.color = "#00ffaa";
+                            gyroBtn.style.borderColor = "#00ffaa";
+                        } else {
+                            showError("DENIED BY USER");
+                        }
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        showError("BLOCKED BY IFRAME/BROWSER");
+                    });
+            } else if (window.DeviceOrientationEvent) {
+                // Standard Android / Non-iOS
+                window.addEventListener('deviceorientation', handleGyro);
+                gyroStatusEl.innerText = "ON";
+                gyroStatusEl.style.color = "#00ffaa";
+                gyroBtn.innerText = "GYRO ENABLED!";
+                gyroBtn.style.color = "#00ffaa";
+                gyroBtn.style.borderColor = "#00ffaa";
+            } else {
+                showError("NOT SUPPORTED ON DEVICE");
+            }
+        }
+
+        function handleGyro(event) {
+            if (isGameOver || isAnimating) return;
+            
+            // event.gamma represents left-to-right tilt in degrees (-90 to 90)
+            const tilt = event.gamma;
+            const threshold = 35; // Degrees required to trigger rotation
+            
+            if (tilt > threshold && gyroReady) {
+                triggerRotation('cw');
+                gyroReady = false;
+            } else if (tilt < -threshold && gyroReady) {
+                triggerRotation('ccw');
+                gyroReady = false;
+            } else if (Math.abs(tilt) < 15) {
+                // Reset flag when device is brought back near flat
+                gyroReady = true; 
+            }
+        }
+
+        function startGame() {
+            document.getElementById('start-screen').classList.add('hidden');
+            resetGame();
+        }
+
+        function resetGame() {
+            document.getElementById('game-over-screen').classList.add('hidden');
+            createGrid();
+            score = 0;
+            scoreEl.innerText = score;
+            dropInterval = 1000;
+            isGameOver = false;
+            lastTime = performance.now();
+            spawnPiece();
+            
+            if(animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            update();
+        }
+
+        function gameOver() {
+            isGameOver = true;
+            document.getElementById('final-score').innerText = score;
+            document.getElementById('game-over-screen').classList.remove('hidden');
+        }
+
+        // Initial setup for background draw behind the start screen
+        createGrid();
+        draw();
+    </script>
+</body>
+</html>
