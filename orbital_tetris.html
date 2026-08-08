@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Orbital Tetris</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #050510;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            touch-action: none;
+        }
+
+        #game-container {
+            position: relative;
+            width: 418px;
+            height: 418px;
+            margin: 0 auto;
+            background: #000;
+            border: 2px solid rgba(0, 255, 255, 0.3);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        #world-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .hud {
+            display: flex;
+            justify-content: space-between;
+            width: 418px;
+            margin: 20px auto 10px auto;
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #0ff;
+            text-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            border-radius: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.1s, box-shadow 0.1s;
+            margin-top: 15px;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+        
+        .controls-help {
+            width: 418px;
+            margin: 20px auto;
+            text-align: center;
+            color: #888;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen">
+
+    <div class="hud">
+        <span id="score-display">SCORE: 0</span>
+        <span>ORBITAL TETRIS</span>
+    </div>
+    
+    <div id="game-container">
+        <!-- Background grid and locked blocks spin together -->
+        <div id="world-layer">
+            <canvas id="bg-canvas" width="418" height="418"></canvas>
+            <canvas id="game-canvas" width="418" height="418"></canvas>
+        </div>
+        
+        <!-- Active falling piece stays upright on this separate layer -->
+        <canvas id="piece-canvas" width="418" height="418" style="z-index: 10;"></canvas>
+        
+        <div id="start-screen" class="overlay">
+            <h1 class="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 mb-4">ORBITAL</h1>
+            <p class="text-gray-300 mb-6 text-center px-6">Stack blocks on all 4 wells.<br>Rotate the board with A & D.</p>
+            <button class="btn" onclick="startGame()">INITIALIZE</button>
+        </div>
+
+        <div id="game-over-screen" class="overlay hidden">
+            <h1 class="text-4xl font-black text-red-500 mb-4">SYSTEM HALT</h1>
+            <p id="final-score" class="text-xl text-white mb-6">SCORE: 0</p>
+            <button class="btn" onclick="startGame()">REBOOT</button>
+        </div>
+    </div>
+
+    <div class="controls-help">
+        <p><span class="text-cyan-400 font-bold">Pure Touch:</span></p>
+        <p><b>Drag Left/Right</b> to move piece. <b>Swipe Down</b> to drop.</p>
+        <p><b>Tap Left/Right side</b> of screen to manually spin world.</p>
+    </div>
+
+    <script>
+        const bgCanvas = document.getElementById('bg-canvas');
+        const bgCtx = bgCanvas.getContext('2d');
+        const gameCanvas = document.getElementById('game-canvas');
+        const gameCtx = gameCanvas.getContext('2d');
+        const pieceCanvas = document.getElementById('piece-canvas');
+        const pieceCtx = pieceCanvas.getContext('2d');
+        const worldLayer = document.getElementById('world-layer');
+
+        // Smaller 19x19 Grid creating a "+" Cross shape
+        const ROWS = 19;
+        const COLS = 19;
+        const BLOCK_SIZE = 22; // 19 * 22 = 418px
+
+        const COLORS = [
+            null,
+            '#00FFFF', // I
+            '#0000FF', // J
+            '#FFA500', // L
+            '#FFFF00', // O
+            '#00FF00', // S
+            '#800080', // T
+            '#FF0000'  // Z
+        ];
+
+        const SHAPES = [
+            [],
+            [[0,0,0,0],[1,1,1,1],[0,0,0,0],[0,0,0,0]], // I
+            [[2,0,0],[2,2,2],[0,0,0]],                 // J
+            [[0,0,3],[3,3,3],[0,0,0]],                 // L
+            [[4,4],[4,4]],                             // O
+            [[0,5,5],[5,5,0],[0,0,0]],                 // S
+            [[0,6,0],[6,6,6],[0,0,0]],                 // T
+            [[7,7,0],[0,7,7],[0,0,0]]                  // Z
+        ];
+
+        let board = [];
+        let score = 0;
+        let dropCounter = 0;
+        let dropInterval = 800;
+        let lastTime = 0;
+        let animationId;
+        let isGameOver = false;
+        let isRotating = false;
+
+        let currentPiece = { matrix: [], x: 0, y: 0 };
+
+        function createEmptyBoard() {
+            let b = Array.from({length: ROWS}, () => Array(COLS).fill(0));
+            // Create the Cross (+) Shape by filling the 4 corners with solid walls (-1)
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    // Top-Left Corner
+                    if (r < 5 && c < 5) b[r][c] = -1;
+                    // Top-Right Corner
+                    else if (r < 5 && c > 13) b[r][c] = -1;
+                    // Bottom-Left Corner
+                    else if (r > 13 && c < 5) b[r][c] = -1;
+                    // Bottom-Right Corner
+                    else if (r > 13 && c > 13) b[r][c] = -1;
+                }
+            }
+            return b;
+        }
+
+        function drawBackground() {
+            bgCtx.clearRect(0, 0, bgCanvas.width, bgCanvas.height);
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    if (board[r][c] === -1) {
+                        // Draw Solid Corner Walls
+                        bgCtx.fillStyle = '#080812';
+                        bgCtx.fillRect(c * BLOCK_SIZE, r * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                        bgCtx.strokeStyle = '#112';
+                        bgCtx.strokeRect(c * BLOCK_SIZE, r * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                    } else {
+                        // Draw empty playable grid (The Cross)
+                        bgCtx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
+                        bgCtx.strokeRect(c * BLOCK_SIZE, r * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+                    }
+                }
+            }
+
+            // Draw a vibrant border separating the walls from the well
+            bgCtx.strokeStyle = 'rgba(0, 255, 255, 0.3)';
+            bgCtx.lineWidth = 2;
+            
+            // Top Left Wall Border
+            bgCtx.beginPath(); bgCtx.moveTo(5*BLOCK_SIZE, 0); bgCtx.lineTo(5*BLOCK_SIZE, 5*BLOCK_SIZE); bgCtx.lineTo(0, 5*BLOCK_SIZE); bgCtx.stroke();
+            // Top Right Wall Border
+            bgCtx.beginPath(); bgCtx.moveTo(14*BLOCK_SIZE, 0); bgCtx.lineTo(14*BLOCK_SIZE, 5*BLOCK_SIZE); bgCtx.lineTo(19*BLOCK_SIZE, 5*BLOCK_SIZE); bgCtx.stroke();
+            // Bottom Left Wall Border
+            bgCtx.beginPath(); bgCtx.moveTo(0, 14*BLOCK_SIZE); bgCtx.lineTo(5*BLOCK_SIZE, 14*BLOCK_SIZE); bgCtx.lineTo(5*BLOCK_SIZE, 19*BLOCK_SIZE); bgCtx.stroke();
+            // Bottom Right Wall Border
+            bgCtx.beginPath(); bgCtx.moveTo(19*BLOCK_SIZE, 14*BLOCK_SIZE); bgCtx.lineTo(14*BLOCK_SIZE, 14*BLOCK_SIZE); bgCtx.lineTo(14*BLOCK_SIZE, 19*BLOCK_SIZE); bgCtx.stroke();
+        }
+
+        function drawBlock(ctx, x, y, color, isGhost = false) {
+            ctx.fillStyle = isGhost ? 'rgba(255, 255, 255, 0.15)' : color;
+            ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+            
+            if (!isGhost) {
+                // 3D Bevel effect
+                ctx.fillStyle = 'rgba(255, 255, 255, 0.3)';
+                ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, 3);
+                ctx.fillRect(x * BLOCK_SIZE, y * BLOCK_SIZE, 3, BLOCK_SIZE);
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.fillRect(x * BLOCK_SIZE, (y + 1) * BLOCK_SIZE - 3, BLOCK_SIZE, 3);
+                ctx.fillRect((x + 1) * BLOCK_SIZE - 3, y * BLOCK_SIZE, 3, BLOCK_SIZE);
+            }
+            ctx.strokeStyle = isGhost ? 'rgba(255, 255, 255, 0.3)' : '#000';
+            ctx.strokeRect(x * BLOCK_SIZE, y * BLOCK_SIZE, BLOCK_SIZE, BLOCK_SIZE);
+        }
+
+        function drawBoard() {
+            gameCtx.clearRect(0, 0, gameCanvas.width, gameCanvas.height);
+            for (let r = 0; r < ROWS; r++) {
+                for (let c = 0; c < COLS; c++) {
+                    if (board[r][c] > 0) {
+                        drawBlock(gameCtx, c, r, COLORS[board[r][c]]);
+                    }
+                }
+            }
+        }
+
+        function spawnPiece() {
+            const typeId = Math.floor(Math.random() * 7) + 1;
+            currentPiece.matrix = SHAPES[typeId];
+            currentPiece.x = 7; // Centered in the 9-wide well
+            currentPiece.y = 4; // Starts in the open center area
+
+            if (collides(0, 0, currentPiece.matrix)) {
+                // Try spawning higher if blocked
+                currentPiece.y--;
+                if (collides(0, 0, currentPiece.matrix)) {
+                    gameOver();
+                }
+            }
+        }
+
+        function collides(offsetX, offsetY, matrix) {
+            for (let r = 0; r < matrix.length; r++) {
+                for (let c = 0; c < matrix[r].length; c++) {
+                    if (matrix[r][c] !== 0) {
+                        let newY = currentPiece.y + r + offsetY;
+                        let newX = currentPiece.x + c + offsetX;
+                        
+                        // Check Left, Right, and Bottom boundaries
+                        if (newY >= ROWS || newX < 0 || newX >= COLS) {
+                            return true;
+                        }
+                        
+                        // Check for existing blocks or solid walls (-1) ONLY if below the ceiling
+                        if (newY >= 0 && board[newY][newX] !== 0) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+
+        function drawPiece() {
+            pieceCtx.clearRect(0, 0, pieceCanvas.width, pieceCanvas.height);
+            
+            // Draw Ghost
+            let ghostY = currentPiece.y;
+            while (!collides(0, ghostY - currentPiece.y + 1, currentPiece.matrix)) {
+                ghostY++;
+            }
+            currentPiece.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        drawBlock(pieceCtx, currentPiece.x + x, ghostY + y, COLORS[value], true);
+                    }
+                });
+            });
+
+            // Draw Active Piece
+            currentPiece.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        drawBlock(pieceCtx, currentPiece.x + x, currentPiece.y + y, COLORS[value]);
+                    }
+                });
+            });
+        }
+
+        function merge() {
+            currentPiece.matrix.forEach((row, y) => {
+                row.forEach((value, x) => {
+                    if (value !== 0) {
+                        if (currentPiece.y + y >= 0) {
+                            board[currentPiece.y + y][currentPiece.x + x] = value;
+                        }
+                    }
+                });
+            });
+        }
+
+        function clearLines() {
+            let linesCleared = 0;
+            // Check rows from the very bottom (18) up to the top of the open center (5)
+            // The well is exactly cols 5 through 13
+            for (let r = 18; r >= 5; r--) {
+                let isFull = true;
+                for (let c = 5; c <= 13; c++) {
+                    if (board[r][c] <= 0) { 
+                        isFull = false;
+                        break;
+                    }
+                }
+
+                if (isFull) {
+                    linesCleared++;
+                    // Pull all blocks in this 9-wide column downward towards the cleared line
+                    // Stop pulling at row 5 so blocks on the "Top" wall don't accidentally fall
+                    for (let y = r; y >= 5; y--) {
+                        for (let c = 5; c <= 13; c++) {
+                            let aboveY = y - 1;
+                            if (aboveY >= 5 && board[aboveY][c] !== -1) {
+                                board[y][c] = board[aboveY][c];
+                            } else {
+                                board[y][c] = 0; // Empty the top row of the pull
+                            }
+                        }
+                    }
+                    r++; // Recheck this dropped row
+                }
+            }
+
+            if (linesCleared > 0) {
+                const multi = [0, 100, 300, 500, 800];
+                score += multi[linesCleared] || (linesCleared * 200);
+                document.getElementById('score-display').innerText = `SCORE: ${score}`;
+                drawBoard();
+            }
+        }
+
+        function rotateWorld(direction) {
+            if (isRotating || isGameOver) return;
+            isRotating = true;
+
+            // 1. Visually spin the background and locked blocks via CSS
+            worldLayer.style.transition = 'transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+            worldLayer.style.transform = direction === 'cw' ? 'rotate(90deg)' : 'rotate(-90deg)';
+
+            setTimeout(() => {
+                // 2. Mathematically spin the 2D array 90 degrees
+                let newBoard = Array.from({ length: ROWS }, () => Array(COLS).fill(0));
+                for(let r = 0; r < ROWS; r++) {
+                    for(let c = 0; c < COLS; c++) {
+                        if (direction === 'cw') {
+                            newBoard[c][COLS - 1 - r] = board[r][c];
+                        } else {
+                            newBoard[ROWS - 1 - c][r] = board[r][c];
+                        }
+                    }
+                }
+                board = newBoard;
+
+                // 3. Reset CSS transform silently
+                worldLayer.style.transition = 'none';
+                worldLayer.style.transform = 'rotate(0deg)';
+                drawBoard();
+                
+                // 4. Anti-Crush: Push piece up if it is buried by newly rotated blocks
+                while (collides(0, 0, currentPiece.matrix)) {
+                    currentPiece.y--;
+                }
+
+                setTimeout(() => {
+                    isRotating = false;
+                }, 50);
+            }, 400);
+        }
+
+        function drop() {
+            if (!collides(0, 1, currentPiece.matrix)) {
+                currentPiece.y++;
+            } else {
+                merge();
+                drawBoard();
+                clearLines();
+                spawnPiece();
+            }
+            dropCounter = 0;
+        }
+
+        function update(time = 0) {
+            if (isGameOver) return;
+
+            const deltaTime = time - lastTime;
+            lastTime = time;
+            dropCounter += deltaTime;
+
+            // Increase speed as score gets higher
+            const currentSpeed = Math.max(150, dropInterval - (Math.floor(score / 500) * 50));
+
+            if (dropCounter > currentSpeed) {
+                drop();
+            }
+
+            drawPiece();
+            animationId = requestAnimationFrame(update);
+        }
+
+        function movePiece(dir) {
+            if (!collides(dir, 0, currentPiece.matrix)) {
+                currentPiece.x += dir;
+            }
+        }
+
+        function hardDrop() {
+            while (!collides(0, 1, currentPiece.matrix)) {
+                currentPiece.y++;
+            }
+            drop();
+        }
+
+        document.addEventListener('keydown', event => {
+            if (isGameOver) return;
+            if (["Space", "ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(event.code)) {
+                event.preventDefault();
+            }
+
+            switch(event.code) {
+                case 'ArrowLeft': movePiece(-1); break;
+                case 'ArrowRight': movePiece(1); break;
+                case 'ArrowDown': drop(); break;
+                case 'Space': hardDrop(); break;
+                case 'KeyA': rotateWorld('ccw'); break;
+                case 'KeyD': rotateWorld('cw'); break;
+            }
+        });
+
+        // Touch Controls
+        let touchStartX = null;
+        let touchStartY = null;
+        let touchStartTime = 0;
+        let hasMoved = false;
+        
+        document.addEventListener('touchstart', e => {
+            if (isGameOver) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+            touchStartTime = Date.now();
+            hasMoved = false;
+        }, {passive: false});
+
+        document.addEventListener('touchmove', e => {
+            if (isGameOver || !touchStartX) return;
+            e.preventDefault();
+            
+            let dx = e.touches[0].clientX - touchStartX;
+            let dy = e.touches[0].clientY - touchStartY;
+            
+            if (Math.abs(dx) > 30) {
+                movePiece(dx > 0 ? 1 : -1);
+                touchStartX = e.touches[0].clientX; // Reset to allow continuous sliding
+                hasMoved = true;
+            }
+            
+            if (dy > 40) {
+                drop();
+                touchStartY = e.touches[0].clientY;
+                hasMoved = true;
+            }
+        }, {passive: false});
+
+        document.addEventListener('touchend', e => {
+            if (isGameOver || !touchStartX) return;
+            
+            let touchDuration = Date.now() - touchStartTime;
+            
+            // If it was a quick tap without sliding, trigger rotation
+            if (!hasMoved && touchDuration < 300) {
+                let screenWidth = window.innerWidth;
+                if (touchStartX < screenWidth / 2) {
+                    rotateWorld('ccw');
+                } else {
+                    rotateWorld('cw');
+                }
+            }
+            
+            touchStartX = null;
+            touchStartY = null;
+        });
+
+        // Gyroscope Control State
+        let tiltState = 0; // 0 = centered, 1 = tilted right, -1 = tilted left
+        let gyroEnabled = false;
+
+        function initGyro() {
+            if (gyroEnabled) return;
+            
+            // Modern browsers (like iOS 13+) require explicit permission for device sensors
+            if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                DeviceOrientationEvent.requestPermission()
+                    .then(permissionState => {
+                        if (permissionState === 'granted') {
+                            window.addEventListener('deviceorientation', handleOrientation);
+                            gyroEnabled = true;
+                        }
+                    })
+                    .catch(console.error);
+            } else {
+                // Standard non-restricted devices (Raspberry Pi/Android)
+                window.addEventListener('deviceorientation', handleOrientation);
+                gyroEnabled = true;
+            }
+        }
+
+        function handleOrientation(event) {
+            if (isGameOver || isRotating) return;
+
+            // 'gamma' tracks left-to-right tilt (roll) in degrees (-90 to 90)
+            let roll = event.gamma; 
+
+            // Trigger Clockwise rotation if tilted hard right
+            if (roll > 35 && tiltState !== 1) {
+                rotateWorld('cw');
+                tiltState = 1;
+            } 
+            // Trigger Counter-Clockwise rotation if tilted hard left
+            else if (roll < -35 && tiltState !== -1) {
+                rotateWorld('ccw');
+                tiltState = -1;
+            } 
+            // Reset the lock when the device is leveled out (near center)
+            else if (roll > -15 && roll < 15) {
+                tiltState = 0; 
+            }
+        }
+
+        function gameOver() {
+            isGameOver = true;
+            cancelAnimationFrame(animationId);
+            document.getElementById('final-score').innerText = `SCORE: ${score}`;
+            document.getElementById('game-over-screen').classList.remove('hidden');
+        }
+
+        function startGame() {
+            // Activate gyroscope when the user taps start
+            initGyro();
+            
+            board = createEmptyBoard();
+            score = 0;
+            isGameOver = false;
+            isRotating = false;
+            document.getElementById('score-display').innerText = `SCORE: 0`;
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('game-over-screen').classList.add('hidden');
+            
+            drawBackground();
+            drawBoard();
+            spawnPiece();
+            
+            lastTime = performance.now();
+            update(lastTime);
+        }
+
+        // Initialize background on load
+        board = createEmptyBoard();
+        drawBackground();
+
+    </script>
+</body>
+</html>
