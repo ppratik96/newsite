@@ -1363,6 +1363,34 @@ body {
   color: #fff !important;
 }
 
+
+.lightbox-maps-action-btn {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(29, 78, 216, 0.95)) !important;
+  color: #fff !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35), var(--glass-specular) !important;
+  padding: 0.62rem 1.2rem !important;
+  border-radius: var(--radius-full) !important;
+  font-size: 0.85rem !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.45rem !important;
+  text-decoration: none !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  height: auto !important;
+  cursor: pointer !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.lightbox-maps-action-btn:hover {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.95), rgba(37, 99, 235, 1)) !important;
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.45) !important;
+  transform: translateY(-1px);
+}
+
 /* --- LIGHTBOX MODAL CARD (VERTICAL 9:16) --- */
 .lightbox-card {
   display: flex !important;
