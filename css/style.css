@@ -1892,6 +1892,9 @@ body {
   .app-header {
     padding: 0.5rem 0.85rem 0.4rem;
     width: 100%;
+    position: relative !important;
+    top: auto !important;
+    z-index: 10;
   }
 
   .header-container {
@@ -2017,9 +2020,9 @@ body {
   /* TOOLBAR — same padding as header, filters all on one line */
   .toolbar-section {
     padding: 0.45rem 0.85rem;
-    position: sticky !important;
-    top: 72px !important;
-    z-index: 900 !important;
+    position: relative !important;
+    top: auto !important;
+    z-index: 20;
     width: 100%;
   }
 
@@ -2108,8 +2111,8 @@ body {
     border-radius: var(--radius-md) !important;
     position: -webkit-sticky !important;
     position: sticky !important;
-    top: 154px !important;
-    z-index: 800 !important;
+    top: 0 !important;
+    z-index: 900 !important;
     overflow: hidden !important;
     flex-shrink: 0 !important;
     margin: 0 0 0.5rem 0 !important;
