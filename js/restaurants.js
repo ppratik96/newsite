@@ -548,7 +548,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "redhot-ranch",
     "lat": 41.925599999999996,
     "lng": -87.70424,
-    "photos": [],
+    "photos": [
+      "redhot_ranch_apple_2.jpg",
+      "redhot_ranch_apple_4.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Redhot+Ranch+Chicago,+IL"
   },
   {
