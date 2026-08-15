@@ -679,7 +679,8 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.91021,
     "lng": -87.67724,
     "photos": [
-      "202505_17910819798135102.jpg"
+      "202505_17910819798135102.jpg",
+      "taqueria_chingon_fulton_202505.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Taqueria+Chingon+Chicago,+IL"
   },
@@ -759,7 +760,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "zarella-pizzeria-taverna",
     "lat": 41.89266,
     "lng": -87.63208,
-    "photos": [],
+    "photos": [
+      "zarella_pizzeria_taverna_202505.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Zarella+Pizzeria+&+Taverna+Chicago,+IL"
   },
   {
@@ -1040,7 +1043,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "mister-tiger",
     "lat": 41.8973,
     "lng": -87.6772,
-    "photos": [],
+    "photos": [
+      "mister_tiger_202505.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=MISTER+TIGER+Chicago,+IL"
   },
   {
@@ -1157,7 +1162,8 @@ const BELI_RESTAURANTS_DATA = [
     "photos": [
       "nadu_baar_baar_lohri_menu_202601.jpg",
       "202504_17925569070048154.jpg",
-      "202504_17904205425141201.jpg"
+      "202504_17904205425141201.jpg",
+      "nadu_dinner_202504.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Nadu+Chicago,+IL"
   },
@@ -2022,7 +2028,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "guinness-open-gate-brewery-west-loop",
     "lat": 41.884220000000006,
     "lng": -87.65239,
-    "photos": [],
+    "photos": [
+      "guinness_open_gate_brewery_202505.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Guinness+Open+Gate+Brewery+\u2013+West+Loop+Chicago,+IL"
   },
   {
