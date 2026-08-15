@@ -17,8 +17,7 @@ const BELI_RESTAURANTS_DATA = [
     "lng": -87.63212,
     "photos": [
       "liuyishou_primary_hotpot.jpg",
-      "376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg",
-      "liuyishou_hotpot_broth_meat_202508.jpg"
+      "376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Liuyishou+Hotpot(Chicago)+\u5218\u4e00\u624b\u706b\u9505+(\u829d\u52a0\u54e5)+Chicago,+IL"
   },
@@ -1472,6 +1471,7 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.85341,
     "lng": -87.63242,
     "photos": [
+      "mangomango_crepe_cake_202508.jpg",
       "315148726-467218312065282-6644738386631841411-n-17942096192454424-1179x2096.jpg",
       "373087395-2569872233176946-7501099547034746915-n-17949435056665792-839x1492.jpg",
       "202207_294622706_765887471389932_7814027457173347229_n_17928296117456207.jpg",
