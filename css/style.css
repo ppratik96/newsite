@@ -512,15 +512,32 @@ body {
   padding: 1.25rem 1.75rem 2.5rem 1.75rem;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
+  grid-template-areas: "feed map";
   gap: 1.5rem;
   align-items: start;
 }
 
 /* --- LEFT: RANKINGS FEED --- */
 .rankings-feed-column {
+  grid-area: feed;
   display: flex;
   flex-direction: column;
   gap: 0.85rem;
+}
+
+.sticky-map-column {
+  grid-area: map;
+  position: sticky;
+  top: 125px;
+  height: calc(100vh - 150px);
+  min-height: 520px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--glass-border-highlight);
+  box-shadow: var(--shadow-glass-lg), var(--glass-specular);
+  background: rgba(11, 16, 27, 0.9);
+  display: flex;
+  flex-direction: column;
 }
 
 .feed-header-bar {
@@ -2063,42 +2080,40 @@ body {
     width: 100% !important;
   }
 
-  /* MAIN LAYOUT — flexbox so order:-1 actually works (grid was creating the blank space) */
+    /* MAIN LAYOUT — natural DOM order: map first, feed second */
   .rankings-map-layout {
-    display: flex;
-    flex-direction: column;
-    padding: 0 0.85rem 0.6rem;
-    gap: 0.6rem;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0.6rem 0.85rem 2rem !important;
+    gap: 0.75rem !important;
+    width: 100% !important;
   }
 
-  /* MAP — sticky, always visible at top while rankings scroll below */
   .sticky-map-column {
-    position: sticky;
-    top: 128px;
-    height: 260px !important;
-    min-height: 260px !important;
-    border-radius: var(--radius-md);
-    order: -1;
-    z-index: 50;
-    flex-shrink: 0;
-    width: 100%;
-    overflow: hidden;
+    width: 100% !important;
+    height: 270px !important;
+    min-height: 270px !important;
+    border-radius: var(--radius-md) !important;
+    position: relative !important;
+    top: auto !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+    margin: 0 !important;
+    box-shadow: var(--shadow-glass-md), var(--glass-specular) !important;
   }
 
   #map {
     width: 100% !important;
-    height: 100% !important;
-    min-height: 260px !important;
+    height: 270px !important;
+    min-height: 270px !important;
     display: block !important;
-    position: relative !important;
   }
 
-  /* Rankings feed — scrolls below the sticky map */
   .rankings-feed-column {
-    gap: 0.6rem;
-    display: flex;
-    flex-direction: column;
-    order: 1;
+    width: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.6rem !important;
   }
 
   /* Hide the "Pratik's Rankings" feed header bar on mobile — saves space */
