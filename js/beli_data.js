@@ -1,5 +1,5 @@
-/** Global Data Objects */
-window.BELI_RANKINGS = BELI_RANKINGS = [
+// Comprehensive Beli Rankings Data
+const BELI_RESTAURANTS_DATA = [
   {
     "rank": 1,
     "name": "Liuyishou Hotpot(Chicago) \u5218\u4e00\u624b\u706b\u9505 (\u829d\u52a0\u54e5)",
@@ -17,7 +17,8 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "lng": -87.63212,
     "photos": [
       "liuyishou_primary_hotpot.jpg",
-      "376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg"
+      "376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg",
+      "liuyishou_hotpot_broth_meat_202508.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Liuyishou+Hotpot(Chicago)+\u5218\u4e00\u624b\u706b\u9505+(\u829d\u52a0\u54e5)+Chicago,+IL"
   },
@@ -94,7 +95,8 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
       "202310_385838774_621361910200629_328518732187422111_n_18157895026293842.jpg",
       "202310_386330985_862297978662754_313554500680447006_n_18306003181184385.jpg",
       "202310_386712585_1380318282891198_1423046045484971873_n_18263507098163352.jpg",
-      "202511_17928183417017202.jpg"
+      "202511_17928183417017202.jpg",
+      "indienne_michelin_course_202511.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Indienne+Chicago,+IL"
   },
@@ -117,7 +119,8 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
       "275770717-380294520766211-2645293827897000736-n-18010904407379142-1170x2080.jpg",
       "202203_275770717_380294520766211_2645293827897000736_n_18010904407379142.jpg",
       "202402_429993989_7266380260105079_8804097845663444452_n_17993760104561270.jpg",
-      "202509_18189908530325495.jpg"
+      "202509_18189908530325495.jpg",
+      "high_five_ramen_spicy_bowl_202512.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=High+Five+Ramen+Chicago,+IL"
   },
@@ -136,7 +139,9 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "qiao-lin-hotpot-chicago",
     "lat": 41.85324,
     "lng": -87.63286,
-    "photos": [],
+    "photos": [
+      "qiaolin_hotpot_spread_202602.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Qiao+Lin+Hotpot+-+Chicago+Chicago,+IL"
   },
   {
@@ -754,7 +759,8 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "lat": 41.91748,
     "lng": -87.68129,
     "photos": [
-      "202409_457655716_836586878619032_1283866680812215457_n_18012705242325360.jpg"
+      "202409_457655716_836586878619032_1283866680812215457_n_18012705242325360.jpg",
+      "mirra_hermosa_weinerwars_202508.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Mirra+Chicago,+IL"
   },
@@ -772,7 +778,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "kama-west-loop",
     "lat": 41.88421,
     "lng": -87.64892,
-    "photos": [],
+    "photos": [
+      "kama_west_loop_cocktails_appetizers_202512.jpg",
+      "kama_west_loop_spread_202510.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Kama+-+West+Loop+Chicago,+IL"
   },
   {
@@ -789,7 +798,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "roop-chicago-innovative-indian-restaurant-cocktail-bar",
     "lat": 41.88395,
     "lng": -87.64932999999999,
-    "photos": [],
+    "photos": [
+      "roop_chicago_rw2_202602.jpg",
+      "roop_chicago_cocktail_tasting_202509.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=ROOP+Chicago+Innovative+Indian+Restaurant+&+Cocktail+Bar+Chicago,+IL"
   },
   {
@@ -1113,7 +1125,8 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "lng": -87.6301,
     "photos": [
       "202504_17904205425141201.jpg",
-      "202504_17925569070048154.jpg"
+      "202504_17925569070048154.jpg",
+      "nadu_baar_baar_lohri_menu_202601.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Nadu+Chicago,+IL"
   },
@@ -1570,7 +1583,9 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "lng": -87.64799,
     "photos": [
       "202308_369987298_679716737339602_8267651928068554658_n_17846642379038947.jpg",
-      "202308_370308278_1016113839421058_8711028229354400497_n_18077132509384225.jpg"
+      "202308_370308278_1016113839421058_8711028229354400497_n_18077132509384225.jpg",
+      "pasta_veneta_rw3_202602.jpg",
+      "pasta_veneta_fresh_pasta_202601.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Pasta+Veneta+Italian+Restaurant+Chicago,+IL"
   },
@@ -1590,7 +1605,9 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "mercadito",
     "lat": 41.89122,
     "lng": -87.63432,
-    "photos": [],
+    "photos": [
+      "mercadito_tacos_drinks_202601.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Mercadito+Chicago,+IL"
   },
   {
@@ -3658,4 +3675,3 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "google_maps_url": "https://maps.google.com/?q=Velvet+Taco+Chicago,+IL"
   }
 ];
-window.RESTAURANTS = RESTAURANTS = BELI_RANKINGS;
