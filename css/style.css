@@ -2089,21 +2089,34 @@ body {
     padding: 0.5rem 1rem 0.5rem 2.4rem;
   }
 
-  /* ALL FILTERS — overflow visible so dropdown panels are never cut off */
+  /* ALL FILTERS — clean single row layout on mobile */
   .filter-controls {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    gap: 0.35rem;
     width: 100%;
     overflow: visible !important;
   }
 
+  .custom-multiselect-wrapper,
+  .select-filter {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
   .select-filter,
   .multiselect-trigger-btn {
-    font-size: 0.76rem !important;
-    padding: 0.42rem 0.7rem !important;
+    width: 100% !important;
+    font-size: 0.74rem !important;
+    padding: 0.42rem 0.45rem !important;
     white-space: nowrap;
-    flex-shrink: 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
   }
 
 
