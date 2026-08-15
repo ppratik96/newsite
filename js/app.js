@@ -163,23 +163,66 @@ const App = {
     const doneBtn = document.getElementById("neighborhood-done-btn");
     const checkboxes = document.querySelectorAll("#neighborhood-checkboxes-container input[type='checkbox']");
 
+    if (panel && panel.parentElement !== document.body) {
+      document.body.appendChild(panel);
+    }
+
     const closeNeigh = () => {
       if (panel) panel.classList.remove("show");
       if (triggerBtn) triggerBtn.classList.remove("active");
+      const backdrop = document.getElementById("dropdown-backdrop");
+      if (backdrop) backdrop.classList.remove("show");
+    };
+
+    const openNeigh = () => {
+      const cuisinePanel = document.getElementById("cuisine-dropdown-panel");
+      if (cuisinePanel) cuisinePanel.classList.remove("show");
+      const cuisineTrigger = document.getElementById("cuisine-dropdown-trigger");
+      if (cuisineTrigger) cuisineTrigger.classList.remove("active");
+
+      if (window.innerWidth > 768 && triggerBtn) {
+        const rect = triggerBtn.getBoundingClientRect();
+        panel.style.top = `${rect.bottom + window.scrollY + 6}px`;
+        panel.style.left = `${rect.left + window.scrollX}px`;
+        panel.style.right = "auto";
+        panel.style.bottom = "auto";
+      } else {
+        panel.style.top = "";
+        panel.style.left = "";
+        panel.style.right = "";
+        panel.style.bottom = "";
+      }
+
+      panel.classList.add("show");
+      triggerBtn.classList.add("active");
+
+      let backdrop = document.getElementById("dropdown-backdrop");
+      if (!backdrop) {
+        backdrop = document.createElement("div");
+        backdrop.id = "dropdown-backdrop";
+        backdrop.className = "dropdown-backdrop";
+        document.body.appendChild(backdrop);
+        backdrop.addEventListener("click", () => {
+          closeNeigh();
+          const cp = document.getElementById("cuisine-dropdown-panel");
+          if (cp) cp.classList.remove("show");
+          const ct = document.getElementById("cuisine-dropdown-trigger");
+          if (ct) ct.classList.remove("active");
+        });
+      }
+      backdrop.classList.add("show");
     };
 
     if (triggerBtn && panel) {
       triggerBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        // Close cuisine dropdown if open
-        const cuisinePanel = document.getElementById("cuisine-dropdown-panel");
-        if (cuisinePanel) cuisinePanel.classList.remove("show");
-        const cuisineTrigger = document.getElementById("cuisine-dropdown-trigger");
-        if (cuisineTrigger) cuisineTrigger.classList.remove("active");
-
+        e.preventDefault();
         const isOpen = panel.classList.contains("show");
-        panel.classList.toggle("show", !isOpen);
-        triggerBtn.classList.toggle("active", !isOpen);
+        if (isOpen) {
+          closeNeigh();
+        } else {
+          openNeigh();
+        }
       });
 
       panel.addEventListener("click", (e) => {
@@ -189,12 +232,15 @@ const App = {
       if (doneBtn) {
         doneBtn.addEventListener("click", (e) => {
           e.stopPropagation();
+          e.preventDefault();
           closeNeigh();
         });
       }
 
-      document.addEventListener("click", () => {
-        closeNeigh();
+      document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && e.target !== triggerBtn && !triggerBtn.contains(e.target)) {
+          closeNeigh();
+        }
       });
     }
 
@@ -251,22 +297,66 @@ const App = {
     const doneBtn = document.getElementById("cuisine-done-btn");
     const checkboxes = document.querySelectorAll("#cuisine-checkboxes-container input[type='checkbox']");
 
+    if (panel && panel.parentElement !== document.body) {
+      document.body.appendChild(panel);
+    }
+
     const closeCuisine = () => {
       if (panel) panel.classList.remove("show");
       if (triggerBtn) triggerBtn.classList.remove("active");
+      const backdrop = document.getElementById("dropdown-backdrop");
+      if (backdrop) backdrop.classList.remove("show");
+    };
+
+    const openCuisine = () => {
+      const neighPanel = document.getElementById("neighborhood-dropdown-panel");
+      if (neighPanel) neighPanel.classList.remove("show");
+      const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
+      if (neighTrigger) neighTrigger.classList.remove("active");
+
+      if (window.innerWidth > 768 && triggerBtn) {
+        const rect = triggerBtn.getBoundingClientRect();
+        panel.style.top = `${rect.bottom + window.scrollY + 6}px`;
+        panel.style.left = `${rect.left + window.scrollX}px`;
+        panel.style.right = "auto";
+        panel.style.bottom = "auto";
+      } else {
+        panel.style.top = "";
+        panel.style.left = "";
+        panel.style.right = "";
+        panel.style.bottom = "";
+      }
+
+      panel.classList.add("show");
+      triggerBtn.classList.add("active");
+
+      let backdrop = document.getElementById("dropdown-backdrop");
+      if (!backdrop) {
+        backdrop = document.createElement("div");
+        backdrop.id = "dropdown-backdrop";
+        backdrop.className = "dropdown-backdrop";
+        document.body.appendChild(backdrop);
+        backdrop.addEventListener("click", () => {
+          closeCuisine();
+          const np = document.getElementById("neighborhood-dropdown-panel");
+          if (np) np.classList.remove("show");
+          const nt = document.getElementById("neighborhood-dropdown-trigger");
+          if (nt) nt.classList.remove("active");
+        });
+      }
+      backdrop.classList.add("show");
     };
 
     if (triggerBtn && panel) {
       triggerBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        const neighPanel = document.getElementById("neighborhood-dropdown-panel");
-        if (neighPanel) neighPanel.classList.remove("show");
-        const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
-        if (neighTrigger) neighTrigger.classList.remove("active");
-
+        e.preventDefault();
         const isOpen = panel.classList.contains("show");
-        panel.classList.toggle("show", !isOpen);
-        triggerBtn.classList.toggle("active", !isOpen);
+        if (isOpen) {
+          closeCuisine();
+        } else {
+          openCuisine();
+        }
       });
 
       panel.addEventListener("click", (e) => {
@@ -276,12 +366,15 @@ const App = {
       if (doneBtn) {
         doneBtn.addEventListener("click", (e) => {
           e.stopPropagation();
+          e.preventDefault();
           closeCuisine();
         });
       }
 
-      document.addEventListener("click", () => {
-        closeCuisine();
+      document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && e.target !== triggerBtn && !triggerBtn.contains(e.target)) {
+          closeCuisine();
+        }
       });
     }
 
