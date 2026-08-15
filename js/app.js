@@ -560,33 +560,47 @@ const App = {
     if (lightboxImg) {
       lightboxImg.src = imgBasePath + photoFilename;
     }
-    document.getElementById("lightbox-title").textContent = rest.name;
-    document.getElementById("lightbox-location").textContent = (rest.neighborhood || "") + ", " + (rest.city || "Chicago");
-    document.getElementById("lightbox-rank-badge").textContent = "#" + rest.rank + " on Pratik's Beli";
+    
+    const titleEl = document.getElementById("lightbox-title");
+    if (titleEl) titleEl.textContent = rest.name;
+
+    const locEl = document.getElementById("lightbox-location");
+    if (locEl) locEl.textContent = (rest.neighborhood || "") + ", " + (rest.city || "Chicago");
+
+    const rankEl = document.getElementById("lightbox-rank-badge");
+    if (rankEl) rankEl.textContent = "#" + rest.rank + " on Pratik's Beli";
 
     const scoreBadge = document.getElementById("lightbox-score-badge");
-    scoreBadge.innerHTML = `<div class="rank-score-badge" style="background: ${this.getScoreGradient(rest.score || 8.5)}; font-size: 1.1rem; padding: 6px 14px;">★ ${(rest.score || 8.5).toFixed(1)}</div>`;
+    if (scoreBadge) {
+      scoreBadge.innerHTML = `<div class="rank-score-badge" style="background: ${this.getScoreGradient(rest.score || 8.5)}; font-size: 1.05rem; padding: 4px 12px;">★ ${(rest.score || 8.5).toFixed(1)}</div>`;
+    }
 
     const cuisinesEl = document.getElementById("lightbox-cuisines");
-    cuisinesEl.innerHTML = (rest.cuisines || []).map(c => `<span class="card-tag">${c}</span>`).join("");
+    if (cuisinesEl) {
+      cuisinesEl.innerHTML = (rest.cuisines || []).map(c => `<span class="card-tag">${c}</span>`).join("");
+    }
 
-    document.getElementById("lightbox-notes").textContent = rest.notes || "Captured during Pratik's culinary explorations.";
-    document.getElementById("lightbox-maps-btn").href = rest.google_maps_url || `https://maps.google.com/?q=${encodeURIComponent(rest.name + " " + rest.city)}`;
+    const mapsBtn = document.getElementById("lightbox-maps-btn");
+    if (mapsBtn) {
+      mapsBtn.href = rest.google_maps_url || `https://maps.google.com/?q=${encodeURIComponent(rest.name + " " + rest.city)}`;
+    }
 
-    // Render thumbnail strip if multiple photos
-    const thumbsStrip = document.getElementById("lightbox-thumbs");
-    if (thumbsStrip) {
-      if (this.activePhotoList.length > 1) {
-        thumbsStrip.innerHTML = this.activePhotoList.map((p, idx) => `
-          <div class="lightbox-thumb-item ${idx === this.activePhotoIndex ? 'active' : ''}" onclick="App.selectModalPhoto(${idx})">
-            <img src="${(window.location.pathname.endsWith("/picks/") ? "../images/" : "images/")}${p}" alt="Photo ${idx + 1}">
-          </div>
-        `).join("");
-        thumbsStrip.style.display = "flex";
-      } else {
-        thumbsStrip.innerHTML = "";
-        thumbsStrip.style.display = "none";
+    // Photo counter badge & nav arrow visibility
+    const counterBadge = document.getElementById("lightbox-photo-counter");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+
+    if (this.activePhotoList.length > 1) {
+      if (counterBadge) {
+        counterBadge.textContent = `📸 ${this.activePhotoIndex + 1} / ${this.activePhotoList.length}`;
+        counterBadge.style.display = "inline-flex";
       }
+      if (prevBtn) prevBtn.style.display = "flex";
+      if (nextBtn) nextBtn.style.display = "flex";
+    } else {
+      if (counterBadge) counterBadge.style.display = "none";
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
     }
   },
 

@@ -1384,6 +1384,24 @@ body {
   background: #000 !important;
   position: relative !important;
 }
+
+.lightbox-photo-counter-badge {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  background: rgba(11, 16, 27, 0.75);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--glass-border-highlight);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 10;
+}
+
 .lightbox-media img {
   width: 100% !important;
   height: 100% !important;
@@ -2210,24 +2228,49 @@ body {
     max-height: 50vh !important;
   }
 
-  /* LIGHTBOX — full screen stack */
+  /* LIGHTBOX — sleek single-card mobile layout */
   .lightbox-card {
     flex-direction: column !important;
-    height: 95vh !important;
-    max-height: 95vh !important;
-    border-radius: var(--radius-md) !important;
+    width: 92vw !important;
+    max-width: 440px !important;
+    height: auto !important;
+    max-height: 85vh !important;
+    border-radius: var(--radius-lg) !important;
+    background: rgba(11, 16, 27, 0.95) !important;
+    border: 1px solid var(--glass-border-highlight) !important;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8), var(--glass-specular) !important;
   }
 
   .lightbox-media {
-    flex: 0 0 45% !important;
-    max-height: 45vh !important;
+    flex: 0 0 auto !important;
+    height: 52vh !important;
+    max-height: 420px !important;
+    position: relative !important;
+    background: #070a12 !important;
+    overflow: hidden !important;
+  }
+
+  .lightbox-media img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
   }
 
   .lightbox-info {
-    flex: 1 !important;
-    padding: 1rem !important;
-    overflow-y: auto !important;
+    flex: 0 0 auto !important;
+    padding: 1.1rem 1.25rem 1.25rem !important;
+    gap: 0.65rem !important;
   }
+
+  .lightbox-nav-btn {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 0.9rem !important;
+    top: 30% !important;
+  }
+
+  .lightbox-prev { left: 0.5rem !important; }
+  .lightbox-next { right: 0.5rem !important; }
 
   .lightbox-nav-btn {
     width: 36px !important;
