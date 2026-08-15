@@ -546,7 +546,7 @@ const App = {
     if (!rest) return;
 
     this.activeRestaurant = rest;
-    this.activePhotoList = (rest.photos && rest.photos.length > 0) ? rest.photos : ["pratik_avatar.jpg"];
+    this.activePhotoList = (rest.photos && rest.photos.length > 0) ? rest.photos : [];
     this.activePhotoIndex = 0;
 
     const modal = document.getElementById("lightbox-modal");
@@ -555,15 +555,46 @@ const App = {
   },
 
   renderPhotoModalSlide() {
-    if (!this.activeRestaurant || !this.activePhotoList || this.activePhotoList.length === 0) return;
+    if (!this.activeRestaurant) return;
 
-    const photoFilename = this.activePhotoList[this.activePhotoIndex];
     const rest = this.activeRestaurant;
     const imgBasePath = window.location.pathname.endsWith("/picks/") ? "../images/" : "images/";
 
+    const mediaContainer = document.querySelector(".lightbox-media");
     const lightboxImg = document.getElementById("lightbox-img");
-    if (lightboxImg) {
-      lightboxImg.src = imgBasePath + photoFilename;
+    const counterBadge = document.getElementById("lightbox-photo-counter");
+    const prevBtn = document.getElementById("lightbox-prev");
+    const nextBtn = document.getElementById("lightbox-next");
+
+    if (this.activePhotoList && this.activePhotoList.length > 0) {
+      const photoFilename = this.activePhotoList[this.activePhotoIndex];
+      if (lightboxImg) {
+        lightboxImg.src = imgBasePath + photoFilename;
+        lightboxImg.style.display = "block";
+      }
+      if (mediaContainer) mediaContainer.style.display = "block";
+
+      if (this.activePhotoList.length > 1) {
+        if (counterBadge) {
+          counterBadge.textContent = `📸 ${this.activePhotoIndex + 1} / ${this.activePhotoList.length}`;
+          counterBadge.style.display = "inline-flex";
+        }
+        if (prevBtn) prevBtn.style.display = "flex";
+        if (nextBtn) nextBtn.style.display = "flex";
+      } else {
+        if (counterBadge) counterBadge.style.display = "none";
+        if (prevBtn) prevBtn.style.display = "none";
+        if (nextBtn) nextBtn.style.display = "none";
+      }
+    } else {
+      if (lightboxImg) {
+        lightboxImg.src = "";
+        lightboxImg.style.display = "none";
+      }
+      if (mediaContainer) mediaContainer.style.display = "none";
+      if (counterBadge) counterBadge.style.display = "none";
+      if (prevBtn) prevBtn.style.display = "none";
+      if (nextBtn) nextBtn.style.display = "none";
     }
     
     const titleEl = document.getElementById("lightbox-title");
@@ -588,24 +619,6 @@ const App = {
     const mapsBtn = document.getElementById("lightbox-maps-btn");
     if (mapsBtn) {
       mapsBtn.href = rest.google_maps_url || `https://maps.google.com/?q=${encodeURIComponent(rest.name + " " + rest.city)}`;
-    }
-
-    // Photo counter badge & nav arrow visibility
-    const counterBadge = document.getElementById("lightbox-photo-counter");
-    const prevBtn = document.getElementById("lightbox-prev");
-    const nextBtn = document.getElementById("lightbox-next");
-
-    if (this.activePhotoList.length > 1) {
-      if (counterBadge) {
-        counterBadge.textContent = `📸 ${this.activePhotoIndex + 1} / ${this.activePhotoList.length}`;
-        counterBadge.style.display = "inline-flex";
-      }
-      if (prevBtn) prevBtn.style.display = "flex";
-      if (nextBtn) nextBtn.style.display = "flex";
-    } else {
-      if (counterBadge) counterBadge.style.display = "none";
-      if (prevBtn) prevBtn.style.display = "none";
-      if (nextBtn) nextBtn.style.display = "none";
     }
   },
 
