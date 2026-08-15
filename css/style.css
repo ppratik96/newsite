@@ -1985,9 +1985,9 @@ body {
     overflow: hidden;
   }
 
-  /* TOOLBAR */
+  /* TOOLBAR — same padding as header, filters all on one line */
   .toolbar-section {
-    padding: 0.45rem 0.85rem;
+    padding: 0.45rem 0.85rem;   /* matches header padding */
     top: 46px;
     width: 100%;
   }
@@ -1996,7 +1996,12 @@ body {
     max-width: 100%;
     width: 100%;
     padding: 0;
-    gap: 0.45rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .search-box-wrapper {
+    flex: 1 1 100%;
   }
 
   .search-input {
@@ -2004,14 +2009,28 @@ body {
     padding: 0.5rem 1rem 0.5rem 2.4rem;
   }
 
+  /* ALL FILTERS ON ONE LINE — horizontal scroll if needed */
   .filter-controls {
+    display: flex;
+    flex-wrap: nowrap;
     gap: 0.4rem;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .filter-controls::-webkit-scrollbar {
+    display: none;
   }
 
   .select-filter,
   .multiselect-trigger-btn {
     font-size: 0.76rem !important;
     padding: 0.42rem 0.7rem !important;
+    white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* MAIN LAYOUT */
@@ -2020,12 +2039,15 @@ body {
     gap: 0.85rem;
   }
 
-  /* MAP first, compact height */
+  /* MAP — sticky at top so it stays visible while scrolling rankings */
   .sticky-map-column {
-    height: 280px;
-    min-height: 240px;
+    position: sticky;
+    top: 130px;          /* below header + toolbar */
+    height: 260px;
+    min-height: 220px;
     border-radius: var(--radius-md);
     order: -1;
+    z-index: 50;
   }
 
   .rankings-feed-column {
