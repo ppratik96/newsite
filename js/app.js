@@ -871,6 +871,21 @@ const App = {
       scoreBadge.innerHTML = `<div class="rank-score-badge" style="background: ${this.getScoreGradient(rest.score || 8.5)}; font-size: 1.05rem; padding: 4px 12px;">★ ${(rest.score || 8.5).toFixed(1)}</div>`;
     }
 
+    const saveBtn = document.getElementById("lightbox-save-btn");
+    if (saveBtn) {
+      const isSaved = this.savedIds.has(rest.id);
+      saveBtn.classList.toggle("saved", isSaved);
+      saveBtn.innerHTML = isSaved
+        ? `<i class="fa-solid fa-bookmark" style="color: var(--accent-gold);"></i> <span style="color: var(--accent-gold);">Saved</span>`
+        : `<i class="fa-regular fa-bookmark"></i> <span>Save</span>`;
+      
+      saveBtn.onclick = (e) => {
+        e.stopPropagation();
+        this.toggleSave(rest.id);
+        this.renderPhotoModalSlide();
+      };
+    }
+
     const cuisinesEl = document.getElementById("lightbox-cuisines");
     if (cuisinesEl) {
       cuisinesEl.innerHTML = (rest.cuisines || []).map(c => `<span class="card-tag">${c}</span>`).join("");

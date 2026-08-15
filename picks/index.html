@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom CSS with Cache Buster -->
-  <link rel="stylesheet" href="../css/style.css?v=94.0">
+  <link rel="stylesheet" href="../css/style.css?v=96.0">
 </head>
 <body>
 
@@ -292,7 +292,12 @@
             <h2 id="lightbox-title" style="font-size: 1.25rem; font-weight: 800; line-height: 1.2; letter-spacing: -0.01em;"></h2>
             <p id="lightbox-location" style="color: var(--text-muted); font-size: 0.82rem; margin-top: 3px;"></p>
           </div>
-          <div id="lightbox-score-badge" style="flex-shrink: 0;"></div>
+          <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.45rem; flex-shrink: 0;">
+            <div id="lightbox-score-badge"></div>
+            <button id="lightbox-save-btn" class="lightbox-save-action-btn" title="Save to bucket list">
+              <i class="fa-regular fa-bookmark"></i> <span id="lightbox-save-text">Save</span>
+            </button>
+          </div>
         </div>
 
         <div id="lightbox-cuisines" class="card-tags"></div>
@@ -359,10 +364,10 @@
   </div>
 
   <!-- Application Data & Logic Scripts with Cache Busters -->
-  <script src="../js/beli_data.js?v=94.0"></script>
-  <script src="../js/restaurants.js?v=94.0"></script>
-  <script src="../js/photos.js?v=94.0"></script>
-  <script src="../js/map.js?v=94.0"></script>
-  <script src="../js/app.js?v=94.0"></script>
+  <script src="../js/beli_data.js?v=96.0"></script>
+  <script src="../js/restaurants.js?v=96.0"></script>
+  <script src="../js/photos.js?v=96.0"></script>
+  <script src="../js/map.js?v=96.0"></script>
+  <script src="../js/app.js?v=96.0"></script>
 </body>
 </html>\n
