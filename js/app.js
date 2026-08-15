@@ -160,21 +160,23 @@ const App = {
     const panel = document.getElementById("neighborhood-dropdown-panel");
     const selectAllBtn = document.getElementById("neighborhood-select-all");
     const clearAllBtn = document.getElementById("neighborhood-clear-all");
+    const doneBtn = document.getElementById("neighborhood-done-btn");
     const checkboxes = document.querySelectorAll("#neighborhood-checkboxes-container input[type='checkbox']");
+
+    const closeNeigh = () => {
+      if (panel) panel.classList.remove("show");
+      if (triggerBtn) triggerBtn.classList.remove("active");
+    };
 
     if (triggerBtn && panel) {
       triggerBtn.addEventListener("click", (e) => {
         e.stopPropagation();
-        // Close other dropdowns if open
+        // Close cuisine dropdown if open
         const cuisinePanel = document.getElementById("cuisine-dropdown-panel");
         if (cuisinePanel) cuisinePanel.classList.remove("show");
         const cuisineTrigger = document.getElementById("cuisine-dropdown-trigger");
         if (cuisineTrigger) cuisineTrigger.classList.remove("active");
 
-        const neighPanel = document.getElementById("neighborhood-dropdown-panel");
-        if (neighPanel) neighPanel.classList.remove("show");
-        const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
-        if (neighTrigger) neighTrigger.classList.remove("active");
         const isOpen = panel.classList.contains("show");
         panel.classList.toggle("show", !isOpen);
         triggerBtn.classList.toggle("active", !isOpen);
@@ -184,9 +186,15 @@ const App = {
         e.stopPropagation();
       });
 
+      if (doneBtn) {
+        doneBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeNeigh();
+        });
+      }
+
       document.addEventListener("click", () => {
-        panel.classList.remove("show");
-        triggerBtn.classList.remove("active");
+        closeNeigh();
       });
     }
 
@@ -240,7 +248,13 @@ const App = {
     const panel = document.getElementById("cuisine-dropdown-panel");
     const selectAllBtn = document.getElementById("cuisine-select-all");
     const clearAllBtn = document.getElementById("cuisine-clear-all");
+    const doneBtn = document.getElementById("cuisine-done-btn");
     const checkboxes = document.querySelectorAll("#cuisine-checkboxes-container input[type='checkbox']");
+
+    const closeCuisine = () => {
+      if (panel) panel.classList.remove("show");
+      if (triggerBtn) triggerBtn.classList.remove("active");
+    };
 
     if (triggerBtn && panel) {
       triggerBtn.addEventListener("click", (e) => {
@@ -249,6 +263,7 @@ const App = {
         if (neighPanel) neighPanel.classList.remove("show");
         const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
         if (neighTrigger) neighTrigger.classList.remove("active");
+
         const isOpen = panel.classList.contains("show");
         panel.classList.toggle("show", !isOpen);
         triggerBtn.classList.toggle("active", !isOpen);
@@ -258,9 +273,15 @@ const App = {
         e.stopPropagation();
       });
 
+      if (doneBtn) {
+        doneBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeCuisine();
+        });
+      }
+
       document.addEventListener("click", () => {
-        panel.classList.remove("show");
-        triggerBtn.classList.remove("active");
+        closeCuisine();
       });
     }
 
