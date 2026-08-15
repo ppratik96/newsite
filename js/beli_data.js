@@ -361,7 +361,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "laojiumen-hotpot-chicago-hotpot-9",
     "lat": 41.86285,
     "lng": -87.62717,
-    "photos": [],
+    "photos": [
+      "laojiumen_hotpot_chicago_apple_1.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Laojiumen+Hotpot+Chicago\u8001\u4e5d\u95e8\u706b\u9505-Hotpot+9+Chicago,+IL"
   },
   {
