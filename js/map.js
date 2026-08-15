@@ -331,38 +331,45 @@ const MapEngine = {
 
     this.activeRestaurantId = restaurantId;
 
-    // Refresh marker visibility to ensure selected spot is on the map
+    // Refresh marker visibility to ensure selected spot is rendered
     this.updateMarkerVisibility();
 
     const entry = this.markersMap.get(restaurantId);
 
     if (entry) {
       const { marker, data } = entry;
+      const isMobile = window.innerWidth <= 768;
 
       // Update popup content
       const popupHtml = this.buildPopupHtml(data);
       marker.setPopupContent(popupHtml);
 
       const targetLatLng = marker.getLatLng();
-      const targetZoom = Math.max(this.map.getZoom(), 14);
+      let targetZoom = Math.max(this.map.getZoom(), 13);
+      let centeredLatLng = targetLatLng;
 
-      // Compute centered position so the entire popup card above the pin is centered
-      const point = this.map.project(targetLatLng, targetZoom);
-      point.y -= 230;
-      const centeredLatLng = this.map.unproject(point, targetZoom);
+      if (!isMobile) {
+        // On desktop only: shift y so in-map card above pin is centered
+        const point = this.map.project(targetLatLng, targetZoom);
+        point.y -= 140;
+        centeredLatLng = this.map.unproject(point, targetZoom);
+      } else {
+        // On mobile: center the exact pin in the 240px map viewport
+        centeredLatLng = targetLatLng;
+      }
 
       if (fly) {
         if (fromScroll) {
-          this.map.panTo(centeredLatLng, { animate: true, duration: 0.5 });
+          this.map.panTo(centeredLatLng, { animate: true, duration: 0.3 });
         } else {
-          this.map.flyTo(centeredLatLng, targetZoom, { duration: 0.8 });
+          this.map.flyTo(centeredLatLng, targetZoom, { duration: 0.5 });
         }
       }
 
-      if (openPopup) {
+      if (openPopup && !isMobile) {
         setTimeout(() => {
           marker.openPopup();
-        }, fromScroll ? 120 : 200);
+        }, fromScroll ? 100 : 180);
       }
     }
   },

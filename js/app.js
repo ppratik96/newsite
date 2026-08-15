@@ -465,6 +465,11 @@ const App = {
     if (!cards.length) return;
 
     let debounceTimer = null;
+    const isMobile = window.innerWidth <= 768;
+
+    // On mobile, the top 240px is occupied by the frozen map
+    // The focus zone begins directly beneath the map
+    const rootMargin = isMobile ? "-240px 0px -55% 0px" : "-15% 0px -60% 0px";
 
     this.scrollObserver = new IntersectionObserver((entries) => {
       if (this.isManualSelecting) return;
@@ -472,7 +477,7 @@ const App = {
       const visibleEntries = entries.filter(e => e.isIntersecting);
       if (!visibleEntries.length) return;
 
-      // Pick the topmost entry currently intersecting in the viewport focus zone
+      // Pick the topmost visible card entering the focus zone right below the map
       const topEntry = visibleEntries.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
       const restId = topEntry.target.getAttribute("data-restaurant-id");
       if (!restId) return;
@@ -487,11 +492,11 @@ const App = {
         if (window.MapEngine) {
           window.MapEngine.highlightRestaurant(restId, true, false, true);
         }
-      }, 80);
+      }, 40);
     }, {
       root: null,
-      rootMargin: "-20% 0px -50% 0px",
-      threshold: 0.1
+      rootMargin: rootMargin,
+      threshold: 0.05
     });
 
     cards.forEach(card => this.scrollObserver.observe(card));
