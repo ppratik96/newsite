@@ -278,7 +278,11 @@ const BELI_RESTAURANTS_DATA = [
     "id": "avec-restaurant",
     "lat": 41.88431,
     "lng": -87.64478,
-    "photos": [],
+    "photos": [
+      "avec_restaurant_apple_1.jpg",
+      "avec_restaurant_apple_3.jpg",
+      "avec_restaurant_apple_5.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=avec+Restaurant+Chicago,+IL"
   },
   {
