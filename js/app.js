@@ -503,6 +503,8 @@ const App = {
     const rest = this.rankings.find(r => r.id === restaurantId);
     if (!rest) return;
 
+    const isMobile = window.innerWidth <= 768;
+
     // Temporarily lock scroll observer during user click
     this.isManualSelecting = true;
     clearTimeout(this.manualSelectTimer);
@@ -520,23 +522,31 @@ const App = {
       }
     }
 
-    // Fly map and open the in-map photo popup directly next to the spot!
-    if (window.MapEngine) {
-      window.MapEngine.highlightRestaurant(restaurantId, true, true, false);
+    if (isMobile) {
+      // ON MOBILE ONLY: Pop up full-screen photo card over the whole screen
+      this.openPhotoModal(restaurantId);
+      if (window.MapEngine) {
+        window.MapEngine.highlightRestaurant(restaurantId, true, false, false);
+      }
+    } else {
+      // ON DESKTOP: Fly map and open in-map photo popup
+      if (window.MapEngine) {
+        window.MapEngine.highlightRestaurant(restaurantId, true, true, false);
+      }
     }
   },
 
   openPhotoModal(restaurantId) {
     const rest = this.rankings.find(r => r.id === restaurantId);
-    if (!rest || !rest.photos || rest.photos.length === 0) return;
+    if (!rest) return;
 
     this.activeRestaurant = rest;
-    this.activePhotoList = rest.photos;
+    this.activePhotoList = (rest.photos && rest.photos.length > 0) ? rest.photos : ["pratik_avatar.jpg"];
     this.activePhotoIndex = 0;
 
     const modal = document.getElementById("lightbox-modal");
     this.renderPhotoModalSlide();
-    modal.classList.add("active");
+    if (modal) modal.classList.add("active");
   },
 
   renderPhotoModalSlide() {
@@ -544,8 +554,12 @@ const App = {
 
     const photoFilename = this.activePhotoList[this.activePhotoIndex];
     const rest = this.activeRestaurant;
+    const imgBasePath = window.location.pathname.endsWith("/picks/") ? "../images/" : "images/";
 
-    document.getElementById("lightbox-img").src = "images/" + photoFilename;
+    const lightboxImg = document.getElementById("lightbox-img");
+    if (lightboxImg) {
+      lightboxImg.src = imgBasePath + photoFilename;
+    }
     document.getElementById("lightbox-title").textContent = rest.name;
     document.getElementById("lightbox-location").textContent = (rest.neighborhood || "") + ", " + (rest.city || "Chicago");
     document.getElementById("lightbox-rank-badge").textContent = "#" + rest.rank + " on Pratik's Beli";
