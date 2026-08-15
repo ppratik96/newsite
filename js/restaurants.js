@@ -1453,7 +1453,9 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "friends-station",
     "lat": 41.8842,
     "lng": -87.6481,
-    "photos": [],
+    "photos": [
+      "friends_station_1.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Friends+Station+Chicago,+IL"
   },
   {
