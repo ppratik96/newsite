@@ -22,7 +22,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom CSS with Cache Buster -->
-  <link rel="stylesheet" href="../css/style.css?v=54.0">
+  <link rel="stylesheet" href="../css/style.css?v=55.0">
 </head>
 <body>
 
@@ -190,21 +190,8 @@
     
     <!-- VIEW 1: BELI RANKINGS (LEFT) & STICKY LIVE MAP (RIGHT) -->
     <section id="view-unified" class="view-section active">
-      <div class="rankings-map-layout">
-        
-        <!-- LEFT: RANKINGS FEED -->
-        <div class="rankings-feed-column">
-          <div class="feed-header-bar">
-            <h2 class="feed-title"><i class="fa-solid fa-trophy" style="color: var(--accent-gold);"></i> Pratik’s Rankings</h2>
-            <span class="feed-count-badge" id="feed-count-display">Loading rankings...</span>
-          </div>
-
-          <div id="rankings-feed-container" style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <!-- Populated via JavaScript -->
-          </div>
-        </div>
-
-        <!-- RIGHT: STICKY INTERACTIVE MAP -->
+            <div class="rankings-map-layout">
+        <!-- INTERACTIVE LIVE MAP (Sticky Right on Desktop, Top on Mobile) -->
         <div class="sticky-map-column">
           <div id="map"></div>
           
@@ -219,6 +206,17 @@
           </div>
         </div>
 
+        <!-- RANKINGS FEED (Left on Desktop, Below Map on Mobile) -->
+        <div class="rankings-feed-column">
+          <div class="feed-header-bar">
+            <h2 class="feed-title"><i class="fa-solid fa-trophy" style="color: var(--accent-gold);"></i> Pratik’s Rankings</h2>
+            <span class="feed-count-badge" id="feed-count-display">Loading rankings...</span>
+          </div>
+
+          <div id="rankings-feed-container" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Populated via JavaScript -->
+          </div>
+        </div>
       </div>
     </section>
 
@@ -332,7 +330,7 @@
   <script src="../js/beli_data.js?v=42.0"></script>
   <script src="../js/restaurants.js?v=42.0"></script>
   <script src="../js/photos.js?v=42.0"></script>
-  <script src="../js/map.js?v=54.0"></script>
+  <script src="../js/map.js?v=55.0"></script>
   <script src="../js/app.js?v=42.0"></script>
 </body>
 </html>\n
