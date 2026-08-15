@@ -153,6 +153,123 @@ const App = {
 
     this.bindCuisineMultiselect();
     this.bindNeighborhoodMultiselect();
+    this.bindSortDropdown();
+  },
+
+  bindSortDropdown() {
+    const triggerBtn = document.getElementById("sort-dropdown-trigger");
+    const panel = document.getElementById("sort-dropdown-panel");
+    const doneBtn = document.getElementById("sort-done-btn");
+    const radios = document.querySelectorAll("#sort-options-container input[type='radio']");
+
+    if (panel && panel.parentElement !== document.body) {
+      document.body.appendChild(panel);
+    }
+
+    const closeSort = () => {
+      if (panel) panel.classList.remove("show");
+      if (triggerBtn) triggerBtn.classList.remove("active");
+      const backdrop = document.getElementById("dropdown-backdrop");
+      if (backdrop) backdrop.classList.remove("show");
+    };
+
+    const openSort = () => {
+      const cuisinePanel = document.getElementById("cuisine-dropdown-panel");
+      if (cuisinePanel) cuisinePanel.classList.remove("show");
+      const cuisineTrigger = document.getElementById("cuisine-dropdown-trigger");
+      if (cuisineTrigger) cuisineTrigger.classList.remove("active");
+
+      const neighPanel = document.getElementById("neighborhood-dropdown-panel");
+      if (neighPanel) neighPanel.classList.remove("show");
+      const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
+      if (neighTrigger) neighTrigger.classList.remove("active");
+
+      if (window.innerWidth > 768 && triggerBtn) {
+        const rect = triggerBtn.getBoundingClientRect();
+        panel.style.top = `${rect.bottom + window.scrollY + 6}px`;
+        panel.style.left = `${rect.left + window.scrollX}px`;
+        panel.style.right = "auto";
+        panel.style.bottom = "auto";
+      } else {
+        panel.style.top = "";
+        panel.style.left = "";
+        panel.style.right = "";
+        panel.style.bottom = "";
+      }
+
+      panel.classList.add("show");
+      triggerBtn.classList.add("active");
+
+      let backdrop = document.getElementById("dropdown-backdrop");
+      if (!backdrop) {
+        backdrop = document.createElement("div");
+        backdrop.id = "dropdown-backdrop";
+        backdrop.className = "dropdown-backdrop";
+        document.body.appendChild(backdrop);
+        backdrop.addEventListener("click", () => {
+          closeSort();
+          const cp = document.getElementById("cuisine-dropdown-panel");
+          if (cp) cp.classList.remove("show");
+          const ct = document.getElementById("cuisine-dropdown-trigger");
+          if (ct) ct.classList.remove("active");
+          const np = document.getElementById("neighborhood-dropdown-panel");
+          if (np) np.classList.remove("show");
+          const nt = document.getElementById("neighborhood-dropdown-trigger");
+          if (nt) nt.classList.remove("active");
+        });
+      }
+      backdrop.classList.add("show");
+    };
+
+    if (triggerBtn && panel) {
+      triggerBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        const isOpen = panel.classList.contains("show");
+        if (isOpen) {
+          closeSort();
+        } else {
+          openSort();
+        }
+      });
+
+      panel.addEventListener("click", (e) => {
+        e.stopPropagation();
+      });
+
+      if (doneBtn) {
+        doneBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+          closeSort();
+        });
+      }
+
+      document.addEventListener("click", (e) => {
+        if (!panel.contains(e.target) && e.target !== triggerBtn && !triggerBtn.contains(e.target)) {
+          closeSort();
+        }
+      });
+    }
+
+    const sortLabels = {
+      "beli_rank": "🏆 Rank",
+      "score_desc": "⭐ Score",
+      "photos_desc": "📸 Photos",
+      "name_asc": "🔤 A-Z"
+    };
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", (e) => {
+        this.filters.sort = e.target.value;
+        const label = document.getElementById("sort-trigger-label");
+        if (label && sortLabels[e.target.value]) {
+          label.textContent = sortLabels[e.target.value];
+        }
+        this.applyFilters();
+        closeSort();
+      });
+    });
   },
 
   bindNeighborhoodMultiselect() {
@@ -179,6 +296,11 @@ const App = {
       if (cuisinePanel) cuisinePanel.classList.remove("show");
       const cuisineTrigger = document.getElementById("cuisine-dropdown-trigger");
       if (cuisineTrigger) cuisineTrigger.classList.remove("active");
+
+      const sortPanel = document.getElementById("sort-dropdown-panel");
+      if (sortPanel) sortPanel.classList.remove("show");
+      const sortTrigger = document.getElementById("sort-dropdown-trigger");
+      if (sortTrigger) sortTrigger.classList.remove("active");
 
       if (window.innerWidth > 768 && triggerBtn) {
         const rect = triggerBtn.getBoundingClientRect();
@@ -208,6 +330,10 @@ const App = {
           if (cp) cp.classList.remove("show");
           const ct = document.getElementById("cuisine-dropdown-trigger");
           if (ct) ct.classList.remove("active");
+          const sp = document.getElementById("sort-dropdown-panel");
+          if (sp) sp.classList.remove("show");
+          const st = document.getElementById("sort-dropdown-trigger");
+          if (st) st.classList.remove("active");
         });
       }
       backdrop.classList.add("show");
@@ -314,6 +440,11 @@ const App = {
       const neighTrigger = document.getElementById("neighborhood-dropdown-trigger");
       if (neighTrigger) neighTrigger.classList.remove("active");
 
+      const sortPanel = document.getElementById("sort-dropdown-panel");
+      if (sortPanel) sortPanel.classList.remove("show");
+      const sortTrigger = document.getElementById("sort-dropdown-trigger");
+      if (sortTrigger) sortTrigger.classList.remove("active");
+
       if (window.innerWidth > 768 && triggerBtn) {
         const rect = triggerBtn.getBoundingClientRect();
         panel.style.top = `${rect.bottom + window.scrollY + 6}px`;
@@ -342,6 +473,10 @@ const App = {
           if (np) np.classList.remove("show");
           const nt = document.getElementById("neighborhood-dropdown-trigger");
           if (nt) nt.classList.remove("active");
+          const sp = document.getElementById("sort-dropdown-panel");
+          if (sp) sp.classList.remove("show");
+          const st = document.getElementById("sort-dropdown-trigger");
+          if (st) st.classList.remove("active");
         });
       }
       backdrop.classList.add("show");

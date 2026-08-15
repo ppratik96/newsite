@@ -46,7 +46,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   
   <!-- Custom CSS with Cache Buster -->
-  <link rel="stylesheet" href="css/style.css?v=91.0">
+  <link rel="stylesheet" href="css/style.css?v=93.0">
 </head>
 <body>
 
@@ -199,12 +199,27 @@
           </div>
         </div>
 
-        <select id="sort-order" class="select-filter">
-          <option value="beli_rank">🏆 Rank</option>
-          <option value="score_desc">⭐ Highest Score</option>
-          <option value="photos_desc">📸 Has Photos</option>
-          <option value="name_asc">🔤 Alphabetical (A-Z)</option>
-        </select>
+        <div class="custom-multiselect-wrapper" id="sort-multiselect-wrapper">
+          <button type="button" class="select-filter multiselect-trigger-btn" id="sort-dropdown-trigger">
+            <span id="sort-trigger-label">🏆 Rank</span>
+            <i class="fa-solid fa-chevron-down" style="font-size: 0.72rem; margin-left: 4px; opacity: 0.7;"></i>
+          </button>
+
+          <div class="multiselect-panel" id="sort-dropdown-panel" style="width: 240px;">
+            <div class="multiselect-header">
+              <span class="multiselect-title">Sort Order</span>
+              <div class="multiselect-actions">
+                <button type="button" class="multiselect-done-btn" id="sort-done-btn">Done</button>
+              </div>
+            </div>
+            <div class="multiselect-list" id="sort-options-container">
+              <label class="multiselect-item"><input type="radio" name="sort-choice" value="beli_rank" checked> <span>🏆 Beli Rank</span></label>
+              <label class="multiselect-item"><input type="radio" name="sort-choice" value="score_desc"> <span>⭐ Highest Score</span></label>
+              <label class="multiselect-item"><input type="radio" name="sort-choice" value="photos_desc"> <span>📸 Has Photos</span></label>
+              <label class="multiselect-item"><input type="radio" name="sort-choice" value="name_asc"> <span>🔤 Alphabetical (A-Z)</span></label>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -344,10 +359,10 @@
   </div>
 
   <!-- Application Data & Logic Scripts with Cache Busters -->
-  <script src="js/beli_data.js?v=91.0"></script>
-  <script src="js/restaurants.js?v=91.0"></script>
-  <script src="js/photos.js?v=91.0"></script>
-  <script src="js/map.js?v=91.0"></script>
-  <script src="js/app.js?v=91.0"></script>
+  <script src="js/beli_data.js?v=93.0"></script>
+  <script src="js/restaurants.js?v=93.0"></script>
+  <script src="js/photos.js?v=93.0"></script>
+  <script src="js/map.js?v=93.0"></script>
+  <script src="js/app.js?v=93.0"></script>
 </body>
 </html>\n
