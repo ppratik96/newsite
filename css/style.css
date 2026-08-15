@@ -1861,12 +1861,16 @@ body {
 /* --- MOBILE: 768px and below --- */
 @media (max-width: 768px) {
 
-  /* HEADER */
+  /* HEADER — full width, no max-width constraint */
   .app-header {
     padding: 0.6rem 1rem;
+    width: 100%;
   }
 
   .header-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
     flex-wrap: wrap;
     gap: 0.6rem;
   }
@@ -1936,11 +1940,15 @@ body {
 
   /* TOOLBAR */
   .toolbar-section {
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 1rem;
     top: 56px;
+    width: 100%;
   }
 
   .toolbar-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
     gap: 0.5rem;
   }
 
