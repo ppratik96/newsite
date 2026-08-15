@@ -1859,11 +1859,9 @@ body {
 }
 
 /* --- MOBILE: 768px and below --- */
-@media (max-width: 768px) {
-
-  /* HEADER — single row, full width */
+@media (max-width: 768px) {  /* HEADER — 2 rows: brand top, buttons bottom */
   .app-header {
-    padding: 0.5rem 0.85rem;
+    padding: 0.5rem 0.85rem 0.4rem;
     width: 100%;
   }
 
@@ -1871,44 +1869,52 @@ body {
     max-width: 100%;
     width: 100%;
     padding: 0;
-    flex-wrap: nowrap;      /* force single row */
+    flex-wrap: wrap;        /* allow 2 rows */
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.35rem 0.5rem;
   }
 
-  /* Avatar: shrink */
+  /* ROW 1: brand section takes full width */
+  .brand-section {
+    flex: 1 1 100%;        /* full-width first row */
+    gap: 0.5rem;
+    align-items: center;
+    min-width: 0;
+  }
+
+  /* Avatar */
   .brand-avatar,
   .brand-avatar-img {
-    width: 30px !important;
-    height: 30px !important;
-    min-width: 30px !important;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
     flex-shrink: 0;
   }
 
-  /* Title: compact, no wrap */
+  /* Title */
   .brand-info h1 {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     white-space: nowrap;
   }
 
-  /* Hide subtitle / verified pill / social links text — keep icons only */
+  /* Hide subtitle text, keep social icons */
   .brand-info p,
   .beli-verified-pill,
   .brand-social-links .social-pill-link span {
     display: none;
   }
 
-  /* Social icons: tiny & tight */
+  /* Social icons inline with title */
   .brand-social-links {
     gap: 3px;
     flex-wrap: nowrap;
   }
 
   .social-pill-link {
-    padding: 3px 5px !important;
+    padding: 3px 6px !important;
   }
 
-  /* Nav tabs: shrink to fit, no full-width stretch */
+  /* ROW 2: nav tabs + actions, all on one line */
   .nav-tabs {
     flex-shrink: 0;
     padding: 2px;
@@ -1916,41 +1922,35 @@ body {
   }
 
   .nav-tab-btn {
-    font-size: 0.7rem;
-    padding: 0.3rem 0.5rem;
-    gap: 0.2rem;
+    font-size: 0.72rem;
+    padding: 0.32rem 0.55rem;
+    gap: 0.25rem;
   }
 
-  /* header-actions: no wrap, tight gap */
   .header-actions {
+    flex: 1;                /* fill remaining space in row 2 */
     gap: 0.3rem;
     flex-wrap: nowrap;
-    flex-shrink: 0;
     align-items: center;
+    justify-content: flex-end;  /* push to right */
   }
 
-  /* Theme toggle: icon only, very compact */
-  .theme-btn span {
-    display: none;
-  }
+  /* Theme toggle: icons only */
+  .theme-btn span { display: none; }
 
-  .theme-toggle-container {
-    padding: 2px !important;
-  }
+  .theme-toggle-container { padding: 2px !important; }
 
   .theme-btn {
     padding: 0.28rem 0.45rem !important;
     font-size: 0.78rem !important;
   }
 
-  /* FamilyStyle badge: show only app icon, hide App Store badge text */
-  .app-store-badge-img {
-    display: none !important;
-  }
+  /* FamilyStyle: app icon only */
+  .app-store-badge-img { display: none !important; }
 
   .familystyle-app-squircle {
-    width: 28px !important;
-    height: 28px !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
   .familystyle-combined-badge {
@@ -1961,27 +1961,17 @@ body {
     gap: 0 !important;
   }
 
-  /* Dice & Story buttons: icon-only circles */
+  /* Dice & Story: icon-only circles */
   .btn-roulette span,
-  .btn-story-pill span {
-    display: none;
-  }
+  .btn-story-pill span { display: none; }
 
   .btn-roulette,
   .btn-story-pill {
-    padding: 0.38rem 0.5rem;
+    padding: 0.35rem 0.48rem;
     border-radius: 50%;
     aspect-ratio: 1;
     justify-content: center;
-    font-size: 0.85rem;
-  }
-
-  /* brand-section: shrink to minimum */
-  .brand-section {
-    gap: 0.4rem;
-    flex-shrink: 1;
-    min-width: 0;
-    overflow: hidden;
+    font-size: 0.82rem;
   }
 
   /* TOOLBAR — same padding as header, filters all on one line */
@@ -2062,21 +2052,22 @@ body {
     width: 100% !important;
   }
 
-  /* MAIN LAYOUT */
+  /* MAIN LAYOUT — no top padding so map appears right after toolbar */
   .rankings-map-layout {
-    padding: 0.6rem 0.85rem;   /* matches header & toolbar horizontal padding */
-    gap: 0.75rem;
+    padding: 0 0.85rem 0.6rem;   /* no top gap — map sits right under toolbar */
+    gap: 0.6rem;
   }
 
-  /* MAP — sticky at top so it stays visible while scrolling rankings */
+  /* MAP — sticky, appears right below toolbar */
   .sticky-map-column {
     position: sticky;
-    top: 130px;          /* below header + toolbar */
+    top: 165px;          /* 2-row header (~75px) + toolbar (~90px) */
     height: 260px;
     min-height: 220px;
     border-radius: var(--radius-md);
     order: -1;
     z-index: 50;
+    margin-top: 0;
   }
 
   .rankings-feed-column {
