@@ -36,7 +36,8 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.93987,
     "lng": -87.65369,
     "photos": [
-      "202506_18067474958100637.jpg"
+      "202506_18067474958100637.jpg",
+      "202411_467958101_927976592595626_4568092802668981064_n_18064500508740998.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Eat+Fine+Design+By+Khun+Kung+Chicago,+IL"
   },
@@ -1087,7 +1088,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "parachute",
     "lat": 41.939319999999995,
     "lng": -87.70496,
-    "photos": [],
+    "photos": [
+      "202403_434330283_1959401091124310_6694061174829782899_n_18023916809051719.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Parachute+Chicago,+IL"
   },
   {
@@ -1337,7 +1340,8 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.889100000000006,
     "lng": -87.64967,
     "photos": [
-      "pasta_veneta_rw3_202602.jpg"
+      "pasta_veneta_rw3_202602.jpg",
+      "202305_348491433_667135848555688_8654142978309318426_n_17915541371683548.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Momotaro+Chicago,+IL"
   },
@@ -1560,7 +1564,8 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.88566,
     "lng": -87.64799,
     "photos": [
-      "202308_369987298_679716737339602_8267651928068554658_n_17846642379038947.jpg"
+      "202308_369987298_679716737339602_8267651928068554658_n_17846642379038947.jpg",
+      "202308_370308278_1016113839421058_8711028229354400497_n_18077132509384225.jpg"
     ],
     "google_maps_url": "https://maps.google.com/?q=Pasta+Veneta+Italian+Restaurant+Chicago,+IL"
   },
@@ -1752,7 +1757,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "izakaya-nomonomo",
     "lat": 41.927279999999996,
     "lng": -87.70392,
-    "photos": [],
+    "photos": [
+      "202305_348491433_667135848555688_8654142978309318426_n_17915541371683548.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Izakaya+Nomonomo+Chicago,+IL"
   },
   {
@@ -2030,7 +2037,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "jaleo-by-jos-andr-s",
     "lat": 41.8901,
     "lng": -87.63328,
-    "photos": [],
+    "photos": [
+      "202208_297338994_1240834876681225_8737084666312532528_n_18185087230168076.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Jaleo+by+Jos\u00e9+Andr\u00e9s+Chicago,+IL"
   },
   {
@@ -2926,7 +2935,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "italian-homemade-company",
     "lat": 41.886140000000005,
     "lng": -87.65463,
-    "photos": [],
+    "photos": [
+      "202402_429937306_945769633791612_3511931322135085783_n_18031558663844351.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Italian+Homemade+Company+Chicago,+IL"
   },
   {
@@ -3017,7 +3028,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "the-izakaya",
     "lat": 41.88478,
     "lng": -87.64983,
-    "photos": [],
+    "photos": [
+      "202305_348491433_667135848555688_8654142978309318426_n_17915541371683548.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=The+Izakaya+Chicago,+IL"
   },
   {
