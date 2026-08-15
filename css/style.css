@@ -2136,20 +2136,18 @@ body {
     padding: 0.5rem 1rem 0.5rem 2.4rem;
   }
 
-  /* ALL FILTERS — iOS Safari & Chrome Universal Fix */
+  /* ALL FILTERS — clean 1-row layout without scrolling */
   .filter-controls {
     display: flex !important;
     flex-direction: row !important;
     flex-wrap: nowrap !important;
     align-items: center !important;
-    gap: 0.55rem !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch !important;
-    scrollbar-width: none !important;
-    padding: 2px 0 6px 0 !important;
+    overflow: visible !important;
+    padding: 2px 0 !important;
   }
 
   .filter-controls::-webkit-scrollbar {
@@ -2160,22 +2158,20 @@ body {
 
   .custom-multiselect-wrapper,
   .select-filter {
-    flex: 0 0 auto !important;
-    min-width: auto !important;
-    max-width: none !important;
+    flex: 0 1 auto !important;
+    min-width: 0 !important;
   }
 
   .select-filter,
   .multiselect-trigger-btn {
     -webkit-appearance: none !important;
     appearance: none !important;
-    height: 36px !important;
-    min-height: 36px !important;
-    max-height: 36px !important;
-    width: auto !important;
-    font-size: 0.78rem !important;
+    height: 34px !important;
+    min-height: 34px !important;
+    max-height: 34px !important;
+    font-size: 0.74rem !important;
     font-weight: 600 !important;
-    padding: 0 0.85rem !important;
+    padding: 0 0.55rem !important;
     white-space: nowrap !important;
     border-radius: var(--radius-full) !important;
     display: inline-flex !important;
@@ -2189,14 +2185,17 @@ body {
     background: var(--glass-base) !important;
     color: #fff !important;
     border: 1px solid var(--glass-border) !important;
+    letter-spacing: -0.01em !important;
   }
 
   select.select-filter {
-    padding-right: 1.6rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 1.25rem !important;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
     background-repeat: no-repeat !important;
-    background-position: right 0.6rem center !important;
-    background-size: 0.75rem !important;
+    background-position: right 0.45rem center !important;
+    background-size: 0.65rem !important;
+    flex: 0 0 auto !important;
   }
 
 
