@@ -1791,7 +1791,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "boqueria-fulton-market",
     "lat": 41.88492,
     "lng": -87.64845,
-    "photos": [],
+    "photos": [
+      "boqueria_fulton_market_1.jpg",
+      "boqueria_fulton_market_2.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Boqueria+Fulton+Market+Chicago,+IL"
   },
   {
@@ -3582,7 +3585,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "little-goat-diner",
     "lat": 41.884429999999995,
     "lng": -87.64469,
-    "photos": [],
+    "photos": [
+      "little_goat_diner_1.jpg",
+      "little_goat_diner_2.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Little+Goat+Diner+Chicago,+IL"
   },
   {
