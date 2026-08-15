@@ -300,7 +300,9 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "kababish-bbq-grill",
     "lat": 41.88478,
     "lng": -87.65089,
-    "photos": [],
+    "photos": [
+      "kababish_bbq_grill_1.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Kababish+BBQ+&+Grill+Chicago,+IL"
   },
   {
