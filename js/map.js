@@ -146,7 +146,7 @@ const MapEngine = {
     const hasPhotos = restaurant.photos && restaurant.photos.length > 0;
     const photos = restaurant.photos || [];
     const currentIndex = this.popupPhotoIndexes.get(restaurant.id) || 0;
-    const photoSrc = hasPhotos ? "images/" + photos[currentIndex % photos.length] : "";
+    const photoSrc = hasPhotos ? ((window.location.pathname.includes("/picks") ? "../images/" : "images/")) + photos[currentIndex % photos.length] : "";
 
     let mediaHtml = "";
     if (hasPhotos) {

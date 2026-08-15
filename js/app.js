@@ -419,7 +419,7 @@ const App = {
       const photoPreviewHtml = hasPhotos
         ? `
           <div class="rank-photo-preview" onclick="event.stopPropagation(); App.onRestaurantSelect('${rest.id}', false)" title="Click to view ${photoCount} food photos">
-            <img src="images/${rest.photos[0]}" alt="${rest.name}">
+            <img src="${(window.location.pathname.includes("/picks") ? "../images/" : "images/")}${rest.photos[0]}" alt="${rest.name}">
             <span class="rank-photo-count-badge"><i class="fa-solid fa-camera"></i> ${photoCount}</span>
           </div>
         `
@@ -565,7 +565,7 @@ const App = {
       if (this.activePhotoList.length > 1) {
         thumbsStrip.innerHTML = this.activePhotoList.map((p, idx) => `
           <div class="lightbox-thumb-item ${idx === this.activePhotoIndex ? 'active' : ''}" onclick="App.selectModalPhoto(${idx})">
-            <img src="images/${p}" alt="Photo ${idx + 1}">
+            <img src="${(window.location.pathname.includes("/picks") ? "../images/" : "images/")}${p}" alt="Photo ${idx + 1}">
           </div>
         `).join("");
         thumbsStrip.style.display = "flex";
@@ -830,7 +830,7 @@ const App = {
       const score = rest.score || 8.5;
       const hasPhotos = rest.photos && rest.photos.length > 0;
       const photoPreviewHtml = hasPhotos
-        ? `<div class="rank-photo-preview" onclick="event.stopPropagation(); App.onRestaurantSelect('${rest.id}', false)"><img src="images/${rest.photos[0]}" alt="${rest.name}"></div>`
+        ? `<div class="rank-photo-preview" onclick="event.stopPropagation(); App.onRestaurantSelect('${rest.id}', false)"><img src="${(window.location.pathname.includes("/picks") ? "../images/" : "images/")}${rest.photos[0]}" alt="${rest.name}"></div>`
         : "";
 
       return `
