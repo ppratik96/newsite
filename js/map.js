@@ -248,27 +248,31 @@ const MapEngine = {
     if (!this.map || !this.markersGroup || typeof L === "undefined") return;
 
     const currentZoom = this.map.getZoom();
-    
-    // Zoom-tiered score filtering:
-    // - Default / City level (< 13): 9.8+ only (The Absolute Pinnacle)
-    // - High-level Neighborhood (13): 9.0+
-    // - Neighborhood level (14): 8.0+
-    // - Street level (>= 15): All ranked spots
-    let minScore = 9.8;
-    if (currentZoom >= 15) {
-      minScore = 0.0;
-    } else if (currentZoom >= 14) {
-      minScore = 8.0;
-    } else if (currentZoom >= 13) {
-      minScore = 9.0;
-    } else {
-      minScore = 9.8;
+    const isFiltered = window.App && (
+      (window.App.filters.search && window.App.filters.search.trim().length > 0) ||
+      (window.App.filters.selectedCuisines && window.App.filters.selectedCuisines.size > 0) ||
+      (window.App.filters.selectedNeighborhoods && window.App.filters.selectedNeighborhoods.size > 0) ||
+      (this.currentRestaurantsList.length < (window.BELI_RANKINGS ? window.BELI_RANKINGS.length : 150))
+    );
+
+    // If searching or filtering, ALWAYS show 100% of matching markers on the map
+    let minScore = 0.0;
+    if (!isFiltered) {
+      if (currentZoom >= 14) {
+        minScore = 0.0;
+      } else if (currentZoom >= 13) {
+        minScore = 8.5;
+      } else if (currentZoom >= 12) {
+        minScore = 9.2;
+      } else {
+        minScore = 9.6;
+      }
     }
 
     const visibleRestaurants = this.currentRestaurantsList.filter(rest => {
       if (!rest.lat || !rest.lng) return false;
-      // Always show active selected restaurant or if score meets zoom threshold
-      return (rest.score || 0) >= minScore || rest.id === this.activeRestaurantId;
+      // When searching/filtering, show ALL markers; otherwise follow score tier or active selection
+      return isFiltered || (rest.score || 0) >= minScore || rest.id === this.activeRestaurantId;
     });
 
     const activeIdsOnMap = new Set(visibleRestaurants.map(r => r.id));
@@ -376,7 +380,15 @@ const MapEngine = {
 
   fitAll() {
     if (this.map && this.markersGroup && this.markersGroup.getLayers().length > 0) {
-      this.map.fitBounds(this.markersGroup.getBounds(), { padding: [40, 40], maxZoom: 13 });
+      const bounds = this.markersGroup.getBounds();
+      if (bounds && bounds.isValid()) {
+        const isMobile = window.innerWidth <= 768;
+        this.map.fitBounds(bounds, {
+          padding: isMobile ? [25, 25] : [45, 45],
+          maxZoom: isMobile ? 14 : 13,
+          animate: true
+        });
+      }
     }
   },
 
