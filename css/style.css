@@ -1456,13 +1456,19 @@ body {
   height: 44px !important;
   border-radius: 50% !important;
   cursor: pointer !important;
-  display: flex !important;
+  display: flex;
   align-items: center !important;
   justify-content: center !important;
   font-size: 1.1rem !important;
   z-index: 3100 !important;
   transition: all 0.2s !important;
 }
+
+.lightbox-modal.single-photo .lightbox-nav-btn,
+.lightbox-modal.single-photo #lightbox-photo-counter {
+  display: none !important;
+}
+
 .lightbox-nav-btn:hover {
   background: rgba(37, 99, 235, 0.85) !important;
   transform: translateY(-50%) scale(1.1) !important;
@@ -2283,7 +2289,7 @@ body {
     max-height: 42vh !important;
   }
 
-  /* LIGHTBOX — sleek single-card mobile layout */
+  /* LIGHTBOX — sleek scrollable single-card mobile layout */
   .lightbox-card {
     flex-direction: column !important;
     width: 92vw !important;
@@ -2294,10 +2300,13 @@ body {
     background: rgba(11, 16, 27, 0.95) !important;
     border: 1px solid var(--glass-border-highlight) !important;
     box-shadow: 0 20px 60px rgba(0,0,0,0.8), var(--glass-specular) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
   }
 
   .lightbox-media {
     flex: 0 0 auto !important;
+    width: 100% !important;
     height: 52vh !important;
     max-height: 420px !important;
     position: relative !important;
@@ -2309,6 +2318,8 @@ body {
     width: 100% !important;
     height: 100% !important;
     object-fit: cover !important;
+    object-position: top center !important; /* ALWAYS shows the top part of the photo */
+    display: block !important;
   }
 
   .lightbox-info {
@@ -2321,20 +2332,11 @@ body {
     width: 38px !important;
     height: 38px !important;
     font-size: 0.9rem !important;
-    top: 30% !important;
+    top: 26vh !important;
   }
 
   .lightbox-prev { left: 0.5rem !important; }
   .lightbox-next { right: 0.5rem !important; }
-
-  .lightbox-nav-btn {
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 0.9rem !important;
-  }
-
-  .lightbox-prev { left: 0.75rem !important; }
-  .lightbox-next { right: 0.75rem !important; }
 
   /* STORY REEL — full screen */
   .story-reel-modal { padding: 0 !important; }

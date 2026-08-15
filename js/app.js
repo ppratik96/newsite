@@ -550,6 +550,12 @@ const App = {
     this.activePhotoIndex = 0;
 
     const modal = document.getElementById("lightbox-modal");
+    if (modal) {
+      modal.classList.toggle("single-photo", this.activePhotoList.length <= 1);
+    }
+    const card = document.querySelector(".lightbox-card");
+    if (card) card.scrollTop = 0;
+
     this.renderPhotoModalSlide();
     if (modal) modal.classList.add("active");
   },
@@ -559,6 +565,11 @@ const App = {
 
     const rest = this.activeRestaurant;
     const imgBasePath = window.location.pathname.endsWith("/picks/") ? "../images/" : "images/";
+
+    const modal = document.getElementById("lightbox-modal");
+    if (modal) {
+      modal.classList.toggle("single-photo", this.activePhotoList.length <= 1);
+    }
 
     const mediaContainer = document.querySelector(".lightbox-media");
     const lightboxImg = document.getElementById("lightbox-img");
@@ -577,14 +588,14 @@ const App = {
       if (this.activePhotoList.length > 1) {
         if (counterBadge) {
           counterBadge.textContent = `📸 ${this.activePhotoIndex + 1} / ${this.activePhotoList.length}`;
-          counterBadge.style.display = "inline-flex";
+          counterBadge.style.setProperty("display", "inline-flex", "important");
         }
-        if (prevBtn) prevBtn.style.display = "flex";
-        if (nextBtn) nextBtn.style.display = "flex";
+        if (prevBtn) prevBtn.style.setProperty("display", "flex", "important");
+        if (nextBtn) nextBtn.style.setProperty("display", "flex", "important");
       } else {
-        if (counterBadge) counterBadge.style.display = "none";
-        if (prevBtn) prevBtn.style.display = "none";
-        if (nextBtn) nextBtn.style.display = "none";
+        if (counterBadge) counterBadge.style.setProperty("display", "none", "important");
+        if (prevBtn) prevBtn.style.setProperty("display", "none", "important");
+        if (nextBtn) nextBtn.style.setProperty("display", "none", "important");
       }
     } else {
       if (lightboxImg) {
@@ -592,9 +603,9 @@ const App = {
         lightboxImg.style.display = "none";
       }
       if (mediaContainer) mediaContainer.style.display = "none";
-      if (counterBadge) counterBadge.style.display = "none";
-      if (prevBtn) prevBtn.style.display = "none";
-      if (nextBtn) nextBtn.style.display = "none";
+      if (counterBadge) counterBadge.style.setProperty("display", "none", "important");
+      if (prevBtn) prevBtn.style.setProperty("display", "none", "important");
+      if (nextBtn) nextBtn.style.setProperty("display", "none", "important");
     }
     
     const titleEl = document.getElementById("lightbox-title");
