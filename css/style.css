@@ -1891,10 +1891,20 @@ body {
     flex-shrink: 0;
   }
 
-  /* Title */
+  /* Title + social links all on one row */
+  .brand-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    overflow: hidden;
+  }
+
   .brand-info h1 {
     font-size: 0.9rem;
     white-space: nowrap;
+    flex-shrink: 0;
   }
 
   /* Hide subtitle text, keep social icons */
@@ -1908,6 +1918,7 @@ body {
   .brand-social-links {
     gap: 3px;
     flex-wrap: nowrap;
+    flex-shrink: 0;
   }
 
   .social-pill-link {
