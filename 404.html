@@ -2,13 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/">
-  <script>
-    window.location.replace("/");
-  </script>
   <title>Pratik's Picks</title>
+  <script>
+    // GitHub Pages SPA redirect trick
+    // If the path ends with /picks (no trailing slash), redirect to /picks/
+    var path = window.location.pathname;
+    if (path === '/picks' || path.endsWith('/picks')) {
+      window.location.replace('/picks/');
+    } else {
+      window.location.replace('/');
+    }
+  </script>
 </head>
 <body style="background: #070a12; color: #fff; font-family: sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-  <p>Loading <a href="/" style="color: #38bdf8;">Pratik's Picks</a>...</p>
+  <p>Redirecting to <a href="/picks/" style="color: #38bdf8;">Pratik's Picks</a>...</p>
 </body>
 </html>
