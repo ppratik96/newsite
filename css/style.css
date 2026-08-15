@@ -2101,7 +2101,7 @@ body {
     flex-wrap: nowrap !important;
     justify-content: space-between !important;
     align-items: center !important;
-    gap: 4px !important;
+    gap: 6px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     overflow: visible !important;
@@ -2111,22 +2111,19 @@ body {
   .select-filter {
     flex: 1 1 0 !important;
     min-width: 0 !important;
-    max-width: 33.333% !important;
   }
 
   .select-filter,
   .multiselect-trigger-btn {
     width: 100% !important;
-    font-size: 0.72rem !important;
-    padding: 0.42rem 0.25rem !important;
+    font-size: 0.78rem !important;
+    padding: 0.44rem 0.35rem !important;
     white-space: nowrap !important;
-    text-overflow: ellipsis !important;
-    overflow: hidden !important;
+    overflow: visible !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
     box-sizing: border-box !important;
-    letter-spacing: -0.01em !important;
   }
 
 

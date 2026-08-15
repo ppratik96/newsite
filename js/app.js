@@ -207,10 +207,10 @@ const App = {
           countBadge.textContent = count;
           countBadge.style.display = "inline-block";
         }
-        if (label) label.textContent = "📍 Neighborhoods";
+        if (label) label.textContent = "📍 Areas";
       } else {
         if (countBadge) countBadge.style.display = "none";
-        if (label) label.textContent = "📍 Neighborhoods (All)";
+        if (label) label.textContent = "📍 Areas";
       }
 
       this.applyFilters();
@@ -281,10 +281,10 @@ const App = {
           countBadge.textContent = count;
           countBadge.style.display = "inline-block";
         }
-        if (label) label.textContent = "🍜 Cuisines";
+        if (label) label.textContent = "🍜 Cuisine";
       } else {
         if (countBadge) countBadge.style.display = "none";
-        if (label) label.textContent = "🍜 Cuisines (All)";
+        if (label) label.textContent = "🍜 Cuisine";
       }
 
       this.applyFilters();
