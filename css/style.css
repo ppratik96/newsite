@@ -1850,17 +1850,29 @@ body {
    MOBILE RESPONSIVE DESIGN — Full Breakpoint Coverage
    ========================================================================== */
 
-/* --- TABLET: 768px - 1100px (already handled but improved) --- */
+/* --- TABLET: 768px - 1100px --- */
 @media (max-width: 1100px) {
   .rankings-map-layout {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1rem;
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: none !important;
+    grid-template-areas: none !important;
+    padding: 1rem !important;
+    gap: 1rem !important;
   }
   .sticky-map-column {
-    height: 420px;
-    min-height: 380px;
-    position: static;
+    width: 100% !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    position: relative !important;
+    top: auto !important;
+    display: block !important;
+  }
+  #map {
+    width: 100% !important;
+    height: 360px !important;
+    min-height: 360px !important;
+    display: block !important;
   }
   .toolbar-container {
     flex-wrap: wrap;
