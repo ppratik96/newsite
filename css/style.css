@@ -2074,13 +2074,23 @@ body {
   /* MAP — sticky, always visible at top while rankings scroll below */
   .sticky-map-column {
     position: sticky;
-    top: 165px;
-    height: 260px;
-    min-height: 0;           /* remove min-height that was pushing layout down */
+    top: 128px;
+    height: 260px !important;
+    min-height: 260px !important;
     border-radius: var(--radius-md);
-    order: -1;               /* appears first in flex column */
+    order: -1;
     z-index: 50;
     flex-shrink: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  #map {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 260px !important;
+    display: block !important;
+    position: relative !important;
   }
 
   /* Rankings feed — scrolls below the sticky map */

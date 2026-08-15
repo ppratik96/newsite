@@ -63,9 +63,28 @@ const MapEngine = {
         this.updateMarkerVisibility();
       });
 
-      setTimeout(() => {
+      // Trigger invalidation on multiple lifecycle checkpoints
+      [100, 300, 600, 1200].forEach(delay => {
+        setTimeout(() => {
+          if (this.map) this.map.invalidateSize();
+        }, delay);
+      });
+
+      if (typeof ResizeObserver !== "undefined") {
+        const mapEl = document.getElementById("map");
+        if (mapEl) {
+          const ro = new ResizeObserver(() => {
+            if (this.map) this.map.invalidateSize();
+          });
+          ro.observe(mapEl);
+        }
+      }
+      window.addEventListener("resize", () => {
         if (this.map) this.map.invalidateSize();
-      }, 300);
+      });
+      window.addEventListener("orientationchange", () => {
+        setTimeout(() => { if (this.map) this.map.invalidateSize(); }, 200);
+      });
     } catch (err) {
       console.error("Leaflet initialization error:", err);
     }
