@@ -2063,12 +2063,12 @@ body {
     font-size: 0.82rem;
   }
 
-  /* TOOLBAR — same padding as header, filters all on one line */
+  /* TOOLBAR — high z-index so dropdowns always float above the map */
   .toolbar-section {
     padding: 0.45rem 0.85rem;
     position: relative !important;
     top: auto !important;
-    z-index: 20;
+    z-index: 1100 !important;
     width: 100%;
   }
 
@@ -2089,20 +2089,13 @@ body {
     padding: 0.5rem 1rem 0.5rem 2.4rem;
   }
 
-  /* ALL FILTERS ON ONE LINE — horizontal scroll if needed */
+  /* ALL FILTERS — overflow visible so dropdown panels are never cut off */
   .filter-controls {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     gap: 0.4rem;
     width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 2px;
-  }
-
-  .filter-controls::-webkit-scrollbar {
-    display: none;
+    overflow: visible !important;
   }
 
   .select-filter,
@@ -2158,7 +2151,7 @@ body {
     position: -webkit-sticky !important;
     position: sticky !important;
     top: 0 !important;
-    z-index: 900 !important;
+    z-index: 50 !important;
     overflow: hidden !important;
     flex-shrink: 0 !important;
     margin: 0 0 0.5rem 0 !important;
@@ -2186,41 +2179,52 @@ body {
     display: none !important;
   }
 
-  /* RANKING CARDS */
+  /* Compact ranking cards on mobile */
   .ranking-item-card {
-    padding: 0.6rem 0.8rem !important;
-    gap: 0.6rem !important;
+    padding: 0.65rem 0.75rem !important;
+    gap: 0.55rem !important;
+    border-radius: var(--radius-md) !important;
   }
 
-  .rank-number-badge {
-    font-size: 0.82rem !important;
-    width: 30px !important;
-    min-width: 30px !important;
+  .rank-badge-col {
+    width: 2.2rem !important;
   }
 
-  .rank-photo-preview {
-    width: 52px !important;
-    height: 52px !important;
-    min-width: 52px !important;
-    border-radius: 10px !important;
+  .rank-number {
+    font-size: 0.95rem !important;
   }
 
-  .rank-restaurant-title {
-    font-size: 0.9rem !important;
+  .rank-restaurant-title span:first-child {
+    font-size: 0.92rem !important;
   }
 
   .rank-meta-row {
-    font-size: 0.72rem !important;
+    font-size: 0.75rem !important;
+    margin: 2px 0 4px !important;
   }
 
-  .rank-score-badge {
-    font-size: 0.72rem !important;
-    padding: 2px 8px !important;
+  .card-tags {
+    gap: 0.25rem !important;
   }
 
   .card-tag {
-    font-size: 0.66rem !important;
+    font-size: 0.68rem !important;
     padding: 1px 6px !important;
+  }
+
+  .rank-photo-preview {
+    width: 58px !important;
+    height: 58px !important;
+    border-radius: var(--radius-sm) !important;
+  }
+
+  .rank-score-col {
+    width: 2.8rem !important;
+  }
+
+  .rank-score-badge {
+    font-size: 0.85rem !important;
+    padding: 3px 8px !important;
   }
 
   .btn-save-toggle {
@@ -2238,22 +2242,32 @@ body {
     padding: 0.3rem 0.65rem !important;
   }
 
-  /* MULTISELECT PANEL — bottom sheet on mobile */
+  /* MULTISELECT PANEL — clean floating dropdown above map on mobile */
   .multiselect-panel {
-    position: fixed !important;
-    top: auto !important;
-    bottom: 0 !important;
+    position: absolute !important;
+    top: calc(100% + 6px) !important;
     left: 0 !important;
+    right: auto !important;
+    bottom: auto !important;
+    width: min(88vw, 300px) !important;
+    max-height: 55vh !important;
+    border-radius: var(--radius-md) !important;
+    z-index: 99999 !important;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.9), 0 0 0 1px var(--glass-border-highlight) !important;
+    background: rgba(11, 16, 27, 0.98) !important;
+    backdrop-filter: var(--glass-blur-lg) !important;
+    -webkit-backdrop-filter: var(--glass-blur-lg) !important;
+    overflow: hidden !important;
+  }
+
+  .custom-multiselect-wrapper:nth-of-type(2) .multiselect-panel,
+  .custom-multiselect-wrapper:last-child .multiselect-panel {
+    left: auto !important;
     right: 0 !important;
-    width: 100% !important;
-    max-height: 70vh !important;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0 !important;
-    z-index: 9999 !important;
-    border-bottom: none !important;
   }
 
   .multiselect-list {
-    max-height: 50vh !important;
+    max-height: 42vh !important;
   }
 
   /* LIGHTBOX — sleek single-card mobile layout */
