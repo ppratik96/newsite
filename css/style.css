@@ -2095,35 +2095,42 @@ body {
     padding: 0.5rem 1rem 0.5rem 2.4rem;
   }
 
-  /* ALL FILTERS — clean single row layout on mobile */
+  /* ALL FILTERS — horizontal scrollable pill chips with generous space */
   .filter-controls {
     display: flex !important;
     flex-wrap: nowrap !important;
-    justify-content: space-between !important;
     align-items: center !important;
-    gap: 6px !important;
+    gap: 0.5rem !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    overflow: visible !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    scrollbar-width: none !important;
+    padding-bottom: 2px !important;
+  }
+
+  .filter-controls::-webkit-scrollbar {
+    display: none !important;
   }
 
   .custom-multiselect-wrapper,
   .select-filter {
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
+    flex: 0 0 auto !important;
+    min-width: auto !important;
   }
 
   .select-filter,
   .multiselect-trigger-btn {
-    width: 100% !important;
+    width: auto !important;
     font-size: 0.78rem !important;
-    padding: 0.44rem 0.35rem !important;
+    padding: 0.44rem 0.85rem !important;
     white-space: nowrap !important;
-    overflow: visible !important;
-    display: flex !important;
-    justify-content: center !important;
+    border-radius: var(--radius-full) !important;
+    display: inline-flex !important;
     align-items: center !important;
+    justify-content: center !important;
     box-sizing: border-box !important;
+    flex-shrink: 0 !important;
   }
 
 
