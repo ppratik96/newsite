@@ -1327,7 +1327,10 @@ window.BELI_RANKINGS = BELI_RANKINGS = [
     "id": "tacotlan",
     "lat": 41.8662,
     "lng": -87.6661,
-    "photos": [],
+    "photos": [
+      "tacotlan_apple_2.jpg",
+      "tacotlan_apple_4.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Tacotlan+Chicago,+IL"
   },
   {
