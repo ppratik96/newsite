@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Pratik Patel — My Vibes</title>
-  <meta name="description" content="Personal hub and vibecoded project showcase of Pratik Patel — featuring FamilyStyle!, Pratik's Picks, and Orbital Arcade.">
+  <title>Pratik Patel — My Vibes &amp; CV</title>
+  <meta name="description" content="Personal hub, CV, and vibecoded project showcase of Pratik Patel — featuring FamilyStyle!, Pratik's Picks, and Orbital Arcade.">
   <link rel="icon" href="images/pratik_avatar.jpg">
 
   <!-- Google Fonts & Font Awesome -->
@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/style.css?v=99.0">
+  <link rel="stylesheet" href="css/style.css?v=100.0">
 
   <style>
     /* HOMEPAGE SPECIFIC HERO & MY VIBES SHOWCASE STYLING */
@@ -29,8 +29,8 @@
       margin-bottom: 1.5rem;
     }
     .home-avatar-img {
-      width: 112px;
-      height: 112px;
+      width: 115px;
+      height: 115px;
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid rgba(56, 189, 248, 0.6);
@@ -110,22 +110,32 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
+    .home-social-btn.linkedin-btn {
+      background: rgba(10, 102, 194, 0.2);
+      border-color: rgba(10, 102, 194, 0.5);
+    }
+    .home-social-btn.linkedin-btn:hover {
+      background: rgba(10, 102, 194, 0.35);
+      border-color: #38bdf8;
+    }
 
-    /* MY VIBES SHOWCASE GRID */
-    .vibes-section {
+    /* SECTION CONTAINERS */
+    .content-section {
       max-width: 1160px;
       margin: 0 auto 5rem;
       padding: 0 1.5rem;
     }
-    .vibes-header-row {
+    .section-header-row {
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       margin-bottom: 2rem;
       border-bottom: 1px solid var(--glass-border);
       padding-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
-    .vibes-section-title {
+    .section-title {
       font-size: 1.85rem;
       font-weight: 800;
       letter-spacing: -0.02em;
@@ -134,6 +144,8 @@
       align-items: center;
       gap: 10px;
     }
+
+    /* MY VIBES SHOWCASE GRID */
     .vibes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -286,10 +298,121 @@
       border-color: var(--glass-border-highlight);
     }
 
+    /* CV & EXPERIENCE SECTION */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 2rem;
+    }
+    @media (max-width: 900px) {
+      .cv-grid { grid-template-columns: 1fr; }
+    }
+    .cv-card {
+      background: var(--glass-base);
+      backdrop-filter: var(--glass-blur-lg);
+      -webkit-backdrop-filter: var(--glass-blur-lg);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: var(--shadow-glass-md);
+    }
+    .timeline-item {
+      position: relative;
+      padding-left: 1.75rem;
+      padding-bottom: 2rem;
+      border-left: 2px solid rgba(56, 189, 248, 0.3);
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+      border-left: 2px solid transparent;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -7px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 10px #38bdf8;
+    }
+    .timeline-company {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .timeline-dates {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #38bdf8;
+    }
+    .timeline-role {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      margin-top: 2px;
+      margin-bottom: 0.6rem;
+    }
+    .timeline-bullets {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+    .timeline-bullets li {
+      position: relative;
+      padding-left: 1.1rem;
+    }
+    .timeline-bullets li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+    .edu-card {
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--glass-border);
+    }
+    .edu-card:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .cert-pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .cert-pill {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--radius-full);
+      padding: 0.35rem 0.8rem;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.9);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     /* FOOTER */
     .home-footer {
       border-top: 1px solid var(--glass-border);
-      padding: 3rem 1.5rem;
+      padding: 3.5rem 1.5rem;
       text-align: center;
       color: var(--text-muted);
       font-size: 0.85rem;
@@ -308,6 +431,9 @@
         <div class="brand-info">
           <h1>Pratik Patel</h1>
           <div class="brand-social-links">
+            <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-pill-link" title="LinkedIn @ppratik96">
+              <i class="fa-brands fa-linkedin" style="color: #38bdf8;"></i> <span>LinkedIn</span>
+            </a>
             <a href="https://github.com/ppratik96" target="_blank" rel="noopener noreferrer" class="social-pill-link" title="GitHub @ppratik96">
               <i class="fa-brands fa-github"></i> <span>GitHub</span>
             </a>
@@ -332,6 +458,9 @@
           </button>
         </div>
 
+        <a href="#cv" class="home-nav-pill" style="margin: 0;" title="View CV &amp; Career">
+          <span>💼 CV</span>
+        </a>
         <a href="picks/" class="home-nav-pill" style="margin: 0;" title="View Pratik's Picks">
           <span>🍜 Picks</span>
         </a>
@@ -352,20 +481,20 @@
       <span class="home-status-dot"></span> Vibecoding in Public &bull; Chicago, IL
     </div>
     <h1 class="home-title">
-      Building thoughtful apps &amp; <br><span class="home-title-gradient">vibecoded projects.</span>
+      Building thoughtful apps, <br><span class="home-title-gradient">vibes &amp; innovative software.</span>
     </h1>
     <p class="home-bio">
-      Hey, I'm Pratik! I build intuitive mobile software, curated dining discovery engines, and retro arcade systems. Welcome to my creative corner on the internet.
+      Hey, I'm Pratik! I build intuitive mobile applications, curated dining discovery engines, and retro arcade systems. Welcome to my creative corner on the internet.
     </p>
     <div class="home-social-row">
+      <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="home-social-btn linkedin-btn" title="LinkedIn Profile">
+        <i class="fa-brands fa-linkedin" style="font-size: 1.1rem; color: #38bdf8;"></i> <span>LinkedIn Profile</span>
+      </a>
       <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="FamilyStyle on App Store">
         <i class="fa-brands fa-apple" style="font-size: 1.1rem;"></i> <span>App Store</span>
       </a>
       <a href="https://github.com/ppratik96" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="GitHub">
         <i class="fa-brands fa-github" style="font-size: 1.1rem;"></i> <span>ppratik96</span>
-      </a>
-      <a href="https://www.instagram.com/ppratik96/" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="Instagram">
-        <i class="fa-brands fa-instagram" style="font-size: 1.1rem; color: #fb7185;"></i> <span>@ppratik96</span>
       </a>
       <a href="https://beliapp.co/app/ppratik96" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="Beli">
         <img src="images/beli_logo.png" style="width: 15px; height: 15px; border-radius: 3px;" alt="Beli"> <span>Beli @ppratik96</span>
@@ -374,10 +503,10 @@
   </section>
 
   <!-- MY VIBES SHOWCASE -->
-  <section class="vibes-section" id="vibes">
-    <div class="vibes-header-row">
+  <section class="content-section" id="vibes">
+    <div class="section-header-row">
       <div>
-        <h2 class="vibes-section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #38bdf8;"></i> My Vibes</h2>
+        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #38bdf8;"></i> My Vibes</h2>
         <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Featured vibecoded creations, apps, and interactive spaces.</p>
       </div>
     </div>
@@ -452,6 +581,99 @@
           </a>
         </div>
       </article>
+
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL CV & EXPERIENCE -->
+  <section class="content-section" id="cv">
+    <div class="section-header-row">
+      <div>
+        <h2 class="section-title"><i class="fa-solid fa-briefcase" style="color: #38bdf8;"></i> Professional CV &amp; Experience</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Technology consulting, product innovation, and security engineering.</p>
+      </div>
+      <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="vibe-cta-btn vibe-cta-primary" style="width: auto; padding: 0.55rem 1.25rem;">
+        <i class="fa-brands fa-linkedin"></i> View Full LinkedIn Profile &rarr;
+      </a>
+    </div>
+
+    <div class="cv-grid">
+
+      <!-- LEFT: WORK EXPERIENCE -->
+      <div class="cv-card">
+        <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-building" style="color: #38bdf8;"></i> Career Experience
+        </h3>
+
+        <!-- Protiviti -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-company">
+            <span>Protiviti</span>
+            <span class="timeline-dates">New York, NY</span>
+          </div>
+          <div class="timeline-role">Senior Consultant, Technology Consulting &bull; S&amp;P</div>
+          <ul class="timeline-bullets">
+            <li>Trusted advisor providing strategic security roadmaps and assessments to C-suite and Director-level leadership across major tech companies and financial institutions.</li>
+            <li>Nominated resident of <strong>Protiviti’s New York Innovation Site</strong>, functioning as Product Owner for internal Git-based code platforms and automation accelerators.</li>
+            <li>Selected as <strong>Top 5 Finalist</strong> globally for developing automated engagement KPI dashboards using Design Thinking and Agile methodologies.</li>
+            <li>Achieved the highest <em>"Distinguished"</em> rating across 7 consecutive project evaluations as a Certified ScrumMaster (CSM).</li>
+          </ul>
+        </div>
+
+        <!-- Bank of America -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-company">
+            <span>Bank of America</span>
+            <span class="timeline-dates">Washington, DC</span>
+          </div>
+          <div class="timeline-role">Global Information Security (GIS)</div>
+          <ul class="timeline-bullets">
+            <li>Designed and evaluated state-of-the-art enterprise cybersecurity solutions aimed at reducing institutional risk.</li>
+            <li>Led the winning team in the <strong>GIS Executive Leadership Competition</strong> as Project Manager &amp; Business Analyst.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- RIGHT: EDUCATION & CERTIFICATIONS -->
+      <div style="display: flex; flex-direction: column; gap: 1.75rem;">
+        
+        <!-- Education Card -->
+        <div class="cv-card">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-graduation-cap" style="color: #fbbf24;"></i> Education
+          </h3>
+          
+          <div class="edu-card">
+            <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Stevens Institute of Technology</div>
+            <div style="color: #fbbf24; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">M.S. in Information Systems</div>
+            <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 2px;">GPA 4.0 / 4.0 &bull; High Honors</div>
+          </div>
+
+          <div class="edu-card">
+            <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Stevens Institute of Technology</div>
+            <div style="color: #38bdf8; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">B.S. in Business &amp; Technology</div>
+            <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 2px;">GPA 3.8 / 4.0 &bull; High Honors &bull; Service Innovation</div>
+          </div>
+        </div>
+
+        <!-- Certifications & Skills Card -->
+        <div class="cv-card">
+          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;">
+            <i class="fa-solid fa-award" style="color: #c084fc;"></i> Certifications &amp; Core Stack
+          </h3>
+          <div class="cert-pill-group">
+            <span class="cert-pill"><i class="fa-solid fa-certificate" style="color:#fbbf24;"></i> Certified ScrumMaster (CSM)</span>
+            <span class="cert-pill"><i class="fa-solid fa-users-gear" style="color:#38bdf8;"></i> LUMA Human-Centered Design</span>
+            <span class="cert-pill"><i class="fa-brands fa-swift" style="color:#f97316;"></i> Swift &amp; SwiftUI</span>
+            <span class="cert-pill"><i class="fa-brands fa-js" style="color:#fbbf24;"></i> JavaScript / Full-Stack</span>
+            <span class="cert-pill"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> NIST &amp; ISO Frameworks</span>
+            <span class="cert-pill"><i class="fa-solid fa-lightbulb" style="color:#c084fc;"></i> Product Strategy &amp; OCR AI</span>
+          </div>
+        </div>
+
+      </div>
 
     </div>
   </section>
