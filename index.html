@@ -3,731 +3,575 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Pratik Patel — Senior TPM &amp; Builder</title>
-  <meta name="description" content="Personal hub, professional CV, and project showcase of Pratik Patel — Senior TPM at Google, Creator of FamilyStyle, Pratik's Picks, and Orbital Arcade.">
-  <link rel="icon" href="images/pratik_avatar.jpg?v=102.0">
+  <title>Pratik Patel</title>
+  <meta name="description" content="Personal site of Pratik Patel — Senior TPM at Google, creator of FamilyStyle, Pratik's Picks, and Orbital Arcade.">
+  <link rel="icon" href="images/pratik_avatar.jpg?v=103.0">
 
   <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/style.css?v=102.0">
+  <link rel="stylesheet" href="css/style.css?v=103.0">
 
   <style>
-    /* HOMEPAGE SPECIFIC HERO & MY VIBES SHOWCASE STYLING */
-    .home-hero-section {
-      padding: 4.5rem 1.5rem 3rem;
-      max-width: 1100px;
+    /* SLEEK, CASUAL & MINIMAL HOMEPAGE */
+    :root {
+      --home-bg: #0b0d11;
+      --home-card-bg: rgba(255, 255, 255, 0.03);
+      --home-card-hover: rgba(255, 255, 255, 0.06);
+      --home-border: rgba(255, 255, 255, 0.08);
+      --home-border-hover: rgba(255, 255, 255, 0.18);
+      --home-text: #f1f5f9;
+      --home-text-muted: #94a3b8;
+      --home-accent: #38bdf8;
+    }
+    [data-theme="light"] {
+      --home-bg: #fafafc;
+      --home-card-bg: rgba(0, 0, 0, 0.02);
+      --home-card-hover: rgba(0, 0, 0, 0.04);
+      --home-border: rgba(0, 0, 0, 0.07);
+      --home-border-hover: rgba(0, 0, 0, 0.15);
+      --home-text: #0f172a;
+      --home-text-muted: #64748b;
+      --home-accent: #0284c7;
+    }
+
+    body {
+      background-color: var(--home-bg);
+      color: var(--home-text);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .main-wrap {
+      max-width: 820px;
       margin: 0 auto;
-      text-align: center;
+      padding: 3.5rem 1.5rem 6rem;
     }
-    .home-avatar-wrap {
-      position: relative;
-      display: inline-block;
-      margin-bottom: 1.5rem;
+
+    /* HEADER / NAV */
+    .minimal-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 4rem;
     }
-    .home-avatar-img {
-      width: 130px;
-      height: 130px;
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-avatar-img {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center 15%;
-      border: 3px solid rgba(56, 189, 248, 0.6);
-      box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
-      animation: avatarGlow 4s ease-in-out infinite alternate;
+      border: 1px solid var(--home-border);
     }
-    @keyframes avatarGlow {
-      from { box-shadow: 0 0 25px rgba(56, 189, 248, 0.3); border-color: rgba(56, 189, 248, 0.5); }
-      to { box-shadow: 0 0 45px rgba(129, 140, 248, 0.5); border-color: rgba(129, 140, 248, 0.8); }
+    .nav-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--home-text);
+      text-decoration: none;
     }
-    .home-status-pill {
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-pill {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      color: #34d399;
-      font-size: 0.78rem;
-      font-weight: 700;
-      padding: 0.3rem 0.85rem;
-      border-radius: var(--radius-full);
-      margin-bottom: 1rem;
-    }
-    .home-status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 8px #10b981;
-    }
-    .home-title {
-      font-size: clamp(2.2rem, 5vw, 3.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      margin-bottom: 1.1rem;
-      color: #fff;
-    }
-    .home-title-gradient {
-      background: linear-gradient(135deg, #38bdf8, #818cf8, #c084fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .home-bio {
-      font-size: clamp(1rem, 2vw, 1.18rem);
-      color: var(--text-secondary);
-      max-width: 740px;
-      margin: 0 auto 2rem;
-      line-height: 1.65;
-    }
-    .home-social-row {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 0.75rem;
-      margin-bottom: 2.5rem;
-    }
-    .home-social-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--glass-base);
-      backdrop-filter: var(--glass-blur-sm);
-      -webkit-backdrop-filter: var(--glass-blur-sm);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-full);
-      padding: 0.55rem 1.15rem;
-      color: #fff;
+      padding: 6px 14px;
+      border-radius: 100px;
       font-size: 0.85rem;
       font-weight: 600;
+      color: var(--home-text-muted);
       text-decoration: none;
-      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid var(--home-border);
+      background: var(--home-card-bg);
+      transition: all 0.2s ease;
     }
-    .home-social-btn:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--glass-border-highlight);
-      transform: translateY(-2px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    .nav-pill:hover {
+      color: var(--home-text);
+      border-color: var(--home-border-hover);
+      background: var(--home-card-hover);
     }
-    .home-social-btn.linkedin-btn {
-      background: rgba(10, 102, 194, 0.2);
-      border-color: rgba(10, 102, 194, 0.5);
-    }
-    .home-social-btn.linkedin-btn:hover {
-      background: rgba(10, 102, 194, 0.35);
-      border-color: #38bdf8;
-    }
-
-    /* SECTION CONTAINERS */
-    .content-section {
-      max-width: 1160px;
-      margin: 0 auto 5rem;
-      padding: 0 1.5rem;
-    }
-    .section-header-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 2rem;
-      border-bottom: 1px solid var(--glass-border);
-      padding-bottom: 1rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-    .section-title {
-      font-size: 1.85rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      color: #fff;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* MY VIBES SHOWCASE GRID */
-    .vibes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 1.75rem;
-    }
-    .vibe-card {
-      background: var(--glass-base);
-      backdrop-filter: var(--glass-blur-lg);
-      -webkit-backdrop-filter: var(--glass-blur-lg);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 2rem;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: var(--shadow-glass-md);
-    }
-    .vibe-card:hover {
-      transform: translateY(-6px);
-      border-color: var(--glass-border-highlight);
-      box-shadow: var(--shadow-glass-lg), 0 0 30px rgba(56, 189, 248, 0.15);
-    }
-    .vibe-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      font-size: 0.72rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      width: fit-content;
-      margin-bottom: 1.25rem;
-    }
-    .vibe-badge-app {
-      background: rgba(56, 189, 248, 0.15);
-      border: 1px solid rgba(56, 189, 248, 0.4);
-      color: #38bdf8;
-    }
-    .vibe-badge-picks {
-      background: rgba(245, 158, 11, 0.15);
-      border: 1px solid rgba(245, 158, 11, 0.4);
-      color: #fbbf24;
-    }
-    .vibe-badge-arcade {
-      background: rgba(192, 132, 252, 0.15);
-      border: 1px solid rgba(192, 132, 252, 0.4);
-      color: #c084fc;
-    }
-    .vibe-icon-wrap {
-      width: 58px;
-      height: 58px;
-      border-radius: 16px;
+    .theme-toggle-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: 1px solid var(--home-border);
+      background: var(--home-card-bg);
+      color: var(--home-text-muted);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 1.25rem;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--glass-border);
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: all 0.2s ease;
     }
-    .vibe-card-title {
-      font-size: 1.45rem;
-      font-weight: 800;
-      letter-spacing: -0.01em;
-      margin-bottom: 0.6rem;
-      color: #fff;
+    .theme-toggle-btn:hover {
+      color: var(--home-text);
+      border-color: var(--home-border-hover);
     }
-    .vibe-card-desc {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-      flex: 1;
+
+    /* HERO SECTION */
+    .hero-wrap {
+      margin-bottom: 4rem;
     }
-    .vibe-highlights {
+    .hero-top-row {
       display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 15%;
+      border: 2px solid var(--home-border);
+      flex-shrink: 0;
+    }
+    .hero-badge-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #34d399;
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      padding: 3px 10px;
+      border-radius: 100px;
+      margin-bottom: 6px;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #10b981;
+    }
+    .hero-title {
+      font-size: clamp(1.85rem, 4vw, 2.6rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      color: var(--home-text);
+    }
+    .hero-title-accent {
+      color: var(--home-accent);
+      font-weight: 800;
+    }
+    .hero-bio {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--home-text-muted);
       margin-bottom: 1.75rem;
     }
-    .vibe-highlight-item {
+    .hero-bio a {
+      color: var(--home-text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: rgba(255, 255, 255, 0.25);
+      text-underline-offset: 3px;
+      transition: all 0.2s ease;
+    }
+    [data-theme="light"] .hero-bio a {
+      text-decoration-color: rgba(0, 0, 0, 0.25);
+    }
+    .hero-bio a:hover {
+      color: var(--home-accent);
+      text-decoration-color: var(--home-accent);
+    }
+    .social-pills {
       display: flex;
-      align-items: center;
+      flex-wrap: wrap;
       gap: 8px;
-      font-size: 0.82rem;
-      color: rgba(255, 255, 255, 0.85);
     }
-    .vibe-highlight-item i {
-      font-size: 0.75rem;
-      color: #38bdf8;
-    }
-    .vibe-action-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .vibe-cta-btn {
+    .social-link {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 0.82rem;
-      border-radius: var(--radius-full);
-      font-size: 0.9rem;
-      font-weight: 700;
+      gap: 7px;
+      padding: 6px 13px;
+      border-radius: 100px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--home-text-muted);
+      background: var(--home-card-bg);
+      border: 1px solid var(--home-border);
       text-decoration: none;
-      cursor: pointer;
       transition: all 0.2s ease;
-      box-sizing: border-box;
     }
-    .vibe-cta-primary {
-      background: linear-gradient(135deg, #2563eb, #38bdf8);
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
-    }
-    .vibe-cta-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.5);
-    }
-    .vibe-cta-gold {
-      background: linear-gradient(135deg, #d97706, #fbbf24);
-      color: #070a12;
-      box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35);
-    }
-    .vibe-cta-gold:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(251, 191, 36, 0.5);
-    }
-    .vibe-cta-purple {
-      background: linear-gradient(135deg, #7c3aed, #c084fc);
-      color: #fff;
-      box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
-    }
-    .vibe-cta-purple:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(192, 132, 252, 0.5);
-    }
-    .vibe-cta-secondary {
-      background: rgba(255, 255, 255, 0.08);
-      color: #fff;
-      border: 1px solid var(--glass-border);
-    }
-    .vibe-cta-secondary:hover {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: var(--glass-border-highlight);
+    .social-link:hover {
+      color: var(--home-text);
+      border-color: var(--home-border-hover);
+      background: var(--home-card-hover);
+      transform: translateY(-1px);
     }
 
-    /* CV & EXPERIENCE SECTION */
-    .cv-grid {
-      display: grid;
-      grid-template-columns: 1.45fr 1fr;
-      gap: 2rem;
+    /* SECTION TITLES */
+    .section-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--home-text-muted);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    @media (max-width: 900px) {
-      .cv-grid { grid-template-columns: 1fr; }
+    .section-label::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: var(--home-border);
     }
-    .cv-card {
-      background: var(--glass-base);
-      backdrop-filter: var(--glass-blur-lg);
-      -webkit-backdrop-filter: var(--glass-blur-lg);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 2.2rem;
-      box-shadow: var(--shadow-glass-md);
+
+    /* PROJECT CARDS */
+    .projects-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-bottom: 4rem;
     }
-    .timeline-item {
+    .project-card {
+      background: var(--home-card-bg);
+      border: 1px solid var(--home-border);
+      border-radius: 18px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      transition: all 0.2s ease;
       position: relative;
-      padding-left: 1.75rem;
-      padding-bottom: 2.2rem;
-      border-left: 2px solid rgba(56, 189, 248, 0.3);
     }
-    .timeline-item:last-child {
-      padding-bottom: 0;
-      border-left: 2px solid transparent;
+    .project-card:hover {
+      background: var(--home-card-hover);
+      border-color: var(--home-border-hover);
+      transform: translateY(-2px);
     }
-    .timeline-dot {
-      position: absolute;
-      left: -7px;
-      top: 4px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: #38bdf8;
-      box-shadow: 0 0 10px #38bdf8;
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
-    .timeline-company {
+    .project-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .project-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--home-border);
+      flex-shrink: 0;
+    }
+    .project-title {
       font-size: 1.2rem;
-      font-weight: 800;
-      color: #fff;
+      font-weight: 700;
+      color: var(--home-text);
+      letter-spacing: -0.01em;
+    }
+    .project-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 100px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--home-text-muted);
+      border: 1px solid var(--home-border);
+    }
+    .project-desc {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: var(--home-text-muted);
+      margin: 0;
+    }
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.25rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--home-accent);
+    }
+    .project-footer i {
+      transition: transform 0.2s ease;
+    }
+    .project-card:hover .project-footer i {
+      transform: translateX(4px);
+    }
+
+    /* EXPERIENCE & CAREER */
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 4rem;
+    }
+    .exp-item {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      background: var(--home-card-bg);
+      border: 1px solid var(--home-border);
+      gap: 1rem;
       flex-wrap: wrap;
-      gap: 0.5rem;
     }
-    .timeline-dates {
-      font-size: 0.78rem;
-      font-weight: 700;
-      color: #38bdf8;
-    }
-    .timeline-role {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--accent-gold);
-      margin-top: 2px;
-      margin-bottom: 0.65rem;
-    }
-    .timeline-bullets {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
+    .exp-left {
       display: flex;
       flex-direction: column;
-      gap: 0.55rem;
-      font-size: 0.86rem;
-      color: var(--text-secondary);
-      line-height: 1.6;
+      gap: 2px;
     }
-    .timeline-bullets li {
-      position: relative;
-      padding-left: 1.1rem;
-    }
-    .timeline-bullets li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #38bdf8;
-      font-weight: bold;
-    }
-    .edu-card {
-      margin-bottom: 1.25rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid var(--glass-border);
-    }
-    .edu-card:last-child {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: none;
-    }
-    .cert-pill-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-    .cert-pill {
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid var(--glass-border);
-      border-radius: var(--radius-full);
-      padding: 0.35rem 0.8rem;
-      font-size: 0.76rem;
+    .exp-company {
       font-weight: 700;
-      color: rgba(255, 255, 255, 0.9);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
+      font-size: 0.98rem;
+      color: var(--home-text);
+    }
+    .exp-role {
+      font-size: 0.85rem;
+      color: var(--home-text-muted);
+    }
+    .exp-dates {
+      font-size: 0.8rem;
+      font-weight: 600;
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--home-text-muted);
     }
 
     /* FOOTER */
-    .home-footer {
-      border-top: 1px solid var(--glass-border);
-      padding: 3.5rem 1.5rem;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      max-width: 1100px;
-      margin: 0 auto;
+    .simple-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.82rem;
+      color: var(--home-text-muted);
+      border-top: 1px solid var(--home-border);
+      padding-top: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .simple-footer a {
+      color: var(--home-text-muted);
+      text-decoration: none;
+    }
+    .simple-footer a:hover {
+      color: var(--home-text);
     }
   </style>
 </head>
 <body>
 
-  <!-- APP HEADER -->
-  <header class="app-header">
-    <div class="header-container">
-      <div class="brand-section">
-        <div class="brand-avatar"><img src="images/pratik_avatar.jpg?v=102.0" alt="Pratik Patel" class="brand-avatar-img"></div>
-        <div class="brand-info">
-          <h1>Pratik Patel</h1>
-          <div class="brand-social-links">
-            <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-pill-link" title="LinkedIn @ppratik96">
-              <i class="fa-brands fa-linkedin" style="color: #38bdf8;"></i> <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/ppratik96" target="_blank" rel="noopener noreferrer" class="social-pill-link" title="GitHub @ppratik96">
-              <i class="fa-brands fa-github"></i> <span>GitHub</span>
-            </a>
-            <a href="https://www.instagram.com/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-pill-link ig-pill-link" title="Instagram @ppratik96">
-              <i class="fa-brands fa-instagram" style="color: #fb7185;"></i> <span>@ppratik96</span>
-            </a>
-            <a href="https://beliapp.co/app/ppratik96" target="_blank" rel="noopener noreferrer" class="social-pill-link beli-pill-link" title="Beli @ppratik96">
-              <img src="images/beli_logo.png" class="beli-icon-img" alt="Beli"> <span>Beli</span>
-            </a>
+  <div class="main-wrap">
+
+    <!-- TOP MINIMAL NAVIGATION -->
+    <nav class="minimal-nav">
+      <div class="nav-left">
+        <img src="images/pratik_avatar.jpg?v=103.0" alt="Pratik Patel" class="nav-avatar-img">
+        <span class="nav-name">Pratik Patel</span>
+      </div>
+      <div class="nav-links">
+        <a href="picks/" class="nav-pill">🍜 Picks</a>
+        <a href="arcade/" class="nav-pill">🚀 Arcade</a>
+        <button class="theme-toggle-btn" id="theme-btn" title="Toggle Theme">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero-wrap">
+      <div class="hero-top-row">
+        <img src="images/pratik_avatar.jpg?v=103.0" alt="Pratik Patel" class="hero-avatar">
+        <div>
+          <div class="hero-badge-row">
+            <span class="hero-badge-dot"></span> Senior TPM @ Google &bull; Chicago, IL
           </div>
+          <h1 class="hero-title" style="margin: 0;">
+            Senior TPM by day.<br>
+            <span class="hero-title-accent">Over-engineering side quests by night.</span>
+          </h1>
         </div>
       </div>
 
-      <!-- Theme Toggle & Fast Links -->
-      <div class="header-actions">
-        <div class="theme-toggle-container">
-          <button class="theme-btn active" id="theme-btn-dark" title="Switch to Dark Mode">
-            <i class="fa-solid fa-moon"></i> <span>Dark</span>
-          </button>
-          <button class="theme-btn" id="theme-btn-light" title="Switch to Light Mode">
-            <i class="fa-solid fa-sun"></i> <span>Light</span>
-          </button>
-        </div>
+      <p class="hero-bio">
+        Hey, I'm Pratik! I'm a Senior Technical Program Manager at Google in Chicago, and outside of work, I build stuff that scratches my own itch—like eliminating the nightmare of group dinner bills (<a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer">FamilyStyle</a>), tracking and ranking my favorite Chicago food spots (<a href="picks/">Pratik's Picks</a>), or turning retro classics like Tetris and Snake on their heads (literally) (<a href="arcade/">Orbital Arcade</a>).
+      </p>
 
-        <a href="#cv" class="home-nav-pill" style="margin: 0;" title="View Professional CV">
-          <span>💼 CV</span>
+      <div class="social-pills">
+        <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-linkedin" style="color: #38bdf8;"></i> <span>LinkedIn</span>
         </a>
-        <a href="picks/" class="home-nav-pill" style="margin: 0;" title="View Pratik's Picks">
-          <span>🍜 Picks</span>
+        <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-apple"></i> <span>App Store</span>
         </a>
-        <a href="arcade/" class="home-nav-pill" style="margin: 0;" title="Play Orbital Arcade">
-          <span>🚀 Arcade</span>
+        <a href="https://github.com/ppratik96" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-github"></i> <span>GitHub</span>
+        </a>
+        <a href="https://beliapp.co/app/ppratik96" target="_blank" rel="noopener noreferrer" class="social-link">
+          <img src="images/beli_logo.png" style="width: 14px; height: 14px; border-radius: 3px;" alt="Beli"> <span>Beli</span>
+        </a>
+        <a href="https://www.instagram.com/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-link">
+          <i class="fa-brands fa-instagram" style="color: #fb7185;"></i> <span>Instagram</span>
         </a>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- HERO SECTION -->
-  <section class="home-hero-section">
-    <div class="home-avatar-wrap">
-      <img src="images/pratik_avatar.jpg?v=102.0" alt="Pratik Patel" class="home-avatar-img">
-    </div>
-    <br>
-    <div class="home-status-pill">
-      <span class="home-status-dot"></span> Senior TPM @ Google &bull; Builder &bull; Chicago, IL
-    </div>
-    <h1 class="home-title">
-      Senior TPM by day. <br><span class="home-title-gradient">Over-engineering side quests by night.</span>
-    </h1>
-    <p class="home-bio">
-      Hey, I'm Pratik! I'm a Senior Technical Program Manager at Google in Chicago, and outside of work, I build stuff that scratches my own itch—like eliminating the nightmare of group dinner bills (<a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" style="color: #38bdf8; font-weight: 700; text-decoration: underline; text-underline-offset: 3px;">FamilyStyle</a>), tracking and ranking my favorite Chicago food spots (<a href="picks/" style="color: #fbbf24; font-weight: 700; text-decoration: underline; text-underline-offset: 3px;">Pratik's Picks</a>), or turning retro classics like Tetris and Snake on their heads (literally) (<a href="arcade/" style="color: #c084fc; font-weight: 700; text-decoration: underline; text-underline-offset: 3px;">Orbital Arcade</a>).
-    </p>
-    <div class="home-social-row">
-      <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="home-social-btn linkedin-btn" title="LinkedIn Profile">
-        <i class="fa-brands fa-linkedin" style="font-size: 1.1rem; color: #38bdf8;"></i> <span>LinkedIn Profile</span>
-      </a>
-      <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="FamilyStyle on App Store">
-        <i class="fa-brands fa-apple" style="font-size: 1.1rem;"></i> <span>App Store</span>
-      </a>
-      <a href="https://github.com/ppratik96" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="GitHub">
-        <i class="fa-brands fa-github" style="font-size: 1.1rem;"></i> <span>ppratik96</span>
-      </a>
-      <a href="https://beliapp.co/app/ppratik96" target="_blank" rel="noopener noreferrer" class="home-social-btn" title="Beli">
-        <img src="images/beli_logo.png" style="width: 15px; height: 15px; border-radius: 3px;" alt="Beli"> <span>Beli @ppratik96</span>
-      </a>
-    </div>
-  </section>
+    <!-- SIDE QUESTS / PROJECTS -->
+    <section>
+      <div class="section-label">Featured Projects</div>
 
-  <!-- MY VIBES SHOWCASE -->
-  <section class="content-section" id="vibes">
-    <div class="section-header-row">
-      <div>
-        <h2 class="section-title"><i class="fa-solid fa-wand-magic-sparkles" style="color: #38bdf8;"></i> My Vibes</h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Featured creations, apps, and interactive spaces.</p>
+      <div class="projects-grid">
+
+        <!-- FamilyStyle -->
+        <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="project-card">
+          <div class="project-header">
+            <div class="project-brand">
+              <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f8/f2/f2/f8f2f2d6-fe05-21aa-200b-8e3c6946da61/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/540x540bb.jpg" alt="FamilyStyle" style="width: 40px; height: 40px; border-radius: 10px;">
+              <div>
+                <div class="project-title">FamilyStyle!</div>
+              </div>
+            </div>
+            <span class="project-tag">iOS App Store</span>
+          </div>
+          <p class="project-desc">
+            The effortless bill-splitting app for group dining. Scan receipts with OCR, assign items in seconds, and send 1-tap Venmo charge requests via text—zero install needed for your friends.
+          </p>
+          <div class="project-footer">
+            <span>View on the App Store</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <!-- Pratik's Picks -->
+        <a href="picks/" class="project-card">
+          <div class="project-header">
+            <div class="project-brand">
+              <div class="project-icon" style="color: #fbbf24;"><i class="fa-solid fa-bowl-food"></i></div>
+              <div>
+                <div class="project-title">Pratik’s Picks</div>
+              </div>
+            </div>
+            <span class="project-tag">204 Chicago Spots &bull; Live Map</span>
+          </div>
+          <p class="project-desc">
+            My curated Chicago dining guide. 204 ranked restaurants synced with Beli ratings, verified dish photography reels, sticky Leaflet map, and random dish roulette.
+          </p>
+          <div class="project-footer" style="color: #fbbf24;">
+            <span>Explore the food guide &amp; map</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
+
+        <!-- Orbital Arcade -->
+        <a href="arcade/" class="project-card">
+          <div class="project-header">
+            <div class="project-brand">
+              <div class="project-icon" style="color: #c084fc;"><i class="fa-solid fa-meteor"></i></div>
+              <div>
+                <div class="project-title">Orbital Arcade</div>
+              </div>
+            </div>
+            <span class="project-tag">ESP32 AMOLED &bull; Web</span>
+          </div>
+          <p class="project-desc">
+            An arcade suite featuring <strong>Rotatetris</strong> (4-way rotating gravity puzzle) and <strong>RoSnake</strong> (gyro-steered snake). Engineered for the Waveshare ESP32-S3 AMOLED watch and playable in your browser.
+          </p>
+          <div class="project-footer" style="color: #c084fc;">
+            <span>Play in browser</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </div>
+        </a>
+
       </div>
-    </div>
+    </section>
 
-    <div class="vibes-grid">
+    <!-- EXPERIENCE & EDUCATION -->
+    <section>
+      <div class="section-label">Background &amp; Career</div>
 
-      <!-- CARD 1: FAMILYSTYLE -->
-      <article class="vibe-card">
-        <div class="vibe-badge vibe-badge-app"><i class="fa-brands fa-apple"></i> iOS App Store</div>
-        <div class="vibe-icon-wrap" style="background: rgba(56, 189, 248, 0.1);">
-          <img src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/f8/f2/f2/f8f2f2d6-fe05-21aa-200b-8e3c6946da61/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/540x540bb.jpg" alt="FamilyStyle Icon" style="width: 44px; height: 44px; border-radius: 10px;">
-        </div>
-        <h3 class="vibe-card-title">FamilyStyle!</h3>
-        <p class="vibe-card-desc">
-          The effortless receipt splitting app for group dining. Scan bills with OCR, assign items with a tap, and send automatic Venmo charge requests directly via text—no app required for your friends.
-        </p>
-        <div class="vibe-highlights">
-          <div class="vibe-highlight-item"><i class="fa-solid fa-camera"></i> Instant OCR Receipt Scanner</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-receipt"></i> Smart Tax &amp; Tip Calculation</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-paper-plane"></i> 1-Tap Venmo &amp; iMessage Requests</div>
-        </div>
-        <div class="vibe-action-group">
-          <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="vibe-cta-btn vibe-cta-primary">
-            <i class="fa-brands fa-apple"></i> Download on App Store
-          </a>
-        </div>
-      </article>
-
-      <!-- CARD 2: PRATIK'S PICKS -->
-      <article class="vibe-card">
-        <div class="vibe-badge vibe-badge-picks"><i class="fa-solid fa-trophy"></i> Dining Guide &bull; Live Map</div>
-        <div class="vibe-icon-wrap" style="background: rgba(245, 158, 11, 0.1); color: #fbbf24;">
-          <i class="fa-solid fa-bowl-food"></i>
-        </div>
-        <h3 class="vibe-card-title">Pratik’s Picks</h3>
-        <p class="vibe-card-desc">
-          My ultimate curated Chicago food guide. Explore 204 ranked restaurants (#1 to #204) synchronized with Beli scores, verified Instagram dish photography, interactive Leaflet live map, and dish roulette.
-        </p>
-        <div class="vibe-highlights">
-          <div class="vibe-highlight-item"><i class="fa-solid fa-ranking-star" style="color: #fbbf24;"></i> 204 Ranked Spots (#1 to #204)</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-map-location-dot" style="color: #fbbf24;"></i> Interactive Sticky Live Map</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-camera-retro" style="color: #fbbf24;"></i> 105+ Verified Food Story Photos</div>
-        </div>
-        <div class="vibe-action-group">
-          <a href="picks/" class="vibe-cta-btn vibe-cta-gold">
-            <i class="fa-solid fa-utensils"></i> Explore Picks &amp; Live Map &rarr;
-          </a>
-        </div>
-      </article>
-
-      <!-- CARD 3: ORBITAL ARCADE -->
-      <article class="vibe-card">
-        <div class="vibe-badge vibe-badge-arcade"><i class="fa-solid fa-gamepad"></i> ESP32-S3 AMOLED &bull; Web</div>
-        <div class="vibe-icon-wrap" style="background: rgba(192, 132, 252, 0.1); color: #c084fc;">
-          <i class="fa-solid fa-meteor"></i>
-        </div>
-        <h3 class="vibe-card-title">Orbital Arcade</h3>
-        <p class="vibe-card-desc">
-          An arcade suite featuring <strong>ROTATETRIS</strong> (4-way rotating gravity puzzle) and <strong>ROSNAKE</strong> (gyro-steered snake). Engineered for the Waveshare ESP32-S3 1.8" AMOLED and playable in browser.
-        </p>
-        <div class="vibe-highlights">
-          <div class="vibe-highlight-item"><i class="fa-solid fa-cube" style="color: #c084fc;"></i> Rotatetris: 4-Way Rotating Gravity Wells</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-compass" style="color: #c084fc;"></i> RoSnake: Gyro 3D Motion Vectoring</div>
-          <div class="vibe-highlight-item"><i class="fa-solid fa-microchip" style="color: #c084fc;"></i> Waveshare ESP32-S3 AMOLED 1.8"</div>
-        </div>
-        <div class="vibe-action-group">
-          <a href="arcade/" class="vibe-cta-btn vibe-cta-purple">
-            <i class="fa-solid fa-gamepad"></i> Play in Browser &rarr;
-          </a>
-          <a href="https://github.com/ppratik96/orbital-arcade" target="_blank" rel="noopener noreferrer" class="vibe-cta-btn vibe-cta-secondary">
-            <i class="fa-brands fa-github"></i> View GitHub Repo
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- PROFESSIONAL CV & EXPERIENCE -->
-  <section class="content-section" id="cv">
-    <div class="section-header-row">
-      <div>
-        <h2 class="section-title"><i class="fa-solid fa-briefcase" style="color: #38bdf8;"></i> Professional Experience &amp; CV</h2>
-        <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 4px;">Senior Technical Program Management, Applied AI Solutions &amp; Cybersecurity.</p>
-      </div>
-      <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="vibe-cta-btn vibe-cta-primary" style="width: auto; padding: 0.55rem 1.25rem;">
-        <i class="fa-brands fa-linkedin"></i> Connect on LinkedIn &rarr;
-      </a>
-    </div>
-
-    <div class="cv-grid">
-
-      <!-- LEFT: WORK EXPERIENCE -->
-      <div class="cv-card">
-        <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 8px;">
-          <i class="fa-solid fa-building" style="color: #38bdf8;"></i> Career History
-        </h3>
-
-        <!-- Google -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-company">
-            <span>Google</span>
-            <span class="timeline-dates">Aug 2021 – Present &bull; 5+ yrs</span>
+      <div class="experience-list">
+        <div class="exp-item">
+          <div class="exp-left">
+            <span class="exp-company">Google</span>
+            <span class="exp-role">Senior TPM, Applied Data &amp; AI Solutions &bull; Prev: Senior InfoSec Auditor</span>
           </div>
-          <div class="timeline-role">Senior TPM – Applied Data &amp; AI Solutions <span style="font-size:0.75rem; color:#38bdf8; font-weight:600;">(Nov 2024 – Present)</span></div>
-          <ul class="timeline-bullets">
-            <li>Product Owner and Technical Program Manager on the <strong>Applied Data and AI Solutions</strong> team within Global Security Systems and Technology (GSST).</li>
-            <li>Directing end-to-end delivery of applied AI initiatives, data infrastructure, and intelligent automation systems.</li>
-          </ul>
-
-          <div class="timeline-role" style="margin-top: 1rem;">Senior Information Security Auditor <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">(May 2023 – Nov 2024)</span></div>
-          <ul class="timeline-bullets">
-            <li>Delivered high-impact security audits and technical assessments in the Privacy, Security, and Infrastructure team across Core Dev, Cloud, Trust &amp; Safety, Global Affairs, ARRIS, and GSRS.</li>
-            <li>Led cross-functional audits spanning Employee Identity Verification, Vulnerability Management, Cloud Security, Corporate Endpoints, and SEC Reporting.</li>
-          </ul>
-
-          <div class="timeline-role" style="margin-top: 0.75rem;">Information Security Auditor <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">(Aug 2021 – May 2023)</span></div>
+          <span class="exp-dates">2021 – Present</span>
         </div>
 
-        <!-- Protiviti -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-company">
-            <span>Protiviti</span>
-            <span class="timeline-dates">July 2018 – Aug 2021 &bull; 3+ yrs</span>
+        <div class="exp-item">
+          <div class="exp-left">
+            <span class="exp-company">Protiviti</span>
+            <span class="exp-role">Senior Technology Consultant &bull; NYC Innovation Site Resident</span>
           </div>
-          <div class="timeline-role">Senior Technology Consultant – Security &amp; Privacy</div>
-          <ul class="timeline-bullets">
-            <li>Trusted advisor providing strategic solutions and assessments to CISO &amp; Director-level leadership across major tech companies and financial institutions ($2.5M+ revenue impact).</li>
-            <li>Selected as resident of <strong>Protiviti’s New York Innovation Site</strong>; Product Owner for firm-wide secure Git code collaboration platform.</li>
-            <li><strong>Top 5 Global Innovation Finalist</strong> for designing automated engagement KPI dashboards using Design Thinking &amp; Agile.</li>
-            <li>Achieved highest <em>"Exemplary"</em> and <em>"Distinguished"</em> ratings across 8 consecutive project evaluations.</li>
-          </ul>
+          <span class="exp-dates">2018 – 2021</span>
         </div>
 
-        <!-- Bank of America & Stevens -->
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-company">
-            <span>Bank of America &amp; Stevens Institute</span>
-            <span class="timeline-dates">2014 – 2018</span>
+        <div class="exp-item">
+          <div class="exp-left">
+            <span class="exp-company">Stevens Institute of Technology</span>
+            <span class="exp-role">M.S. in Information Systems (4.0 GPA) &bull; B.S. in Business &amp; Technology</span>
           </div>
-          <div class="timeline-role">Teaching Assistant &bull; Global Information Security Intern</div>
-          <ul class="timeline-bullets">
-            <li><strong>Bank of America:</strong> Project Manager &amp; Business Analyst on the winning team of the 2016 GIS Summer Intern Competition.</li>
-            <li><strong>Stevens:</strong> Teaching Assistant for <em>Programming for Mobile Applications</em> and <em>Business Process Management</em>.</li>
-          </ul>
+          <span class="exp-dates">Class of 2018</span>
         </div>
       </div>
 
-      <!-- RIGHT: EDUCATION & CERTIFICATIONS -->
-      <div style="display: flex; flex-direction: column; gap: 1.75rem;">
-        
-        <!-- Education Card -->
-        <div class="cv-card">
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-graduation-cap" style="color: #fbbf24;"></i> Education
-          </h3>
-          
-          <div class="edu-card">
-            <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Stevens Institute of Technology</div>
-            <div style="color: #fbbf24; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">M.S. in Information Systems &bull; Class of 2018</div>
-            <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 2px;">GPA 4.0 / 4.0 &bull; High Honors &bull; Service Innovation</div>
-          </div>
-
-          <div class="edu-card">
-            <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Stevens Institute of Technology</div>
-            <div style="color: #38bdf8; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">B.S. in Business &amp; Technology &bull; Class of 2018</div>
-            <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 2px;">GPA 3.8 / 4.0 &bull; High Honors &bull; Beta Gamma Sigma</div>
-          </div>
-
-          <div class="edu-card">
-            <div style="font-weight: 800; font-size: 1.05rem; color: #fff;">Fort Hays State University</div>
-            <div style="color: #c084fc; font-size: 0.85rem; font-weight: 700; margin-top: 2px;">Kansas Academy of Mathematics &amp; Science</div>
-            <div style="color: var(--text-muted); font-size: 0.78rem; margin-top: 2px;">Accelerated STEM Honors Residency (2012 – 2014)</div>
-          </div>
-        </div>
-
-        <!-- Certifications & Honors Card -->
-        <div class="cv-card">
-          <h3 style="font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-award" style="color: #c084fc;"></i> Certifications &amp; Honors
-          </h3>
-          <div class="cert-pill-group">
-            <span class="cert-pill"><i class="fa-solid fa-certificate" style="color:#fbbf24;"></i> Certified ScrumMaster® (CSM)</span>
-            <span class="cert-pill"><i class="fa-solid fa-users-gear" style="color:#38bdf8;"></i> LUMA Human-Centered Design</span>
-            <span class="cert-pill"><i class="fa-solid fa-trophy" style="color:#fbbf24;"></i> Beta Gamma Sigma Honor Society</span>
-            <span class="cert-pill"><i class="fa-solid fa-star" style="color:#f43f5e;"></i> Outstanding Senior Design Award</span>
-            <span class="cert-pill"><i class="fa-solid fa-robot" style="color:#38bdf8;"></i> Applied AI &amp; Data Solutions</span>
-            <span class="cert-pill"><i class="fa-solid fa-shield-halved" style="color:#10b981;"></i> Cloud &amp; Infrastructure Security</span>
-          </div>
-        </div>
-
+      <div style="text-align: center; margin-bottom: 4rem;">
+        <a href="https://www.linkedin.com/in/ppratik96/" target="_blank" rel="noopener noreferrer" class="social-link" style="padding: 8px 18px; font-size: 0.88rem;">
+          <i class="fa-brands fa-linkedin" style="color: #38bdf8;"></i> See complete work history on LinkedIn &rarr;
+        </a>
       </div>
+    </section>
 
-    </div>
-  </section>
+    <!-- FOOTER -->
+    <footer class="simple-footer">
+      <span>&copy; 2026 Pratik Patel</span>
+      <span>Chicago, IL</span>
+    </footer>
 
-  <!-- FOOTER -->
-  <footer class="home-footer">
-    <p>&copy; 2026 Pratik Patel. Senior TPM at Google &bull; Built with passion in Chicago.</p>
-  </footer>
+  </div>
 
   <script>
-    // Theme toggle
-    const darkBtn = document.getElementById("theme-btn-dark");
-    const lightBtn = document.getElementById("theme-btn-light");
+    // Minimal theme toggle
+    const themeBtn = document.getElementById("theme-btn");
+    const themeIcon = document.getElementById("theme-icon");
     
     function setTheme(theme) {
       document.documentElement.setAttribute("data-theme", theme);
       localStorage.setItem("theme", theme);
-      if (darkBtn && lightBtn) {
-        darkBtn.classList.toggle("active", theme === "dark");
-        lightBtn.classList.toggle("active", theme === "light");
+      if (themeIcon) {
+        themeIcon.className = theme === "dark" ? "fa-solid fa-moon" : "fa-solid fa-sun";
       }
     }
     
-    if (darkBtn) darkBtn.addEventListener("click", () => setTheme("dark"));
-    if (lightBtn) lightBtn.addEventListener("click", () => setTheme("light"));
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const current = document.documentElement.getAttribute("data-theme") || "dark";
+        setTheme(current === "dark" ? "light" : "dark");
+      });
+    }
     
     const savedTheme = localStorage.getItem("theme") || "dark";
     setTheme(savedTheme);
