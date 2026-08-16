@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>FamilyStyle! — Effortless Group Bill Splitting</title>
-  <meta name="description" content="Pass the plate, not the bill. FamilyStyle handles the rest. Instant OCR receipt scanning, smart tax & tip splits, and automated Venmo requests.">
-  <link rel="icon" href="images/pratik_avatar.jpg?v=108.0">
+  <title>FamilyStyle! — Effortless Group Bill Splitting &amp; Privacy Policy</title>
+  <meta name="description" content="Pass the plate, not the bill. FamilyStyle handles the rest. Instant OCR receipt scanning, smart tax & tip splits, and automated Venmo requests. Official Privacy Policy included.">
+  <link rel="icon" href="images/pratik_avatar.jpg?v=109.0">
 
   <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="css/style.css?v=108.0">
+  <link rel="stylesheet" href="css/style.css?v=109.0">
 
   <style>
     :root {
@@ -176,7 +176,7 @@
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
     }
 
-    /* FEATURES */
+    /* SECTIONS */
     .section-header {
       display: flex;
       justify-content: space-between;
@@ -200,11 +200,12 @@
       letter-spacing: -0.01em;
     }
 
+    /* FEATURES GRID */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 1.25rem;
-      margin-bottom: 4.5rem;
+      margin-bottom: 5rem;
     }
     .feature-card {
       background: var(--card-bg);
@@ -237,6 +238,57 @@
       color: var(--text-muted);
       line-height: 1.6;
       margin: 0;
+    }
+
+    /* PRIVACY POLICY CONTAINER */
+    .privacy-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem 2rem;
+      margin-bottom: 4.5rem;
+      scroll-margin-top: 2rem;
+    }
+    .privacy-body {
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+    }
+    .privacy-body p {
+      margin-bottom: 1.25rem;
+    }
+    .privacy-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-top: 2.2rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .privacy-body ul {
+      margin-bottom: 1.25rem;
+      padding-left: 1.5rem;
+      color: var(--text-muted);
+    }
+    .privacy-body li {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+    .privacy-body a {
+      color: var(--terracotta);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .highlight-box {
+      background: var(--terracotta-tint);
+      border: 1px solid var(--terracotta-border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      margin: 1.5rem 0;
+      color: var(--text);
+      font-size: 1rem;
     }
 
     /* FOOTER */
@@ -272,7 +324,8 @@
         <i class="fa-solid fa-arrow-left"></i> <span>Pratik Patel</span>
       </a>
       <div class="nav-links">
-        <a href="privacy.html" class="nav-pill">Privacy Policy</a>
+        <a href="#features" class="nav-pill">Features</a>
+        <a href="#privacy" class="nav-pill">Privacy Policy</a>
         <a href="https://apps.apple.com/us/app/familystyle/id6761743135?itscg=30200&itsct=apps_box_badge&mttnsubad=6761743135" target="_blank" rel="noopener noreferrer" class="nav-pill" style="color: var(--terracotta); border-color: var(--terracotta-border);">
           <i class="fa-brands fa-apple"></i> App Store
         </a>
@@ -298,8 +351,8 @@
       <img src="images/familystyle_preview_2.png" alt="FamilyStyle Screenshot 2" class="screenshot-img">
     </div>
 
-    <!-- FEATURES -->
-    <section>
+    <!-- SECTION 01: FEATURES -->
+    <section id="features">
       <div class="section-header">
         <span class="section-title">Key Features</span>
         <span class="section-num">01 / CAPABILITIES</span>
@@ -358,10 +411,89 @@
       </div>
     </section>
 
+    <!-- SECTION 02: PRIVACY POLICY (MERGED DIRECTLY) -->
+    <section id="privacy">
+      <div class="section-header">
+        <span class="section-title">Privacy Policy</span>
+        <span class="section-num">02 / LEGAL</span>
+      </div>
+
+      <div class="privacy-section">
+        <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted); margin-bottom: 0.5rem;">
+          LAST UPDATED: APRIL 28, 2026
+        </div>
+        <h2 style="font-family: var(--font-serif); font-size: 1.75rem; font-weight: 500; margin-bottom: 1.25rem; color: var(--text);">
+          Privacy Policy for FamilyStyle
+        </h2>
+
+        <div class="privacy-body">
+          <p>
+            FamilyStyle ("we", "our", or "us") is committed to protecting your privacy. This Privacy Policy explains how our mobile application handles your information.
+          </p>
+
+          <div class="highlight-box">
+            <strong>Our core philosophy is simple:</strong> We do not collect, store, or sell your personal data.
+          </div>
+
+          <h3>1. Information Collection and Storage</h3>
+          <p>
+            FamilyStyle is designed to operate primarily offline and on-device. We do not require you to create an account, and we do not maintain a database of our users.
+          </p>
+          <ul>
+            <li><strong>Bill History &amp; Settings:</strong> All data you enter into the app—including bill amounts, custom items, friend names, and Venmo usernames—is stored strictly locally on your device. We do not have access to this information.</li>
+          </ul>
+
+          <h3>2. Camera and Photos (Receipt Scanning)</h3>
+          <p>
+            To use our "Smart Scan" feature, the app requires access to your device's camera and photo library.
+          </p>
+          <ul>
+            <li><strong>Ephemeral Processing:</strong> When you scan or upload a receipt, the image is transmitted to a secure, automated cloud service strictly for the purpose of real-time text extraction (OCR).</li>
+            <li><strong>No Retention:</strong> The image is processed in real-time and is <strong>immediately discarded</strong> by the server. It is never saved, stored, logged, or used to train AI models.</li>
+          </ul>
+
+          <h3>3. Contacts</h3>
+          <p>
+            FamilyStyle may request access to your device's contacts to help you quickly send bill totals to your friends.
+          </p>
+          <ul>
+            <li><strong>Local Use Only:</strong> Your contact list is accessed locally on your device to populate the native SMS messenger. We <strong>never</strong> transmit your contact list to our servers or any third-party databases.</li>
+          </ul>
+
+          <h3>4. Third-Party Services</h3>
+          <p>
+            While we do not collect data, the app interacts with a few third-party services to function:
+          </p>
+          <ul>
+            <li><strong>Google Cloud / Gemini:</strong> Used exclusively for real-time, ephemeral receipt scanning.</li>
+            <li><strong>Venmo:</strong> We generate deep links to the Venmo app to facilitate payments between you and your friends. We do not process, track, or have visibility into any financial transactions.</li>
+          </ul>
+
+          <h3>5. Children's Privacy</h3>
+          <p>
+            Because we do not collect personal information, our service does not actively collect data from anyone, including children under the age of 13.
+          </p>
+
+          <h3>6. Changes to This Privacy Policy</h3>
+          <p>
+            We may update our Privacy Policy from time to time. If we make material changes, we will notify you by updating the "Last Updated" date at the top of this policy.
+          </p>
+
+          <h3>7. Contact Us</h3>
+          <p>
+            If you have any questions or suggestions about our Privacy Policy, please reach out to us at:
+          </p>
+          <p>
+            <a href="mailto:familystyleapp@gmail.com"><strong>familystyleapp@gmail.com</strong></a>
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- FOOTER -->
     <footer class="claude-footer">
       <div>
-        <a href="./" class="footer-link">&copy; 2026 PRATIK PATEL</a> &bull; <a href="privacy.html" class="footer-link">PRIVACY POLICY</a>
+        <a href="./" class="footer-link">&copy; 2026 PRATIK PATEL</a> &bull; <a href="#privacy" class="footer-link">PRIVACY POLICY</a>
       </div>
       <div>
         <a href="mailto:familystyleapp@gmail.com" class="footer-link">FAMILYSTYLEAPP@GMAIL.COM</a>
