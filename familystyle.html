@@ -161,19 +161,55 @@
     }
 
     /* SCREENSHOTS SHOWCASE */
+    .screenshots-container {
+      margin-bottom: 5rem;
+      position: relative;
+    }
+    .screenshots-header-note {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      padding: 0 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      color: var(--text-muted);
+    }
     .screenshots-row {
       display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-bottom: 4.5rem;
+      gap: 1.25rem;
       overflow-x: auto;
-      padding: 1rem 0;
+      padding: 0.5rem 0.25rem 1.5rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-hover) transparent;
+    }
+    .screenshots-row::-webkit-scrollbar {
+      height: 6px;
+    }
+    .screenshots-row::-webkit-scrollbar-thumb {
+      background: var(--border-hover);
+      border-radius: 10px;
+    }
+    .screenshot-card {
+      flex: 0 0 250px;
+      scroll-snap-align: center;
+      border-radius: 22px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+    }
+    .screenshot-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
     }
     .screenshot-img {
-      width: 260px;
-      border-radius: 28px;
-      border: 1px solid var(--border);
-      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+      width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* SECTIONS */
@@ -346,9 +382,31 @@
     </section>
 
     <!-- APP PREVIEW SCREENSHOTS -->
-    <div class="screenshots-row">
-      <img src="images/familystyle_preview_1.png" alt="FamilyStyle Screenshot 1" class="screenshot-img">
-      <img src="images/familystyle_preview_2.png" alt="FamilyStyle Screenshot 2" class="screenshot-img">
+    <div class="screenshots-container">
+      <div class="screenshots-header-note">
+        <span>APP PREVIEW</span>
+        <span>SCROLL TO EXPLORE &rarr;</span>
+      </div>
+      <div class="screenshots-row">
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-01-1242x2688.png?v=110.0" alt="FamilyStyle Split Screen" class="screenshot-img" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-02-1242x2688.png?v=110.0" alt="FamilyStyle Smart OCR Scan" class="screenshot-img" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-03-1242x2688.png?v=110.0" alt="FamilyStyle Item Assignment" class="screenshot-img" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-04-1242x2688.png?v=110.0" alt="FamilyStyle Tax & Tip Summary" class="screenshot-img" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-06-1242x2688.png?v=110.0" alt="FamilyStyle 1-Tap Venmo Charge" class="screenshot-img" loading="lazy">
+        </div>
+        <div class="screenshot-card">
+          <img src="images/familystyle-appshotty-07-1242x2688.png?v=110.0" alt="FamilyStyle History & Tabs" class="screenshot-img" loading="lazy">
+        </div>
+      </div>
     </div>
 
     <!-- SECTION 01: FEATURES -->
