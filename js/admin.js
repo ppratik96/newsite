@@ -1479,127 +1479,334 @@ const StudioApp = {
     const lines = raw.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
     const parsedItems = [];
 
-    // Pattern 1: Single line like "1. Liuyishou Hotpot 10.0" or "#4 Indienne - 9.9"
-    const singleLineRegex = /^#?(\d{1,3})[\.\)\s\-]+(.+?)(?:[\s\-–•]+(\d{1,2}\.\d))?$/;
+    const isDistanceLine = (str) => /^\d+(\.\d+)?\s*(mi|miles|km|ft)\b/i.test(str) || /\b\d+(\.\d+)?\s*(mi|miles|km|ft)\s*$/i.test(str);
+
+    // Must start with 1..999 followed by '.' or ')' and either whitespace or a letter (never "2.4 mi" or "0.2 mi")
+    const rankHeaderRegex = /^#?([1-9]\d{0,2})[\.\)](?:\s+(.+)|([A-Za-z].+))$/;
 
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
-      const match = line.match(singleLineRegex);
-      if (match) {
-        const rank = parseInt(match[1], 10);
-        let name = match[2].trim();
-        let score = match[3] ? parseFloat(match[3]) : null;
+      if (isDistanceLine(line)) continue;
 
-        // If score wasn't on the same line, look ahead 1-3 lines (multi-line Beli screenshot format)
+      const match = line.match(rankHeaderRegex);
+      if (!match) continue;
+
+      const listNum = parseInt(match[1], 10);
+      let restOfLine = (match[2] || match[3] || "").trim();
+
+      // Reject if restOfLine is just a distance or number
+      if (isDistanceLine(restOfLine) || /^\d+(\.\d+)?$/.test(restOfLine)) continue;
+
+      let name = restOfLine;
+      let score = null;
+
+      // Check if score (0.0 - 10.0) is at the end of the title line
+      const trailingScore = name.match(/^(.+?)\s*[\s\-–•]+\(?(\d{1,2}\.\d)\)?$/);
+      if (trailingScore) {
+        const candidateScore = parseFloat(trailingScore[2]);
+        if (candidateScore >= 0 && candidateScore <= 10.0) {
+          name = trailingScore[1].trim();
+          score = candidateScore;
+        }
+      }
+
+      // Collect sub-lines belonging to this restaurant until the next numbered restaurant line
+      const subLines = [];
+      let k = i + 1;
+      while (k < lines.length) {
+        const nextLine = lines[k];
+        if (!isDistanceLine(nextLine) && rankHeaderRegex.test(nextLine)) {
+          break;
+        }
+        subLines.push(nextLine);
+        k++;
+      }
+
+      let price = null;
+      let cuisines = [];
+      let neighborhood = null;
+      let city = null;
+
+      for (const sub of subLines) {
+        if (isDistanceLine(sub)) continue;
+
+        // Standalone score line
         if (score === null) {
-          for (let j = 1; j <= 3 && (i + j) < lines.length; j++) {
-            const scoreMatch = lines[i + j].match(/^(\d{1,2}\.\d)$/);
-            if (scoreMatch) {
-              score = parseFloat(scoreMatch[1]);
-              break;
+          const scoreOnly = sub.match(/^\(?(\d{1,2}\.\d)\)?$/);
+          if (scoreOnly) {
+            const val = parseFloat(scoreOnly[1]);
+            if (val >= 0 && val <= 10.0) {
+              score = val;
+              continue;
             }
           }
         }
 
-        // Clean trailing score if still attached to name
-        const trailingScore = name.match(/(.+?)\s+(\d{1,2}\.\d)$/);
-        if (trailingScore && score === null) {
-          name = trailingScore[1].trim();
-          score = parseFloat(trailingScore[2]);
+        // Price + Cuisines line: e.g. "$$ - Noodles, Chinese, Asian" or "$$$ • Chinese, Hot Pot"
+        const priceCuisineMatch = sub.match(/^([\$S]{1,4})\s*[\-–—•\|·]+\s*(.+)$/);
+        if (priceCuisineMatch && !price) {
+          price = "$".repeat(Math.min(4, priceCuisineMatch[1].length));
+          cuisines = priceCuisineMatch[2]
+            .split(/[,•\|·]/)
+            .map(s => s.trim())
+            .filter(s => s.length > 1 && !isDistanceLine(s));
+          continue;
         }
 
-        if (name && name.length >= 2) {
-          parsedItems.push({ rank, name, score });
+        // Location line: e.g. "{} « Armour Square, Chicago, IL"
+        const cleanLoc = sub
+          .replace(/^[^a-zA-Z0-9]+/, "")
+          .replace(/\s+\d+(\.\d+)?\s*(mi|miles|km|ft).*$/i, "")
+          .trim();
+
+        if (!neighborhood && cleanLoc.includes(",")) {
+          const parts = cleanLoc.split(",").map(s => s.trim()).filter(Boolean);
+          // Check if last part is a 2-letter state code (e.g. IL, NY, CA) or city
+          if (parts.length >= 2 && (/^[A-Z]{2}$/.test(parts[parts.length - 1]) || /chicago|new york|los angeles|boston|denver|san diego/i.test(cleanLoc))) {
+            neighborhood = parts[0];
+            city = parts[1];
+          }
         }
       }
+
+      // Skip if name has no letters or is too short
+      if (!/[a-zA-Z]{2,}/.test(name)) continue;
+
+      parsedItems.push({
+        listNum,
+        name,
+        score,
+        price,
+        cuisines,
+        neighborhood,
+        city
+      });
+
+      // Advance loop to end of subLines
+      i = k - 1;
     }
 
     if (parsedItems.length === 0) {
-      previewBox.innerHTML = `<div style="color: #fda4af; font-size: 0.82rem; padding: 0.75rem;">Could not detect numbered lines (e.g. <code>1. Indienne 9.9</code>). Check the format and try again.</div>`;
+      previewBox.innerHTML = `<div style="color: #fda4af; font-size: 0.82rem; padding: 0.75rem;">Could not detect numbered restaurants (e.g. <code>1. Indienne 9.9</code>). Check the text and try again.</div>`;
       if (applyBtn) applyBtn.style.display = "none";
       return;
     }
 
+    // Detect if screenshot was sorted by "Date added" (or scores increase between items)
+    let hasScoreInversion = false;
+    for (let idx = 1; idx < parsedItems.length; idx++) {
+      if (parsedItems[idx].score !== null && parsedItems[idx - 1].score !== null && parsedItems[idx].score > parsedItems[idx - 1].score) {
+        hasScoreInversion = true;
+        break;
+      }
+    }
+    const isDateAddedHeader = /date\s*added/i.test(raw);
+    this.beliPlacementMode = (isDateAddedHeader || hasScoreInversion) ? "by_score" : "by_score";
+
     // Match against existing restaurants
-    this.pendingBeliImport = parsedItems.map(item => {
+    this.pendingBeliImport = parsedItems.map((item, idx) => {
       const normName = item.name.toLowerCase().replace(/[^a-z0-9]/g, "");
       const existing = this.rankings.find(r => {
         const rNorm = r.name.toLowerCase().replace(/[^a-z0-9]/g, "");
-        return rNorm === normName || rNorm.includes(normName) || normName.includes(rNorm);
+        if (rNorm === normName) return true;
+        const shorterLen = Math.min(rNorm.length, normName.length);
+        return shorterLen >= 6 && (rNorm.includes(normName) || normName.includes(rNorm));
       });
+
+      const effectiveScore = item.score !== null ? item.score : (existing ? existing.score : 8.5);
+      const suggestedScoreRank = this.computeRankForScore(effectiveScore, existing ? existing.id : null);
+      const isUnchangedExisting = Boolean(
+        existing &&
+        Math.abs((existing.score || 0) - effectiveScore) < 0.01 &&
+        (this.beliPlacementMode === "by_score" || existing.rank === item.listNum)
+      );
+
       return {
         ...item,
+        score: effectiveScore,
         matchedId: existing ? existing.id : null,
         existingName: existing ? existing.name : null,
         oldRank: existing ? existing.rank : null,
-        oldScore: existing ? existing.score : null
+        oldScore: existing ? existing.score : null,
+        suggestedScoreRank,
+        selected: !isUnchangedExisting
       };
     });
 
+    this.renderBeliPreview();
+  },
+
+  computeRankForScore(score, excludeId = null) {
+    const list = excludeId ? this.rankings.filter(r => r.id !== excludeId) : this.rankings;
+    for (let i = 0; i < list.length; i++) {
+      if ((list[i].score || 0) < score) {
+        return i + 1;
+      }
+    }
+    return list.length + 1;
+  },
+
+  setBeliPlacementMode(mode) {
+    this.beliPlacementMode = mode;
+    if (this.pendingBeliImport) {
+      this.pendingBeliImport.forEach(p => {
+        const isUnchanged = Boolean(
+          p.matchedId &&
+          Math.abs((p.oldScore || 0) - p.score) < 0.01 &&
+          (mode === "by_score" || p.oldRank === p.listNum)
+        );
+        p.selected = !isUnchanged;
+      });
+    }
+    this.renderBeliPreview();
+  },
+
+  toggleBeliImportItem(idx) {
+    if (!this.pendingBeliImport || !this.pendingBeliImport[idx]) return;
+    this.pendingBeliImport[idx].selected = !this.pendingBeliImport[idx].selected;
+    this.renderBeliPreview();
+  },
+
+  renderBeliPreview() {
+    const previewBox = document.getElementById("beli-parse-preview");
+    const applyBtn = document.getElementById("beli-apply-btn");
+    if (!previewBox || !this.pendingBeliImport) return;
+
+    const byScore = this.beliPlacementMode === "by_score";
+    const selectedCount = this.pendingBeliImport.filter(p => p.selected).length;
+
     previewBox.innerHTML = `
-      <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-emerald); margin-bottom: 0.5rem;">
-        Found ${this.pendingBeliImport.length} restaurant${this.pendingBeliImport.length > 1 ? "s" : ""}:
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; margin-bottom: 0.6rem; flex-wrap: wrap;">
+        <div style="font-size: 0.82rem; font-weight: 800; color: var(--accent-emerald);">
+          Found ${this.pendingBeliImport.length} restaurant${this.pendingBeliImport.length > 1 ? "s" : ""} (${selectedCount} selected)
+        </div>
+        <div style="display: flex; gap: 4px; background: rgba(15,23,42,0.9); padding: 3px; border-radius: 999px; border: 1px solid var(--glass-border);">
+          <button type="button" onclick="StudioApp.setBeliPlacementMode('by_score')" style="border: none; padding: 4px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; cursor: pointer; background: ${byScore ? "var(--accent-blue)" : "transparent"}; color: ${byScore ? "#000" : "var(--text-secondary)"};">
+            🎯 Rank by Score
+          </button>
+          <button type="button" onclick="StudioApp.setBeliPlacementMode('screenshot_num')" style="border: none; padding: 4px 10px; border-radius: 999px; font-size: 0.7rem; font-weight: 700; cursor: pointer; background: ${!byScore ? "var(--accent-blue)" : "transparent"}; color: ${!byScore ? "#000" : "var(--text-secondary)"};">
+            🔢 Screenshot #
+          </button>
+        </div>
       </div>
-      <div style="display: flex; flex-direction: column; gap: 0.4rem; max-height: 260px; overflow-y: auto;">
-        ${this.pendingBeliImport.map(p => `
-          <div style="background: rgba(15,23,42,0.85); border: 1px solid var(--glass-border); border-radius: 10px; padding: 0.5rem 0.7rem; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
-            <div>
-              <strong>#${p.rank} ${this.escapeHtml(p.existingName || p.name)}</strong>
-              <div style="font-size: 0.7rem; color: var(--text-secondary);">
-                ${p.matchedId ? `Matched existing (#${p.oldRank} → #${p.rank})` : `🆕 New restaurant`}
+
+      <div style="display: flex; flex-direction: column; gap: 0.45rem;">
+        ${this.pendingBeliImport.map((p, idx) => {
+          const targetRank = byScore ? p.suggestedScoreRank : p.listNum;
+          const metaParts = [];
+          if (p.price) metaParts.push(p.price);
+          if (p.cuisines && p.cuisines.length) metaParts.push(p.cuisines.slice(0, 3).join(", "));
+          if (p.neighborhood) metaParts.push(p.neighborhood);
+
+          let statusHtml = "";
+          if (p.matchedId) {
+            if (Math.abs((p.oldScore || 0) - p.score) < 0.01 && (byScore || p.oldRank === targetRank)) {
+              statusHtml = `<span style="color: var(--text-muted);">✓ Already #${p.oldRank} (★ ${p.oldScore.toFixed(1)}) — Unchanged</span>`;
+            } else {
+              statusHtml = `<span style="color: var(--accent-blue);">🔄 Update #${p.oldRank} → #${targetRank} (★ ${(p.oldScore || 0).toFixed(1)} → ★ ${p.score.toFixed(1)})</span>`;
+            }
+          } else {
+            statusHtml = `<span style="color: var(--accent-emerald);">🆕 New spot → Places at #${targetRank}</span>`;
+          }
+
+          return `
+            <div onclick="StudioApp.toggleBeliImportItem(${idx})" style="background: rgba(15,23,42,0.88); border: 1px solid ${p.selected ? "rgba(56,189,248,0.45)" : "var(--glass-border)"}; opacity: ${p.selected ? "1" : "0.55"}; border-radius: 12px; padding: 0.6rem 0.75rem; display: flex; justify-content: space-between; align-items: center; gap: 0.65rem; cursor: pointer;">
+              <input type="checkbox" ${p.selected ? "checked" : ""} onclick="event.stopPropagation(); StudioApp.toggleBeliImportItem(${idx})" style="width: 18px; height: 18px; accent-color: var(--accent-blue); flex-shrink: 0;">
+              <div style="flex: 1; min-width: 0;">
+                <div style="font-weight: 800; font-size: 0.88rem; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                  ${this.escapeHtml(p.existingName || p.name)}
+                </div>
+                <div style="font-size: 0.72rem; margin-top: 2px;">${statusHtml}</div>
+                ${metaParts.length ? `<div style="font-size: 0.68rem; color: var(--text-secondary); margin-top: 2px;">${this.escapeHtml(metaParts.join(" • "))}</div>` : ""}
               </div>
+              <span class="score-pill" style="background: ${this.getScoreGradient(p.score)};">
+                ★ ${p.score.toFixed(1)}
+              </span>
             </div>
-            <span class="score-pill" style="background: ${this.getScoreGradient(p.score || p.oldScore || 9.0)};">
-              ★ ${(p.score || p.oldScore || 9.0).toFixed(1)}
-            </span>
-          </div>
-        `).join("")}
+          `;
+        }).join("")}
       </div>
     `;
 
-    if (applyBtn) applyBtn.style.display = "flex";
+    if (applyBtn) {
+      applyBtn.style.display = selectedCount > 0 ? "flex" : "none";
+      applyBtn.innerHTML = `<i class="fa-solid fa-check-double"></i> Apply ${selectedCount} Beli Update${selectedCount === 1 ? "" : "s"}`;
+    }
   },
 
   async applyParsedBeliChanges() {
-    if (!this.pendingBeliImport || !this.pendingBeliImport.length) return;
+    if (!this.pendingBeliImport) return;
+    const selectedItems = this.pendingBeliImport.filter(p => p.selected);
+    if (!selectedItems.length) {
+      this.showToast("Select at least one restaurant to apply");
+      return;
+    }
 
+    const byScore = this.beliPlacementMode === "by_score";
     let updatedCount = 0;
     let addedCount = 0;
 
-    // Sort by target rank ascending
-    const sorted = [...this.pendingBeliImport].sort((a, b) => a.rank - b.rank);
+    this.showToast("⏳ Applying Beli updates & locating new spots...");
 
-    for (const item of sorted) {
+    for (const item of selectedItems) {
       if (item.matchedId) {
         const rest = this.rankings.find(r => r.id === item.matchedId);
         if (rest) {
-          if (typeof item.score === "number" && !isNaN(item.score)) {
-            rest.score = item.score;
-          }
+          rest.score = item.score;
+          if (item.price) rest.price = item.price;
+          if (item.cuisines && item.cuisines.length) rest.cuisines = item.cuisines;
+          if (item.neighborhood) rest.neighborhood = item.neighborhood;
+          if (item.city) rest.city = item.city;
+
           const idx = this.rankings.indexOf(rest);
           this.rankings.splice(idx, 1);
-          const targetIdx = Math.max(0, Math.min(this.rankings.length, item.rank - 1));
+          const targetRank = byScore ? this.computeRankForScore(rest.score) : item.listNum;
+          const targetIdx = Math.max(0, Math.min(this.rankings.length, targetRank - 1));
           this.rankings.splice(targetIdx, 0, rest);
           updatedCount++;
         }
       } else {
-        const id = this.slugify(item.name);
+        let id = this.slugify(item.name);
+        if (this.rankings.some(r => r.id === id)) {
+          id = `${id}-${Math.random().toString(36).substring(2, 5)}`;
+        }
+
+        const city = item.city || "Chicago";
+        let neighborhood = item.neighborhood || "Chicago";
+        let lat = 41.8842;
+        let lng = -87.6481;
+
+        try {
+          const geo = await this.lookupGeocodeCandidates(`${item.name} ${city}`);
+          if (geo.length > 0) {
+            lat = geo[0].lat;
+            lng = geo[0].lng;
+            if (!item.neighborhood && geo[0].neighborhood) {
+              neighborhood = geo[0].neighborhood;
+            }
+          }
+        } catch (e) {
+          console.warn("Geocode skipped for", item.name);
+        }
+
         const newSpot = {
-          rank: item.rank,
+          rank: 1,
           name: item.name,
-          score: item.score || 9.0,
-          price: "$$",
-          cuisines: ["Restaurant"],
-          neighborhood: "Chicago",
-          city: "Chicago",
+          score: item.score,
+          price: item.price || "$$",
+          cuisines: (item.cuisines && item.cuisines.length) ? item.cuisines : ["Restaurant"],
+          neighborhood,
+          city,
           notes: null,
           id,
-          lat: 41.8842,
-          lng: -87.6481,
+          lat,
+          lng,
           photos: [],
-          google_maps_url: `https://maps.google.com/?q=${encodeURIComponent(item.name + " Chicago")}`
+          google_maps_url: `https://maps.google.com/?q=${encodeURIComponent(item.name + " " + city)}`
         };
-        const targetIdx = Math.max(0, Math.min(this.rankings.length, item.rank - 1));
+
+        const targetRank = byScore ? this.computeRankForScore(newSpot.score) : item.listNum;
+        const targetIdx = Math.max(0, Math.min(this.rankings.length, targetRank - 1));
         this.rankings.splice(targetIdx, 0, newSpot);
         addedCount++;
       }
