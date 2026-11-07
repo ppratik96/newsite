@@ -2102,7 +2102,9 @@ const BELI_RESTAURANTS_DATA = [
     "id": "pizzeria-gabbo",
     "lat": 41.9250423,
     "lng": -87.664123,
-    "photos": [],
+    "photos": [
+      "202611_pizzeria-gabbo_jcsbg.jpg"
+    ],
     "google_maps_url": "https://maps.google.com/?q=Pizzeria%20Gabbo%20Chicago"
   },
   {

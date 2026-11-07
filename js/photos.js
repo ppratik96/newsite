@@ -1,5 +1,19 @@
 window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
   {
+    "src": "images/202611_pizzeria-gabbo_jcsbg.jpg",
+    "filename": "202611_pizzeria-gabbo_jcsbg.jpg",
+    "restaurant_id": "pizzeria-gabbo",
+    "restaurant_name": "Pizzeria Gabbo",
+    "beli_score": 7.9,
+    "beli_rank": 102,
+    "location": "f} « Fulton Market District, Chicago",
+    "cuisines": [
+      "Pizza"
+    ],
+    "caption": "Pizzeria Gabbo Highlight",
+    "notes": ""
+  },
+  {
     "filename": "liuyishou_primary_hotpot.jpg",
     "src": "images/liuyishou_primary_hotpot.jpg",
     "restaurant_id": "liuyishou-hotpot-chicago",
