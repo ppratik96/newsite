@@ -2,8 +2,8 @@
 const BELI_RESTAURANTS_DATA = [
   {
     "rank": 1,
-    "name": "Liuyishou Hotpot(Chicago) \u5218\u4e00\u624b\u706b\u9505 (\u829d\u52a0\u54e5)",
-    "score": 10.0,
+    "name": "Liuyishou Hotpot(Chicago) 刘一手火锅 (芝加哥)",
+    "score": 10,
     "price": "$$$",
     "cuisines": [
       "Chinese",
@@ -18,12 +18,12 @@ const BELI_RESTAURANTS_DATA = [
     "photos": [
       "liuyishou_primary_hotpot.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Liuyishou+Hotpot(Chicago)+\u5218\u4e00\u624b\u706b\u9505+(\u829d\u52a0\u54e5)+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Liuyishou+Hotpot(Chicago)+刘一手火锅+(芝加哥)+Chicago,+IL"
   },
   {
     "rank": 2,
     "name": "Eat Fine Design By Khun Kung",
-    "score": 10.0,
+    "score": 10,
     "price": "$",
     "cuisines": [
       "Thai",
@@ -43,8 +43,8 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 3,
-    "name": "Cari\u00f1o",
-    "score": 10.0,
+    "name": "Cariño",
+    "score": 10,
     "price": "$$$$",
     "cuisines": [
       "Latin American",
@@ -72,7 +72,7 @@ const BELI_RESTAURANTS_DATA = [
       "478346655_18486310402035847_4878745746204148996_n_18065517262856497.jpg",
       "18049141817414558.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Cari\u00f1o+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Cariño+Chicago,+IL"
   },
   {
     "rank": 4,
@@ -202,7 +202,7 @@ const BELI_RESTAURANTS_DATA = [
     ],
     "neighborhood": "Archer Heights",
     "city": "Chicago",
-    "notes": "Quesabirria tacos with a bowl of consomm\u00e9 dipping broth and radishes",
+    "notes": "Quesabirria tacos with a bowl of consommé dipping broth and radishes",
     "id": "la-birrieria-restaurant",
     "lat": 41.78564,
     "lng": -87.72145,
@@ -350,7 +350,7 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 16,
-    "name": "Laojiumen Hotpot Chicago\u8001\u4e5d\u95e8\u706b\u9505-Hotpot 9",
+    "name": "Laojiumen Hotpot Chicago老九门火锅-Hotpot 9",
     "score": 9.7,
     "price": "$",
     "cuisines": [
@@ -366,7 +366,7 @@ const BELI_RESTAURANTS_DATA = [
     "photos": [
       "laojiumen_hotpot_chicago_apple_1.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Laojiumen+Hotpot+Chicago\u8001\u4e5d\u95e8\u706b\u9505-Hotpot+9+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Laojiumen+Hotpot+Chicago老九门火锅-Hotpot+9+Chicago,+IL"
   },
   {
     "rank": 17,
@@ -398,7 +398,7 @@ const BELI_RESTAURANTS_DATA = [
     ],
     "neighborhood": "West Loop",
     "city": "Chicago",
-    "notes": "Wood-oven roasted pig face with sunny egg and saut\u00e9ed green beans with fish sauce vinaigrette",
+    "notes": "Wood-oven roasted pig face with sunny egg and sautéed green beans with fish sauce vinaigrette",
     "id": "girl-the-goat",
     "lat": 41.88417,
     "lng": -87.64798,
@@ -412,7 +412,7 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 19,
-    "name": "Hunan Cuisine \u6e58\u4e61\u9999",
+    "name": "Hunan Cuisine 湘乡香",
     "score": 9.6,
     "price": "$",
     "cuisines": [
@@ -429,11 +429,11 @@ const BELI_RESTAURANTS_DATA = [
       "202405_436619176_3776097232675852_5322170385637485706_n_18043038721761347.jpg",
       "436619176_3776097232675852_5322170385637485706_n_18043038721761347.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Hunan+Cuisine+\u6e58\u4e61\u9999+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Hunan+Cuisine+湘乡香+Chicago,+IL"
   },
   {
     "rank": 20,
-    "name": "Royal Highness Zhu \u6731\u693f",
+    "name": "Royal Highness Zhu 朱椿",
     "score": 9.6,
     "price": "$",
     "cuisines": [
@@ -452,7 +452,7 @@ const BELI_RESTAURANTS_DATA = [
       "280024860-1115727308973313-7483851765656954253-n-17976004021546354-1170x2080.jpg",
       "280024860_1115727308973313_7483851765656954253_n_17976004021546354.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Royal+Highness+Zhu+\u6731\u693f+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Royal+Highness+Zhu+朱椿+Chicago,+IL"
   },
   {
     "rank": 21,
@@ -964,7 +964,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 46,
     "name": "NADC Burger",
-    "score": 9.0,
+    "score": 9,
     "price": "$",
     "cuisines": [
       "Burgers"
@@ -984,7 +984,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 47,
     "name": "Red Hot Chili Express",
-    "score": 9.0,
+    "score": 9,
     "price": "$",
     "cuisines": [
       "Indian",
@@ -1004,7 +1004,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 48,
     "name": "PIZZ'AMICI",
-    "score": 9.0,
+    "score": 9,
     "price": "$",
     "cuisines": [
       "Pizza"
@@ -1025,7 +1025,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 49,
     "name": "Piece Pizzeria and Brewery",
-    "score": 9.0,
+    "score": 9,
     "price": "$",
     "cuisines": [
       "Pizza",
@@ -1276,7 +1276,7 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 62,
-    "name": "Flamb\u00e9 India - Lincolnshire",
+    "name": "Flambé India - Lincolnshire",
     "score": 8.7,
     "price": "$",
     "cuisines": [
@@ -1289,7 +1289,7 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.8602,
     "lng": -87.6721,
     "photos": [],
-    "google_maps_url": "https://maps.google.com/?q=Flamb\u00e9+India+-+Lincolnshire+Lincolnshire,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Flambé+India+-+Lincolnshire+Lincolnshire,+IL"
   },
   {
     "rank": 63,
@@ -1916,7 +1916,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 93,
     "name": "YY Hot Pot",
-    "score": 8.0,
+    "score": 8,
     "price": "$",
     "cuisines": [
       "Chinese",
@@ -1934,7 +1934,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 94,
     "name": "Taverna 1821",
-    "score": 8.0,
+    "score": 8,
     "price": "$",
     "cuisines": [
       "Greek",
@@ -1954,7 +1954,7 @@ const BELI_RESTAURANTS_DATA = [
   {
     "rank": 95,
     "name": "Antepli Mediterranean Grill,Baklava&Kunafa",
-    "score": 8.0,
+    "score": 8,
     "price": "$",
     "cuisines": [
       "Turkish"
@@ -1970,8 +1970,8 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 96,
-    "name": "Kyuramen x TBaar - Downtown Chicago \u4e5d\u6c64\u62c9\u9762",
-    "score": 8.0,
+    "name": "Kyuramen x TBaar - Downtown Chicago 九汤拉面",
+    "score": 8,
     "price": "$",
     "cuisines": [
       "Ramen",
@@ -1988,7 +1988,7 @@ const BELI_RESTAURANTS_DATA = [
       "202303_330155989_596949865644548_2408444042076908110_n_18198901129246922.jpg",
       "330155989_596949865644548_2408444042076908110_n_18198901129246922.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Kyuramen+x+TBaar+-+Downtown+Chicago+\u4e5d\u6c64\u62c9\u9762+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Kyuramen+x+TBaar+-+Downtown+Chicago+九汤拉面+Chicago,+IL"
   },
   {
     "rank": 97,
@@ -2031,7 +2031,7 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 99,
-    "name": "Guinness Open Gate Brewery \u2013 West Loop",
+    "name": "Guinness Open Gate Brewery – West Loop",
     "score": 7.9,
     "price": "$",
     "cuisines": [
@@ -2047,7 +2047,7 @@ const BELI_RESTAURANTS_DATA = [
     "photos": [
       "guinness_open_gate_brewery_202505.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Guinness+Open+Gate+Brewery+\u2013+West+Loop+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Guinness+Open+Gate+Brewery+–+West+Loop+Chicago,+IL"
   },
   {
     "rank": 100,
@@ -2090,6 +2090,23 @@ const BELI_RESTAURANTS_DATA = [
   },
   {
     "rank": 102,
+    "name": "Pizzeria Gabbo",
+    "score": 7.9,
+    "price": "$$",
+    "cuisines": [
+      "Pizza"
+    ],
+    "neighborhood": "f} « Fulton Market District",
+    "city": "Chicago",
+    "notes": null,
+    "id": "pizzeria-gabbo",
+    "lat": 41.9250423,
+    "lng": -87.664123,
+    "photos": [],
+    "google_maps_url": "https://maps.google.com/?q=Pizzeria%20Gabbo%20Chicago"
+  },
+  {
+    "rank": 103,
     "name": "Labriola Italian Specialties",
     "score": 7.8,
     "price": "$$$",
@@ -2106,7 +2123,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Labriola+Italian+Specialties+Chicago,+IL"
   },
   {
-    "rank": 103,
+    "rank": 104,
     "name": "Chicago Waffles West Loop",
     "score": 7.8,
     "price": "$",
@@ -2123,8 +2140,8 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Chicago+Waffles+West+Loop+Chicago,+IL"
   },
   {
-    "rank": 104,
-    "name": "Jaleo by Jos\u00e9 Andr\u00e9s",
+    "rank": 105,
+    "name": "Jaleo by José Andrés",
     "score": 7.8,
     "price": "$$$",
     "cuisines": [
@@ -2140,10 +2157,10 @@ const BELI_RESTAURANTS_DATA = [
     "photos": [
       "202208_297338994_1240834876681225_8737084666312532528_n_18185087230168076.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Jaleo+by+Jos\u00e9+Andr\u00e9s+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Jaleo+by+José+Andrés+Chicago,+IL"
   },
   {
-    "rank": 105,
+    "rank": 106,
     "name": "Gyuro Ramen",
     "score": 7.8,
     "price": "$",
@@ -2165,7 +2182,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Gyuro+Ramen+Chicago,+IL"
   },
   {
-    "rank": 106,
+    "rank": 107,
     "name": "Sumu Tokyo ramen & Sushi",
     "score": 7.8,
     "price": "$",
@@ -2187,7 +2204,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Sumu+Tokyo+ramen+&+Sushi+Chicago,+IL"
   },
   {
-    "rank": 107,
+    "rank": 108,
     "name": "Tamashii Ramen",
     "score": 7.7,
     "price": "$",
@@ -2209,7 +2226,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Tamashii+Ramen+Chicago,+IL"
   },
   {
-    "rank": 108,
+    "rank": 109,
     "name": "Snakes & Lattes Chicago",
     "score": 7.7,
     "price": "$",
@@ -2227,7 +2244,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Snakes+&+Lattes+Chicago+Chicago,+IL"
   },
   {
-    "rank": 109,
+    "rank": 110,
     "name": "Nonna's Pizza & Sandwiches",
     "score": 7.7,
     "price": "$",
@@ -2246,8 +2263,8 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Nonna's+Pizza+&+Sandwiches+Chicago,+IL"
   },
   {
-    "rank": 110,
-    "name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "rank": 111,
+    "name": "Chengdu Impression Restaurant 成都印象",
     "score": 7.7,
     "price": "$",
     "cuisines": [
@@ -2271,10 +2288,10 @@ const BELI_RESTAURANTS_DATA = [
       "285348184_184927917196636_6283027573222077392_n_18116054464304713.jpg",
       "285614520_164476039392528_2241924428842585767_n_17955604759733250.jpg"
     ],
-    "google_maps_url": "https://maps.google.com/?q=Chengdu+Impression+Restaurant+\u6210\u90fd\u5370\u8c61+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Chengdu+Impression+Restaurant+成都印象+Chicago,+IL"
   },
   {
-    "rank": 111,
+    "rank": 112,
     "name": "Small Cheval- Riverside",
     "score": 7.6,
     "price": "$",
@@ -2291,7 +2308,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Small+Cheval-+Riverside+Chicago,+IL"
   },
   {
-    "rank": 112,
+    "rank": 113,
     "name": "Small Cheval- West Loop",
     "score": 7.6,
     "price": "$",
@@ -2309,7 +2326,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Small+Cheval-+West+Loop+Chicago,+IL"
   },
   {
-    "rank": 113,
+    "rank": 114,
     "name": "Professor Pizza Slice & Pie - West Town",
     "score": 7.6,
     "price": "$",
@@ -2326,7 +2343,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Professor+Pizza+Slice+&+Pie+-+West+Town+Chicago,+IL"
   },
   {
-    "rank": 114,
+    "rank": 115,
     "name": "St. Clair Supper Club",
     "score": 7.6,
     "price": "$$$$",
@@ -2347,7 +2364,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=St.+Clair+Supper+Club+Chicago,+IL"
   },
   {
-    "rank": 115,
+    "rank": 116,
     "name": "The Smith",
     "score": 7.6,
     "price": "$$$",
@@ -2364,7 +2381,26 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=The+Smith+Chicago,+IL"
   },
   {
-    "rank": 116,
+    "rank": 117,
+    "name": "DH Noodles & Grill Chicago",
+    "score": 7.6,
+    "price": "$$",
+    "cuisines": [
+      "Noodles",
+      "Chinese",
+      "Asian"
+    ],
+    "neighborhood": "Armour Square",
+    "city": "Chicago",
+    "notes": null,
+    "id": "dh-noodles-grill-chicago",
+    "lat": 41.8842,
+    "lng": -87.6481,
+    "photos": [],
+    "google_maps_url": "https://maps.google.com/?q=DH%20Noodles%20%26%20Grill%20Chicago%20Chicago"
+  },
+  {
+    "rank": 118,
     "name": "Happy Lamb Hot Pot, Chicago",
     "score": 7.5,
     "price": "$",
@@ -2382,7 +2418,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Happy+Lamb+Hot+Pot,+Chicago+Chicago,+IL"
   },
   {
-    "rank": 117,
+    "rank": 119,
     "name": "Output Lounge & Sports Bar",
     "score": 7.5,
     "price": "$",
@@ -2402,7 +2438,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Output+Lounge+&+Sports+Bar+Chicago,+IL"
   },
   {
-    "rank": 118,
+    "rank": 120,
     "name": "Forno Rosso Pizzeria Napoletana",
     "score": 7.5,
     "price": "$",
@@ -2420,7 +2456,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Forno+Rosso+Pizzeria+Napoletana+Chicago,+IL"
   },
   {
-    "rank": 119,
+    "rank": 121,
     "name": "Lola's Restaurant & Bar",
     "score": 7.5,
     "price": "$",
@@ -2438,7 +2474,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Lola's+Restaurant+&+Bar+Chicago,+IL"
   },
   {
-    "rank": 120,
+    "rank": 122,
     "name": "Indian Paradise",
     "score": 7.5,
     "price": "$",
@@ -2455,7 +2491,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Indian+Paradise+Chicago,+IL"
   },
   {
-    "rank": 121,
+    "rank": 123,
     "name": "Tabaq Restaurant",
     "score": 7.4,
     "price": "$",
@@ -2477,7 +2513,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Tabaq+Restaurant+Chicago,+IL"
   },
   {
-    "rank": 122,
+    "rank": 124,
     "name": "MingHin Cuisine",
     "score": 7.4,
     "price": "$",
@@ -2496,7 +2532,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=MingHin+Cuisine+Chicago,+IL"
   },
   {
-    "rank": 123,
+    "rank": 125,
     "name": "Taqueria Mexicana",
     "score": 7.4,
     "price": "$",
@@ -2517,7 +2553,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Taqueria+Mexicana+Chicago,+IL"
   },
   {
-    "rank": 124,
+    "rank": 126,
     "name": "Publican Quality Meats",
     "score": 7.4,
     "price": "$",
@@ -2536,7 +2572,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Publican+Quality+Meats+Chicago,+IL"
   },
   {
-    "rank": 125,
+    "rank": 127,
     "name": "Tacombi",
     "score": 7.3,
     "price": "$",
@@ -2557,7 +2593,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Tacombi+Chicago,+IL"
   },
   {
-    "rank": 126,
+    "rank": 128,
     "name": "Xi'an Cuisine",
     "score": 7.3,
     "price": "$",
@@ -2578,7 +2614,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Xi'an+Cuisine+Chicago,+IL"
   },
   {
-    "rank": 127,
+    "rank": 129,
     "name": "HIDE+SEEK",
     "score": 7.3,
     "price": "$$$",
@@ -2599,8 +2635,8 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=HIDE+SEEK+Chicago,+IL"
   },
   {
-    "rank": 128,
-    "name": "Bar S\u00f3tano",
+    "rank": 130,
+    "name": "Bar Sótano",
     "score": 7.3,
     "price": "$$$",
     "cuisines": [
@@ -2614,10 +2650,10 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.89402,
     "lng": -87.63288,
     "photos": [],
-    "google_maps_url": "https://maps.google.com/?q=Bar+S\u00f3tano+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Bar+Sótano+Chicago,+IL"
   },
   {
-    "rank": 129,
+    "rank": 131,
     "name": "Takito Street Lincoln Park - CLOSED",
     "score": 7.3,
     "price": "$$$",
@@ -2638,7 +2674,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Takito+Street+Lincoln+Park+-+CLOSED+Chicago,+IL"
   },
   {
-    "rank": 130,
+    "rank": 132,
     "name": "Duck Duck Goat",
     "score": 7.2,
     "price": "$$$",
@@ -2656,7 +2692,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Duck+Duck+Goat+Chicago,+IL"
   },
   {
-    "rank": 131,
+    "rank": 133,
     "name": "Beatnik West Town",
     "score": 7.2,
     "price": "$$$",
@@ -2677,8 +2713,8 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Beatnik+West+Town+Chicago,+IL"
   },
   {
-    "rank": 132,
-    "name": "Wagyu House by The X Pot Chicago \u548c\u725b\u81ea\u52a9\u706b\u9505\u70e4\u8089",
+    "rank": 134,
+    "name": "Wagyu House by The X Pot Chicago 和牛自助火锅烤肉",
     "score": 7.2,
     "price": "$$$",
     "cuisines": [
@@ -2693,10 +2729,10 @@ const BELI_RESTAURANTS_DATA = [
     "lat": 41.86957,
     "lng": -87.62869,
     "photos": [],
-    "google_maps_url": "https://maps.google.com/?q=Wagyu+House+by+The+X+Pot+Chicago+\u548c\u725b\u81ea\u52a9\u706b\u9505\u70e4\u8089+Chicago,+IL"
+    "google_maps_url": "https://maps.google.com/?q=Wagyu+House+by+The+X+Pot+Chicago+和牛自助火锅烤肉+Chicago,+IL"
   },
   {
-    "rank": 133,
+    "rank": 135,
     "name": "JJ Thai Street Food",
     "score": 7.2,
     "price": "$",
@@ -2716,7 +2752,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=JJ+Thai+Street+Food+Chicago,+IL"
   },
   {
-    "rank": 134,
+    "rank": 136,
     "name": "D&D brothers Hibachi&Big Boss Spicy Fried Chicken",
     "score": 7.2,
     "price": "$",
@@ -2734,7 +2770,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=D&D+brothers+Hibachi&Big+Boss+Spicy+Fried+Chicken+Chicago,+IL"
   },
   {
-    "rank": 135,
+    "rank": 137,
     "name": "Taza Cafe",
     "score": 7.1,
     "price": "$",
@@ -2753,7 +2789,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Taza+Cafe+Chicago,+IL"
   },
   {
-    "rank": 136,
+    "rank": 138,
     "name": "Bar Goa",
     "score": 7.1,
     "price": "$$$",
@@ -2771,7 +2807,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Bar+Goa+Chicago,+IL"
   },
   {
-    "rank": 137,
+    "rank": 139,
     "name": "FIG & OLIVE | Chicago",
     "score": 7.1,
     "price": "$$$",
@@ -2788,7 +2824,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=FIG+&+OLIVE+|+Chicago+Chicago,+IL"
   },
   {
-    "rank": 138,
+    "rank": 140,
     "name": "Cabra",
     "score": 7.1,
     "price": "$$$",
@@ -2812,9 +2848,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Cabra+Chicago,+IL"
   },
   {
-    "rank": 139,
+    "rank": 141,
     "name": "Moti - Lincoln Park",
-    "score": 7.0,
+    "score": 7,
     "price": "$",
     "cuisines": [
       "Indian"
@@ -2829,9 +2865,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Moti+-+Lincoln+Park+Chicago,+IL"
   },
   {
-    "rank": 140,
+    "rank": 142,
     "name": "Del Seoul",
-    "score": 7.0,
+    "score": 7,
     "price": "$",
     "cuisines": [
       "Asian Fusion",
@@ -2847,9 +2883,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Del+Seoul+Chicago,+IL"
   },
   {
-    "rank": 141,
+    "rank": 143,
     "name": "Bar Takito",
-    "score": 7.0,
+    "score": 7,
     "price": "$",
     "cuisines": [
       "Latin American",
@@ -2868,9 +2904,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Bar+Takito+Chicago,+IL"
   },
   {
-    "rank": 142,
+    "rank": 144,
     "name": "Time Out Market Chicago",
-    "score": 7.0,
+    "score": 7,
     "price": "$",
     "cuisines": [
       "Market",
@@ -2894,9 +2930,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Time+Out+Market+Chicago+Chicago,+IL"
   },
   {
-    "rank": 143,
+    "rank": 145,
     "name": "Green Street Smoked Meats",
-    "score": 7.0,
+    "score": 7,
     "price": "$",
     "cuisines": [
       "Barbecue",
@@ -2912,7 +2948,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Green+Street+Smoked+Meats+Chicago,+IL"
   },
   {
-    "rank": 144,
+    "rank": 146,
     "name": "Matilda Restaurant",
     "score": 6.9,
     "price": "$$$",
@@ -2933,7 +2969,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Matilda+Restaurant+Chicago,+IL"
   },
   {
-    "rank": 145,
+    "rank": 147,
     "name": "Tac Quick",
     "score": 6.9,
     "price": "$",
@@ -2954,7 +2990,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Tac+Quick+Chicago,+IL"
   },
   {
-    "rank": 146,
+    "rank": 148,
     "name": "Ramen Takeya",
     "score": 6.9,
     "price": "$",
@@ -2974,7 +3010,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Ramen+Takeya+Chicago,+IL"
   },
   {
-    "rank": 147,
+    "rank": 149,
     "name": "RAMEN-SAN",
     "score": 6.9,
     "price": "$",
@@ -2995,7 +3031,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=RAMEN-SAN+Chicago,+IL"
   },
   {
-    "rank": 148,
+    "rank": 150,
     "name": "Costera Cocina Tulum - Chicago",
     "score": 6.8,
     "price": "$$$",
@@ -3004,7 +3040,7 @@ const BELI_RESTAURANTS_DATA = [
     ],
     "neighborhood": "Fulton Market District",
     "city": "Chicago, IL",
-    "notes": "Quesabirria tacos with consomm\u00e9 broth, salsa verde, and lime",
+    "notes": "Quesabirria tacos with consommé broth, salsa verde, and lime",
     "id": "costera-cocina-tulum-chicago",
     "lat": 41.88374,
     "lng": -87.64887,
@@ -3012,7 +3048,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Costera+Cocina+Tulum+-+Chicago+Chicago,+IL"
   },
   {
-    "rank": 149,
+    "rank": 151,
     "name": "Crisp",
     "score": 6.8,
     "price": "$",
@@ -3035,7 +3071,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Crisp+Chicago,+IL"
   },
   {
-    "rank": 150,
+    "rank": 152,
     "name": "Bar Siena",
     "score": 6.8,
     "price": "$$$",
@@ -3052,7 +3088,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Bar+Siena+Chicago,+IL"
   },
   {
-    "rank": 151,
+    "rank": 153,
     "name": "Italian Homemade Company",
     "score": 6.8,
     "price": "$",
@@ -3071,7 +3107,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Italian+Homemade+Company+Chicago,+IL"
   },
   {
-    "rank": 152,
+    "rank": 154,
     "name": "Etta - River North",
     "score": 6.8,
     "price": "$$$",
@@ -3088,7 +3124,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Etta+-+River+North+Chicago,+IL"
   },
   {
-    "rank": 153,
+    "rank": 155,
     "name": "Longman & Eagle",
     "score": 6.7,
     "price": "$$$",
@@ -3106,7 +3142,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Longman+&+Eagle+Chicago,+IL"
   },
   {
-    "rank": 154,
+    "rank": 156,
     "name": "Club Lucky",
     "score": 6.7,
     "price": "$",
@@ -3127,7 +3163,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Club+Lucky+Chicago,+IL"
   },
   {
-    "rank": 155,
+    "rank": 157,
     "name": "CAVA",
     "score": 6.7,
     "price": "$",
@@ -3144,7 +3180,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=CAVA+Chicago,+IL"
   },
   {
-    "rank": 156,
+    "rank": 158,
     "name": "The Izakaya",
     "score": 6.6,
     "price": "$$$",
@@ -3165,7 +3201,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=The+Izakaya+Chicago,+IL"
   },
   {
-    "rank": 157,
+    "rank": 159,
     "name": "Mazala Pizza River North",
     "score": 6.6,
     "price": "$",
@@ -3183,7 +3219,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Mazala+Pizza+River+North+Chicago,+IL"
   },
   {
-    "rank": 158,
+    "rank": 160,
     "name": "Palace Grill Restaurant",
     "score": 6.5,
     "price": "$",
@@ -3200,7 +3236,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Palace+Grill+Restaurant+Chicago,+IL"
   },
   {
-    "rank": 159,
+    "rank": 161,
     "name": "The Oakville Grill & Cellar",
     "score": 6.4,
     "price": "$$$",
@@ -3218,7 +3254,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=The+Oakville+Grill+&+Cellar+Chicago,+IL"
   },
   {
-    "rank": 160,
+    "rank": 162,
     "name": "Kuma's Corner West Loop",
     "score": 6.3,
     "price": "$",
@@ -3236,7 +3272,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Kuma's+Corner+West+Loop+Chicago,+IL"
   },
   {
-    "rank": 161,
+    "rank": 163,
     "name": "Vermilion",
     "score": 6.3,
     "price": "$$$",
@@ -3257,7 +3293,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Vermilion+Chicago,+IL"
   },
   {
-    "rank": 162,
+    "rank": 164,
     "name": "PERILLA fare",
     "score": 6.2,
     "price": "$$$",
@@ -3278,7 +3314,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=PERILLA+fare+Chicago,+IL"
   },
   {
-    "rank": 163,
+    "rank": 165,
     "name": "Tzuco",
     "score": 6.1,
     "price": "$$$",
@@ -3296,7 +3332,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Tzuco+Chicago,+IL"
   },
   {
-    "rank": 164,
+    "rank": 166,
     "name": "Superkhana International",
     "score": 6.1,
     "price": "$$$",
@@ -3314,9 +3350,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Superkhana+International+Chicago,+IL"
   },
   {
-    "rank": 165,
+    "rank": 167,
     "name": "Cairo Kebab",
-    "score": 6.0,
+    "score": 6,
     "price": "$",
     "cuisines": [
       "Egyptian",
@@ -3334,7 +3370,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Cairo+Kebab+Chicago,+IL"
   },
   {
-    "rank": 166,
+    "rank": 168,
     "name": "AO Hawaiian Hideout",
     "score": 5.9,
     "price": "$",
@@ -3355,7 +3391,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=AO+Hawaiian+Hideout+Chicago,+IL"
   },
   {
-    "rank": 167,
+    "rank": 169,
     "name": "La Scarola",
     "score": 5.9,
     "price": "$$$",
@@ -3372,7 +3408,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=La+Scarola+Chicago,+IL"
   },
   {
-    "rank": 168,
+    "rank": 170,
     "name": "Lonesome Rose",
     "score": 5.8,
     "price": "$",
@@ -3389,7 +3425,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Lonesome+Rose+Chicago,+IL"
   },
   {
-    "rank": 169,
+    "rank": 171,
     "name": "BienMeSabe Venezuelan Arepa Bar",
     "score": 5.7,
     "price": "$",
@@ -3408,7 +3444,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=BienMeSabe+Venezuelan+Arepa+Bar+Chicago,+IL"
   },
   {
-    "rank": 170,
+    "rank": 172,
     "name": "Nellie's Restaurant",
     "score": 5.6,
     "price": "$",
@@ -3426,7 +3462,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Nellie's+Restaurant+Chicago,+IL"
   },
   {
-    "rank": 171,
+    "rank": 173,
     "name": "Federales Tacos & Tequila - Fulton Market, Chicago",
     "score": 5.6,
     "price": "$",
@@ -3445,7 +3481,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Federales+Tacos+&+Tequila+-+Fulton+Market,+Chicago+Chicago,+IL"
   },
   {
-    "rank": 172,
+    "rank": 174,
     "name": "Barrio",
     "score": 5.5,
     "price": "$$$",
@@ -3462,7 +3498,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Barrio+Chicago,+IL"
   },
   {
-    "rank": 173,
+    "rank": 175,
     "name": "Rosebud on Rush",
     "score": 5.4,
     "price": "$$$",
@@ -3479,7 +3515,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Rosebud+on+Rush+Chicago,+IL"
   },
   {
-    "rank": 174,
+    "rank": 176,
     "name": "The VIG",
     "score": 5.4,
     "price": "$",
@@ -3499,7 +3535,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=The+VIG+Chicago,+IL"
   },
   {
-    "rank": 175,
+    "rank": 177,
     "name": "Green Tea Japanese Restaurant",
     "score": 5.3,
     "price": "$",
@@ -3517,7 +3553,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Green+Tea+Japanese+Restaurant+Chicago,+IL"
   },
   {
-    "rank": 176,
+    "rank": 178,
     "name": "R.J. Grunts",
     "score": 5.2,
     "price": "$",
@@ -3536,7 +3572,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=R.J.+Grunts+Chicago,+IL"
   },
   {
-    "rank": 177,
+    "rank": 179,
     "name": "Recess",
     "score": 5.2,
     "price": "$",
@@ -3555,7 +3591,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Recess+Chicago,+IL"
   },
   {
-    "rank": 178,
+    "rank": 180,
     "name": "La Josie",
     "score": 5.1,
     "price": "$$$",
@@ -3576,9 +3612,9 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=La+Josie+Chicago,+IL"
   },
   {
-    "rank": 179,
+    "rank": 181,
     "name": "Labriola Chicago",
-    "score": 5.0,
+    "score": 5,
     "price": "$$$",
     "cuisines": [
       "Pizza",
@@ -3594,7 +3630,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Labriola+Chicago+Chicago,+IL"
   },
   {
-    "rank": 180,
+    "rank": 182,
     "name": "Little Goat Diner",
     "score": 4.9,
     "price": "$",
@@ -3616,7 +3652,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Little+Goat+Diner+Chicago,+IL"
   },
   {
-    "rank": 185,
+    "rank": 183,
     "name": "Gold Coast Social",
     "score": 4.6,
     "price": "$$$",
@@ -3634,7 +3670,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Gold+Coast+Social+Chicago,+IL"
   },
   {
-    "rank": 186,
+    "rank": 184,
     "name": "Uproar",
     "score": 4.5,
     "price": "$",
@@ -3657,7 +3693,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Uproar+Chicago,+IL"
   },
   {
-    "rank": 187,
+    "rank": 185,
     "name": "Proxi",
     "score": 4.5,
     "price": "$$$",
@@ -3680,7 +3716,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Proxi+Chicago,+IL"
   },
   {
-    "rank": 188,
+    "rank": 186,
     "name": "Beatrix",
     "score": 4.4,
     "price": "$",
@@ -3699,7 +3735,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Beatrix+Chicago,+IL"
   },
   {
-    "rank": 189,
+    "rank": 187,
     "name": "Parlor Pizza Bar West Loop",
     "score": 4.3,
     "price": "$",
@@ -3717,7 +3753,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Parlor+Pizza+Bar+West+Loop+Chicago,+IL"
   },
   {
-    "rank": 201,
+    "rank": 188,
     "name": "Giordano's",
     "score": 3.5,
     "price": "$",
@@ -3735,7 +3771,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Giordano's+Chicago,+IL"
   },
   {
-    "rank": 202,
+    "rank": 189,
     "name": "Wishbone",
     "score": 3.4,
     "price": "$",
@@ -3757,7 +3793,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Wishbone+Chicago,+IL"
   },
   {
-    "rank": 203,
+    "rank": 190,
     "name": "Carnivale",
     "score": 2.3,
     "price": "$$$",
@@ -3780,7 +3816,7 @@ const BELI_RESTAURANTS_DATA = [
     "google_maps_url": "https://maps.google.com/?q=Carnivale+Chicago,+IL"
   },
   {
-    "rank": 204,
+    "rank": 191,
     "name": "Velvet Taco",
     "score": 1.2,
     "price": "$",

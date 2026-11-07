@@ -3,23 +3,24 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "liuyishou_primary_hotpot.jpg",
     "src": "images/liuyishou_primary_hotpot.jpg",
     "restaurant_id": "liuyishou-hotpot-chicago",
-    "restaurant_name": "Liuyishou Hotpot (Chicago) \u5218\u4e00\u624b\u706b\u9505",
-    "beli_score": 10.0,
+    "restaurant_name": "Liuyishou Hotpot(Chicago) 刘一手火锅 (芝加哥)",
+    "beli_score": 10,
     "rank": 1,
-    "caption": "Authentic Chongqing Hot Pot Table Spread with Marbled Beef & Dipping Sauce",
+    "caption": "Hotpot with sliced beef, lamb, pork belly, and enoki mushrooms in bubbling broths",
     "location": "Chinatown, Chicago",
     "cuisines": [
       "Chinese",
-      "Hot Pot",
-      "Chongqing"
-    ]
+      "Hot Pot"
+    ],
+    "beli_rank": 1,
+    "notes": "Hotpot with sliced beef, lamb, pork belly, and enoki mushrooms in bubbling broths"
   },
   {
     "src": "images/376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg",
     "filename": "376574667-312878088082490-6303285931836950772-n-17936742728720320-1179x2096.jpg",
     "restaurant_id": "liuyishou-hotpot-chicago",
-    "restaurant_name": "Liuyishou Hotpot(Chicago) \u5218\u4e00\u624b\u706b\u9505 (\u829d\u52a0\u54e5)",
-    "beli_score": 10.0,
+    "restaurant_name": "Liuyishou Hotpot(Chicago) 刘一手火锅 (芝加哥)",
+    "beli_score": 10,
     "beli_rank": 1,
     "location": "Armour Square, Chicago, IL",
     "cuisines": [
@@ -115,8 +116,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Mexican"
     ],
-    "caption": "Quesabirria tacos with a bowl of consomm\u00e9 dipping broth and radishes",
-    "notes": "Quesabirria tacos with a bowl of consomm\u00e9 dipping broth and radishes"
+    "caption": "Quesabirria tacos with a bowl of consommé dipping broth and radishes",
+    "notes": "Quesabirria tacos with a bowl of consommé dipping broth and radishes"
   },
   {
     "src": "images/278743831-164280979352944-7457118469846569439-n-17918726600464062-1170x2080.jpg",
@@ -167,7 +168,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/280024860-1115727308973313-7483851765656954253-n-17976004021546354-1170x2080.jpg",
     "filename": "280024860-1115727308973313-7483851765656954253-n-17976004021546354-1170x2080.jpg",
     "restaurant_id": "royal-highness-zhu",
-    "restaurant_name": "Royal Highness Zhu \u6731\u693f",
+    "restaurant_name": "Royal Highness Zhu 朱椿",
     "beli_score": 9.6,
     "beli_rank": 20,
     "location": "Lincoln Park, Chicago, IL",
@@ -368,7 +369,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "gyuro-ramen",
     "restaurant_name": "Gyuro Ramen",
     "beli_score": 7.8,
-    "beli_rank": 105,
+    "beli_rank": 106,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "Ramen",
@@ -381,9 +382,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/285348184-184927917196636-6283027573222077392-n-18116054464304710-839x1492.jpg",
     "filename": "285348184-184927917196636-6283027573222077392-n-18116054464304710-839x1492.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
@@ -396,9 +397,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/285401023-133214049360735-6035787065407587029-n-17868054932719934-1170x2080.jpg",
     "filename": "285401023-133214049360735-6035787065407587029-n-17868054932719934-1170x2080.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
@@ -411,9 +412,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/285614520-164476039392528-2241924428842585767-n-17955604759733250-1170x2080.jpg",
     "filename": "285614520-164476039392528-2241924428842585767-n-17955604759733250-1170x2080.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
@@ -428,7 +429,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "tabaq-restaurant",
     "restaurant_name": "Tabaq Restaurant",
     "beli_score": 7.4,
-    "beli_rank": 121,
+    "beli_rank": 123,
     "location": "Cabrini-Green, Chicago, IL",
     "cuisines": [
       "Indian",
@@ -444,7 +445,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "hide-seek",
     "restaurant_name": "HIDE+SEEK",
     "beli_score": 7.3,
-    "beli_rank": 127,
+    "beli_rank": 129,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "American"
@@ -458,7 +459,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "takito-street-lincoln-park-closed",
     "restaurant_name": "Takito Street Lincoln Park - CLOSED",
     "beli_score": 7.3,
-    "beli_rank": 129,
+    "beli_rank": 131,
     "location": "Sheffield & DePaul, Chicago, IL",
     "cuisines": [
       "Mexican",
@@ -473,7 +474,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "cabra",
     "restaurant_name": "Cabra",
     "beli_score": 7.1,
-    "beli_rank": 138,
+    "beli_rank": 140,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Peruvian",
@@ -487,8 +488,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "295829866-1206649209877030-6739394129475371494-n-18063147178316216-1170x2080.jpg",
     "restaurant_id": "moti-lincoln-park",
     "restaurant_name": "Moti - Lincoln Park",
-    "beli_score": 7.0,
-    "beli_rank": 139,
+    "beli_score": 7,
+    "beli_rank": 141,
     "location": "Lincoln Park, Chicago, IL",
     "cuisines": [
       "Indian"
@@ -501,8 +502,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "318331722-863655434842674-7740873397330964697-n-17886638426751064-1179x2096.jpg",
     "restaurant_id": "bar-takito",
     "restaurant_name": "Bar Takito",
-    "beli_score": 7.0,
-    "beli_rank": 141,
+    "beli_score": 7,
+    "beli_rank": 143,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Latin American",
@@ -517,7 +518,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "tac-quick",
     "restaurant_name": "Tac Quick",
     "beli_score": 6.9,
-    "beli_rank": 145,
+    "beli_rank": 147,
     "location": "Lake View East, Chicago, IL",
     "cuisines": [
       "Thai"
@@ -531,7 +532,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "club-lucky",
     "restaurant_name": "Club Lucky",
     "beli_score": 6.7,
-    "beli_rank": 154,
+    "beli_rank": 156,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Italian"
@@ -545,7 +546,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "vermilion",
     "restaurant_name": "Vermilion",
     "beli_score": 6.3,
-    "beli_rank": 161,
+    "beli_rank": 163,
     "location": "River North, Chicago, IL",
     "cuisines": [
       "Indian"
@@ -559,7 +560,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "perilla-fare",
     "restaurant_name": "PERILLA fare",
     "beli_score": 6.2,
-    "beli_rank": 162,
+    "beli_rank": 164,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Korean"
@@ -579,8 +580,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Croatian",
       "Italian"
     ],
-    "caption": "Meat and Pasta",
-    "date": "202203"
+    "caption": "Pasta with shaved truffles, roasted meat dish, iced cocktail with mint, and fritters",
+    "date": "202203",
+    "notes": "Pasta with shaved truffles, roasted meat dish, iced cocktail with mint, and fritters"
   },
   {
     "src": "images/202203_275523808_760292784934222_1384330903662212277_n_17922680390213171.jpg",
@@ -593,8 +595,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Mexican"
     ],
-    "caption": "Quesabirria",
-    "date": "202203"
+    "caption": "Quesabirria tacos with a bowl of consommé dipping broth and radishes",
+    "date": "202203",
+    "notes": "Quesabirria tacos with a bowl of consommé dipping broth and radishes"
   },
   {
     "src": "images/202203_275650801_978070876429154_7392406017571597548_n_17959734256560578.jpg",
@@ -608,8 +611,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Ethiopian",
       "Halal"
     ],
-    "caption": "Ethiopian",
-    "date": "202203"
+    "caption": "Ethiopian combination platter on injera flatbread with doro wat, ayib, and gomen",
+    "date": "202203",
+    "notes": "Ethiopian combination platter on injera flatbread with doro wat, ayib, and gomen"
   },
   {
     "src": "images/202203_275770717_380294520766211_2645293827897000736_n_18010904407379142.jpg",
@@ -623,8 +627,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Ramen",
       "Japanese"
     ],
-    "caption": "Ramen",
-    "date": "202203"
+    "caption": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions",
+    "date": "202203",
+    "notes": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions"
   },
   {
     "src": "images/202203_277690980_658128271944956_6549275550568676943_n_17892265787610652.jpg",
@@ -639,8 +644,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Portuguese",
       "Chicken"
     ],
-    "caption": "Peri-Peri Chicken",
-    "date": "202203"
+    "caption": "Peri-peri grilled chicken with Extra Hot flag and peri chips/french fries",
+    "date": "202203",
+    "notes": "Peri-peri grilled chicken with Extra Hot flag and peri chips/french fries"
   },
   {
     "src": "images/202203_277727454_1003592600556245_1226863846345063203_n_18020932624350256.jpg",
@@ -648,31 +654,33 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "proxi",
     "restaurant_name": "Proxi",
     "beli_score": 4.5,
-    "beli_rank": 187,
+    "beli_rank": 185,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Contemporary",
       "Asian",
       "Seafood"
     ],
-    "caption": "Pork Tenderloin",
-    "date": "202203"
+    "caption": "Permanently closed",
+    "date": "202203",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202203_277985535_484502819837684_4967980080789530882_n_17922211082176679.jpg",
     "filename": "202203_277985535_484502819837684_4967980080789530882_n_17922211082176679.jpg",
     "restaurant_id": "time-out-market-chicago",
     "restaurant_name": "Time Out Market Chicago",
-    "beli_score": 7.0,
-    "beli_rank": 142,
+    "beli_score": 7,
+    "beli_rank": 144,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Market",
       "Global",
       "Food Court"
     ],
-    "caption": "Burger",
-    "date": "202203"
+    "caption": "Permanently closed",
+    "date": "202203",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202203_278104919_394648932479600_2786034058715534630_n_17936553338074511.jpg",
@@ -680,7 +688,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "tamashii-ramen",
     "restaurant_name": "Tamashii Ramen",
     "beli_score": 7.7,
-    "beli_rank": 107,
+    "beli_rank": 108,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Ramen",
@@ -701,8 +709,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Barbecue",
       "Pakistani"
     ],
-    "caption": "Middle Eastern",
-    "date": "202204"
+    "caption": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail",
+    "date": "202204",
+    "notes": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail"
   },
   {
     "src": "images/202204_278743831_164280979352944_7457118469846569439_n_17918726600464062.jpg",
@@ -716,8 +725,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "American",
       "Italian"
     ],
-    "caption": "Pasta",
-    "date": "202204"
+    "caption": "Lumache pasta in rich tomato sauce with grated parmesan and fresh basil",
+    "date": "202204",
+    "notes": "Lumache pasta in rich tomato sauce with grated parmesan and fresh basil"
   },
   {
     "src": "images/202204_279500865_672119170565795_6983110065730645501_n_17965846972611776.jpg",
@@ -725,13 +735,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "carnivale",
     "restaurant_name": "Carnivale",
     "beli_score": 2.3,
-    "beli_rank": 203,
+    "beli_rank": 190,
     "location": "Fulton River District, Chicago, IL",
     "cuisines": [
       "Latin American"
     ],
-    "caption": "Latin Fusion",
-    "date": "202204"
+    "caption": "Fried calamari, maduros plantains, beef skewer with potatoes, and cotton candy",
+    "date": "202204",
+    "notes": "Fried calamari, maduros plantains, beef skewer with potatoes, and cotton candy"
   },
   {
     "src": "images/202204_279612013_725145562061073_3358677770551598344_n_18217753264130946.jpg",
@@ -739,13 +750,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "carnivale",
     "restaurant_name": "Carnivale",
     "beli_score": 2.3,
-    "beli_rank": 203,
+    "beli_rank": 190,
     "location": "Fulton River District, Chicago, IL",
     "cuisines": [
       "Latin American"
     ],
-    "caption": "Latin American cuisine",
-    "date": "202204"
+    "caption": "Fried calamari, maduros plantains, beef skewer with potatoes, and cotton candy",
+    "date": "202204",
+    "notes": "Fried calamari, maduros plantains, beef skewer with potatoes, and cotton candy"
   },
   {
     "src": "images/202205_279771973_520749842935211_8621537741342924297_n_17910857816394765.jpg",
@@ -759,14 +771,15 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Mediterranean",
       "Middle Eastern"
     ],
-    "caption": "Boba Tea",
-    "date": "202205"
+    "caption": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea",
+    "date": "202205",
+    "notes": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea"
   },
   {
     "src": "images/202205_280024860_1115727308973313_7483851765656954253_n_17976004021546354.jpg",
     "filename": "202205_280024860_1115727308973313_7483851765656954253_n_17976004021546354.jpg",
     "restaurant_id": "royal-highness-zhu",
-    "restaurant_name": "Royal Highness Zhu \u6731\u693f",
+    "restaurant_name": "Royal Highness Zhu 朱椿",
     "beli_score": 9.6,
     "beli_rank": 20,
     "location": "Lincoln Park, Chicago, IL",
@@ -774,8 +787,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Chinese",
       "Szechuan"
     ],
-    "caption": "Noodles, Rice",
-    "date": "202205"
+    "caption": "Sichuan spicy noodle soup bowls with lotus root, crinkle-cut fries, and sesame noodles",
+    "date": "202205",
+    "notes": "Sichuan spicy noodle soup bowls with lotus root, crinkle-cut fries, and sesame noodles"
   },
   {
     "src": "images/202205_280042254_5227687613936448_3615338232008886554_n_17912947304348573.jpg",
@@ -783,13 +797,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "rosebud-on-rush",
     "restaurant_name": "Rosebud on Rush",
     "beli_score": 5.4,
-    "beli_rank": 173,
+    "beli_rank": 175,
     "location": "River North, Chicago, IL",
     "cuisines": [
       "Italian"
     ],
-    "caption": "Italian",
-    "date": "202205"
+    "caption": "Classic chicken parmesan with melted mozzarella, penne marinara, and roasted potatoes",
+    "date": "202205",
+    "notes": "Classic chicken parmesan with melted mozzarella, penne marinara, and roasted potatoes"
   },
   {
     "src": "images/202205_280060205_764793158021071_8433877605277856009_n_17917278014445674.jpg",
@@ -804,8 +819,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Brunch",
       "Breakfast"
     ],
-    "caption": "Pancakes & Cafe",
-    "date": "202205"
+    "caption": "Stack of Oreo cookies and cream pancakes with white icing and breakfast skillet",
+    "date": "202205",
+    "notes": "Stack of Oreo cookies and cream pancakes with white icing and breakfast skillet"
   },
   {
     "src": "images/202205_280289255_3158239144435485_1555664055916729193_n_18033919762351301.jpg",
@@ -813,7 +829,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "la-josie",
     "restaurant_name": "La Josie",
     "beli_score": 5.1,
-    "beli_rank": 178,
+    "beli_rank": 180,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Mexican",
@@ -828,45 +844,48 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "uproar",
     "restaurant_name": "Uproar",
     "beli_score": 4.5,
-    "beli_rank": 186,
+    "beli_rank": 184,
     "location": "Near North Side, Chicago, IL",
     "cuisines": [
       "Bar",
       "Breakfast",
       "Cocktail Bar"
     ],
-    "caption": "Burgers",
-    "date": "202205"
+    "caption": "Permanently closed",
+    "date": "202205",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202206_285348184_184927917196636_6283027573222077392_n_18116054464304713.jpg",
     "filename": "202206_285348184_184927917196636_6283027573222077392_n_18116054464304713.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
       "Sichuan"
     ],
-    "caption": "Szechuan Hot Pot",
-    "date": "202206"
+    "caption": "Szechuan pepper hot pot broth with beef slices and chili oil",
+    "date": "202206",
+    "notes": "Szechuan pepper hot pot broth with beef slices and chili oil"
   },
   {
     "src": "images/202206_285401023_133214049360735_6035787065407587029_n_17868054932719934.jpg",
     "filename": "202206_285401023_133214049360735_6035787065407587029_n_17868054932719934.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
       "Sichuan"
     ],
-    "caption": "Wood ear mushroom salad, Mapo tofu",
-    "date": "202206"
+    "caption": "Szechuan pepper hot pot broth with beef slices and chili oil",
+    "date": "202206",
+    "notes": "Szechuan pepper hot pot broth with beef slices and chili oil"
   },
   {
     "src": "images/202206_285588908_997270497828457_3827782522499062147_n_18231829771191005.jpg",
@@ -874,29 +893,31 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "cabra",
     "restaurant_name": "Cabra",
     "beli_score": 7.1,
-    "beli_rank": 138,
+    "beli_rank": 140,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Peruvian",
       "Cocktail Bar"
     ],
-    "caption": "Peruvian Tapas",
-    "date": "202206"
+    "caption": "Peruvian anticucho skewers, loaded huancaina fries, and frozen pisco cocktail",
+    "date": "202206",
+    "notes": "Peruvian anticucho skewers, loaded huancaina fries, and frozen pisco cocktail"
   },
   {
     "src": "images/202206_285614520_164476039392528_2241924428842585767_n_17955604759733250.jpg",
     "filename": "202206_285614520_164476039392528_2241924428842585767_n_17955604759733250.jpg",
     "restaurant_id": "chengdu-impression-restaurant",
-    "restaurant_name": "Chengdu Impression Restaurant \u6210\u90fd\u5370\u8c61",
+    "restaurant_name": "Chengdu Impression Restaurant 成都印象",
     "beli_score": 7.7,
-    "beli_rank": 110,
+    "beli_rank": 111,
     "location": "Park West, Chicago, IL",
     "cuisines": [
       "Chinese",
       "Sichuan"
     ],
-    "caption": "Panda sticky rice ball with sesame paste",
-    "date": "202206"
+    "caption": "Szechuan pepper hot pot broth with beef slices and chili oil",
+    "date": "202206",
+    "notes": "Szechuan pepper hot pot broth with beef slices and chili oil"
   },
   {
     "src": "images/202207_291019076_606959027360207_1128890710416818107_n_17890409108603960.jpg",
@@ -909,8 +930,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Mexican"
     ],
-    "caption": "sweets",
-    "date": "202207"
+    "caption": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese",
+    "date": "202207",
+    "notes": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese"
   },
   {
     "src": "images/202207_293274977_1259478568133069_154190651868988439_n_18206215174087218.jpg",
@@ -924,8 +946,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "American",
       "Contemporary"
     ],
-    "caption": "Various",
-    "date": "202207"
+    "caption": "Wood-oven roasted pig face with sunny egg and sautéed green beans with fish sauce vinaigrette",
+    "date": "202207",
+    "notes": "Wood-oven roasted pig face with sunny egg and sautéed green beans with fish sauce vinaigrette"
   },
   {
     "src": "images/202207_294622706_765887471389932_7814027457173347229_n_17928296117456207.jpg",
@@ -940,22 +963,24 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "Mango Dessert",
-    "date": "202207"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202207",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202207_295368081_575211424304333_6674476115824351952_n_17970022276679196.jpg",
     "filename": "202207_295368081_575211424304333_6674476115824351952_n_17970022276679196.jpg",
     "restaurant_id": "moti-lincoln-park",
     "restaurant_name": "Moti - Lincoln Park",
-    "beli_score": 7.0,
-    "beli_rank": 139,
+    "beli_score": 7,
+    "beli_rank": 141,
     "location": "Lincoln Park, Chicago, IL",
     "cuisines": [
       "Indian"
     ],
-    "caption": "Modern Indian Street Food",
-    "date": "202207"
+    "caption": "Permanently closed",
+    "date": "202207",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202207_295460496_1464543800718719_7316620319602929848_n_17930255477262481.jpg",
@@ -963,7 +988,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "beatnik-west-town",
     "restaurant_name": "Beatnik West Town",
     "beli_score": 7.2,
-    "beli_rank": 131,
+    "beli_rank": 133,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Middle Eastern",
@@ -978,7 +1003,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "club-lucky",
     "restaurant_name": "Club Lucky",
     "beli_score": 6.7,
-    "beli_rank": 154,
+    "beli_rank": 156,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Italian"
@@ -992,28 +1017,30 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "ao-hawaiian-hideout",
     "restaurant_name": "AO Hawaiian Hideout",
     "beli_score": 5.9,
-    "beli_rank": 166,
+    "beli_rank": 168,
     "location": "Near South Side, Chicago, IL",
     "cuisines": [
       "Hawaiian"
     ],
-    "caption": "Hawaiian Drinks",
-    "date": "202207"
+    "caption": "Tropical Hawaiian cocktails: signature Bloody Mary and frozen blended cocktail",
+    "date": "202207",
+    "notes": "Tropical Hawaiian cocktails: signature Bloody Mary and frozen blended cocktail"
   },
   {
     "src": "images/202208_297338994_1240834876681225_8737084666312532528_n_18185087230168076.jpg",
     "filename": "202208_297338994_1240834876681225_8737084666312532528_n_18185087230168076.jpg",
     "restaurant_id": "jaleo-by-jos-andr-s",
-    "restaurant_name": "Jaleo by Jos\u00e9 Andr\u00e9s",
+    "restaurant_name": "Jaleo by José Andrés",
     "beli_score": 7.8,
-    "beli_rank": 104,
+    "beli_rank": 105,
     "location": "River North, Chicago, IL",
     "cuisines": [
       "Spanish",
       "Tapas"
     ],
-    "caption": "Dessert",
-    "date": "202208"
+    "caption": "Permanently closed",
+    "date": "202208",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202208_297635010_3045651962391350_8754001219466806809_n_17951197303922575.jpg",
@@ -1021,13 +1048,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "etta-river-north",
     "restaurant_name": "Etta - River North",
     "beli_score": 6.8,
-    "beli_rank": 152,
+    "beli_rank": 154,
     "location": "River North, Chicago, IL",
     "cuisines": [
       "Italian"
     ],
-    "caption": "Steak and Eggs",
-    "date": "202208"
+    "caption": "Permanently closed",
+    "date": "202208",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202208_299942770_5429863527096771_2696824187215787090_n_17970447571700487.jpg",
@@ -1055,8 +1083,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Barbecue",
       "Pakistani"
     ],
-    "caption": "Tandoori Chicken",
-    "date": "202208"
+    "caption": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail",
+    "date": "202208",
+    "notes": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail"
   },
   {
     "src": "images/202209_305181324_3344482342507825_8399064888138431886_n_17955797513022172.jpg",
@@ -1070,8 +1099,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "American",
       "Italian"
     ],
-    "caption": "Salads, Pigs in a Blanket",
-    "date": "202209"
+    "caption": "Lumache pasta in rich tomato sauce with grated parmesan and fresh basil",
+    "date": "202209",
+    "notes": "Lumache pasta in rich tomato sauce with grated parmesan and fresh basil"
   },
   {
     "src": "images/202209_308511377_891661698482348_8076677915040056010_n_17973900184747210.jpg",
@@ -1094,15 +1124,16 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "sumu-tokyo-ramen-sushi",
     "restaurant_name": "Sumu Tokyo ramen & Sushi",
     "beli_score": 7.8,
-    "beli_rank": 106,
+    "beli_rank": 107,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Japanese",
       "Ramen",
       "Sushi"
     ],
-    "caption": "Ramen, Sushi, and meat skewers",
-    "date": "202209"
+    "caption": "Permanently closed",
+    "date": "202209",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202210_311340395_694010635690179_1477871165222950095_n_17953732505173901.jpg",
@@ -1131,8 +1162,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Pizza",
       "Midwestern"
     ],
-    "caption": "Chicago Style Pizza",
-    "date": "202211"
+    "caption": "Detroit-style crispy cheese pan pizza topped with fresh baby arugula and sun-dried tomatoes",
+    "date": "202211",
+    "notes": "Detroit-style crispy cheese pan pizza topped with fresh baby arugula and sun-dried tomatoes"
   },
   {
     "src": "images/202211_314922749_470284025194673_3619396837791752867_n_17935427615347443.jpg",
@@ -1140,13 +1172,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "hide-seek",
     "restaurant_name": "HIDE+SEEK",
     "beli_score": 7.3,
-    "beli_rank": 127,
+    "beli_rank": 129,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "American"
     ],
-    "caption": "beef short ribs, pasta and fried appetizers",
-    "date": "202211"
+    "caption": "Braised short rib with potato puree, ricotta pasta, and crispy arancini",
+    "date": "202211",
+    "notes": "Braised short rib with potato puree, ricotta pasta, and crispy arancini"
   },
   {
     "src": "images/202211_315148726_467218312065282_6644738386631841411_n_17942096192454424.jpg",
@@ -1161,8 +1194,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "Cake and Bubble Tea",
-    "date": "202211"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202211",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202211_315321601_1213858109522133_2322126612803799557_n_17928763274553805.jpg",
@@ -1177,8 +1211,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Brunch",
       "Breakfast"
     ],
-    "caption": "Pancakes & Cafe",
-    "date": "202211"
+    "caption": "Stack of Oreo cookies and cream pancakes with white icing and breakfast skillet",
+    "date": "202211",
+    "notes": "Stack of Oreo cookies and cream pancakes with white icing and breakfast skillet"
   },
   {
     "src": "images/202211_315981659_2354012528097760_7596828359813920161_n_17945286647247120.jpg",
@@ -1186,13 +1221,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "tac-quick",
     "restaurant_name": "Tac Quick",
     "beli_score": 6.9,
-    "beli_rank": 145,
+    "beli_rank": 147,
     "location": "Lake View East, Chicago, IL",
     "cuisines": [
       "Thai"
     ],
-    "caption": "Soup, Pad See Ew",
-    "date": "202211"
+    "caption": "Pad Kee Mao drunken noodles with vegetables and authentic Thai boat noodle soup",
+    "date": "202211",
+    "notes": "Pad Kee Mao drunken noodles with vegetables and authentic Thai boat noodle soup"
   },
   {
     "src": "images/202211_316563343_493770112727221_2412213882708239127_n_18036816703401935.jpg",
@@ -1206,8 +1242,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Gastropub",
       "Burgers"
     ],
-    "caption": "burger",
-    "date": "202211"
+    "caption": "Legendary double cheeseburger with melted cheddar, steak knife, and pickle spear",
+    "date": "202211",
+    "notes": "Legendary double cheeseburger with melted cheddar, steak knife, and pickle spear"
   },
   {
     "src": "images/202211_317012605_3497337253830024_2356045067737969231_n_17965822859071494.jpg",
@@ -1221,8 +1258,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Japanese",
       "Sushi"
     ],
-    "caption": "Sushi",
-    "date": "202211"
+    "caption": "Specialty sushi maki roll topped with microgreens and spicy glaze",
+    "date": "202211",
+    "notes": "Specialty sushi maki roll topped with microgreens and spicy glaze"
   },
   {
     "src": "images/202211_317189198_676815414090938_5125507918297223057_n_17950090604510003.jpg",
@@ -1230,7 +1268,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "perilla-fare",
     "restaurant_name": "PERILLA fare",
     "beli_score": 6.2,
-    "beli_rank": 162,
+    "beli_rank": 164,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Korean"
@@ -1244,13 +1282,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "vermilion",
     "restaurant_name": "Vermilion",
     "beli_score": 6.3,
-    "beli_rank": 161,
+    "beli_rank": 163,
     "location": "River North, Chicago, IL",
     "cuisines": [
       "Indian"
     ],
-    "caption": "Indian-Latin Fusion",
-    "date": "202212"
+    "caption": "Fries in bicycle basket, glazed tamarind ribs, rich curry, garlic naan, and dal",
+    "date": "202212",
+    "notes": "Fries in bicycle basket, glazed tamarind ribs, rich curry, garlic naan, and dal"
   },
   {
     "src": "images/202212_317853074_810610780027376_4381544045470654762_n_17988373864649818.jpg",
@@ -1258,7 +1297,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "gyuro-ramen",
     "restaurant_name": "Gyuro Ramen",
     "beli_score": 7.8,
-    "beli_rank": 105,
+    "beli_rank": 106,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "Ramen",
@@ -1273,14 +1312,15 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "takito-street-lincoln-park-closed",
     "restaurant_name": "Takito Street Lincoln Park - CLOSED",
     "beli_score": 7.3,
-    "beli_rank": 129,
+    "beli_rank": 131,
     "location": "Sheffield & DePaul, Chicago, IL",
     "cuisines": [
       "Mexican",
       "Taqueria"
     ],
-    "caption": "Chilaquiles",
-    "date": "202212"
+    "caption": "Permanently closed",
+    "date": "202212",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202212_320061007_687715069644166_8839863175733608411_n_17911265519669302.jpg",
@@ -1294,8 +1334,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Scandinavian",
       "Danish"
     ],
-    "caption": "Scandinavian Tasting Menu",
-    "date": "202212"
+    "caption": "Michelin-starred Scandinavian tasting menu: roasted duck breast and herbal tarts",
+    "date": "202212",
+    "notes": "Michelin-starred Scandinavian tasting menu: roasted duck breast and herbal tarts"
   },
   {
     "src": "images/202301_327173178_753105299113024_4452856368543110045_n_17960913752332354.jpg",
@@ -1317,16 +1358,17 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202301_327403253_697748592076942_1871687473562316950_n_17987751130772457.jpg",
     "restaurant_id": "time-out-market-chicago",
     "restaurant_name": "Time Out Market Chicago",
-    "beli_score": 7.0,
-    "beli_rank": 142,
+    "beli_score": 7,
+    "beli_rank": 144,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Market",
       "Global",
       "Food Court"
     ],
-    "caption": "Burgers, Fries, Sandwiches",
-    "date": "202301"
+    "caption": "Permanently closed",
+    "date": "202301",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202302_330474073_145589578046827_2853074119766736856_n_18277986877099174.jpg",
@@ -1340,8 +1382,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Barbecue",
       "Pakistani"
     ],
-    "caption": "Torta Ahogada",
-    "date": "202302"
+    "caption": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail",
+    "date": "202302",
+    "notes": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail"
   },
   {
     "src": "images/202302_331587234_1265642557706090_1542501961831407948_n_18211951696175470.jpg",
@@ -1356,8 +1399,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "dessert",
-    "date": "202302"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202302",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202302_332553059_1917185925291600_4919616698906948690_n_18067818136362736.jpg",
@@ -1365,20 +1409,21 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "ramen-takeya",
     "restaurant_name": "Ramen Takeya",
     "beli_score": 6.9,
-    "beli_rank": 146,
+    "beli_rank": 148,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Ramen"
     ],
-    "caption": "Ramen",
-    "date": "202302"
+    "caption": "Permanently closed",
+    "date": "202302",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202303_330155989_596949865644548_2408444042076908110_n_18198901129246922.jpg",
     "filename": "202303_330155989_596949865644548_2408444042076908110_n_18198901129246922.jpg",
     "restaurant_id": "kyuramen-x-tbaar-downtown-chicago",
-    "restaurant_name": "Kyuramen x TBaar - Downtown Chicago \u4e5d\u6c64\u62c9\u9762",
-    "beli_score": 8.0,
+    "restaurant_name": "Kyuramen x TBaar - Downtown Chicago 九汤拉面",
+    "beli_score": 8,
     "beli_rank": 96,
     "location": "Near North, Chicago, IL",
     "cuisines": [
@@ -1408,8 +1453,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202303_334312284_193922953253497_5409751867317773388_n_18353607736050880.jpg",
     "filename": "202303_334312284_193922953253497_5409751867317773388_n_18353607736050880.jpg",
     "restaurant_id": "kyuramen-x-tbaar-downtown-chicago",
-    "restaurant_name": "Kyuramen x TBaar - Downtown Chicago \u4e5d\u6c64\u62c9\u9762",
-    "beli_score": 8.0,
+    "restaurant_name": "Kyuramen x TBaar - Downtown Chicago 九汤拉面",
+    "beli_score": 8,
     "beli_rank": 96,
     "location": "Near North, Chicago, IL",
     "cuisines": [
@@ -1447,8 +1492,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Taqueria",
       "Mexican"
     ],
-    "caption": "torta",
-    "date": "202303"
+    "caption": "Permanently closed",
+    "date": "202303",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202303_336997888_1294209588108314_5789541143270058518_n_17847784346952277.jpg",
@@ -1471,7 +1517,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "jj-thai-street-food",
     "restaurant_name": "JJ Thai Street Food",
     "beli_score": 7.2,
-    "beli_rank": 133,
+    "beli_rank": 135,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Thai"
@@ -1492,16 +1538,17 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "cake",
-    "date": "202304"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202304",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202304_341188958_2860768274055716_7265948932852818192_n_17854192799917933.jpg",
     "filename": "202304_341188958_2860768274055716_7265948932852818192_n_17854192799917933.jpg",
     "restaurant_id": "green-street-smoked-meats",
     "restaurant_name": "Green Street Smoked Meats",
-    "beli_score": 7.0,
-    "beli_rank": 143,
+    "beli_score": 7,
+    "beli_rank": 145,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Barbecue",
@@ -1522,8 +1569,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Spanish",
       "Tapas"
     ],
-    "caption": "tapas",
-    "date": "202304"
+    "caption": "Burger topped with crispy potato shoestrings, pickle spear, and loaded cheese fries",
+    "date": "202304",
+    "notes": "Burger topped with crispy potato shoestrings, pickle spear, and loaded cheese fries"
   },
   {
     "src": "images/202304_343411390_588279009927711_7340935051821412571_n_17858415293943947.jpg",
@@ -1537,8 +1585,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Taqueria",
       "Mexican"
     ],
-    "caption": "Chicken",
-    "date": "202304"
+    "caption": "Permanently closed",
+    "date": "202304",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202304_343777428_172639169071220_232353367586725612_n_17974144541488856.jpg",
@@ -1553,8 +1602,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "Chinese food, Dessert",
-    "date": "202304"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202304",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202305_348491433_667135848555688_8654142978309318426_n_17915541371683548.jpg",
@@ -1577,7 +1627,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202306_356440768_1673952533030439_5697878187316276662_n_17898660083755258.jpg",
     "restaurant_id": "nadc-burger",
     "restaurant_name": "NADC Burger",
-    "beli_score": 9.0,
+    "beli_score": 9,
     "beli_rank": 46,
     "location": "West Town, Chicago, IL",
     "cuisines": [
@@ -1613,8 +1663,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Chinese",
       "Cocktail Bar"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202307"
+    "caption": "Craft cocktails: shishito pepper garnish cocktail and layered foam cocktail",
+    "date": "202307",
+    "notes": "Craft cocktails: shishito pepper garnish cocktail and layered foam cocktail"
   },
   {
     "src": "images/202307_363196457_1004717290549786_3206805473214566084_n_17975498300267687.jpg",
@@ -1622,7 +1673,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "tacombi",
     "restaurant_name": "Tacombi",
     "beli_score": 7.3,
-    "beli_rank": 125,
+    "beli_rank": 127,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "Mexican",
@@ -1637,14 +1688,15 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "cabra",
     "restaurant_name": "Cabra",
     "beli_score": 7.1,
-    "beli_rank": 138,
+    "beli_rank": 140,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Peruvian",
       "Cocktail Bar"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202308"
+    "caption": "Peruvian anticucho skewers, loaded huancaina fries, and frozen pisco cocktail",
+    "date": "202308",
+    "notes": "Peruvian anticucho skewers, loaded huancaina fries, and frozen pisco cocktail"
   },
   {
     "src": "images/202308_368118504_1279980476031138_818984844567475474_n_18264561241084403.jpg",
@@ -1658,8 +1710,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Barbecue",
       "Pakistani"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202308"
+    "caption": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail",
+    "date": "202308",
+    "notes": "Warm house pita with dip, crispy potatoes, steak puree, and craft green cocktail"
   },
   {
     "src": "images/202308_369987298_679716737339602_8267651928068554658_n_17846642379038947.jpg",
@@ -1702,8 +1755,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202309"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202309",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202309_376198029_710246440927704_9208798272943765056_n_17931825128742068.jpg",
@@ -1711,14 +1765,15 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "wishbone",
     "restaurant_name": "Wishbone",
     "beli_score": 3.4,
-    "beli_rank": 202,
+    "beli_rank": 189,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Creole",
       "Southern"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202309"
+    "caption": "Southern breakfast with sunny fried eggs, potato/sausage hash, and buttermilk biscuit",
+    "date": "202309",
+    "notes": "Southern breakfast with sunny fried eggs, potato/sausage hash, and buttermilk biscuit"
   },
   {
     "src": "images/202310_385838774_621361910200629_328518732187422111_n_18157895026293842.jpg",
@@ -1732,8 +1787,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Indian",
       "Contemporary"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202310"
+    "caption": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi",
+    "date": "202310",
+    "notes": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi"
   },
   {
     "src": "images/202310_386330985_862297978662754_313554500680447006_n_18306003181184385.jpg",
@@ -1747,8 +1803,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Indian",
       "Contemporary"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202310"
+    "caption": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi",
+    "date": "202310",
+    "notes": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi"
   },
   {
     "src": "images/202310_386712585_1380318282891198_1423046045484971873_n_18263507098163352.jpg",
@@ -1762,8 +1819,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Indian",
       "Contemporary"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202310"
+    "caption": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi",
+    "date": "202310",
+    "notes": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi"
   },
   {
     "src": "images/202311_403881661_706811424712489_9143863054972315622_n_17990886875388296.jpg",
@@ -1786,14 +1844,15 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "taqueria-mexicana",
     "restaurant_name": "Taqueria Mexicana",
     "beli_score": 7.4,
-    "beli_rank": 123,
+    "beli_rank": 125,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Mexican",
       "Tacos"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202402"
+    "caption": "Permanently closed",
+    "date": "202402",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202402_429937306_945769633791612_3511931322135085783_n_18031558663844351.jpg",
@@ -1801,7 +1860,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "italian-homemade-company",
     "restaurant_name": "Italian Homemade Company",
     "beli_score": 6.8,
-    "beli_rank": 151,
+    "beli_rank": 153,
     "location": "Fulton Market, Chicago, IL",
     "cuisines": [
       "Italian"
@@ -1821,8 +1880,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Ramen",
       "Japanese"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202402"
+    "caption": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions",
+    "date": "202402",
+    "notes": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions"
   },
   {
     "src": "images/202403_432016037_954150949604044_1519720653365039106_n_18064408468501813.jpg",
@@ -1850,8 +1910,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Korean"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202403"
+    "caption": "Temporarily closed",
+    "date": "202403",
+    "notes": "Temporarily closed"
   },
   {
     "src": "images/202404_440023191_1651714248565985_2983830406229749889_n_18012821270462380.jpg",
@@ -1871,7 +1932,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202405_436619176_3776097232675852_5322170385637485706_n_18043038721761347.jpg",
     "filename": "202405_436619176_3776097232675852_5322170385637485706_n_18043038721761347.jpg",
     "restaurant_id": "hunan-cuisine",
-    "restaurant_name": "Hunan Cuisine \u6e58\u4e61\u9999",
+    "restaurant_name": "Hunan Cuisine 湘乡香",
     "beli_score": 9.6,
     "beli_rank": 19,
     "location": "Armour Square, Chicago, IL",
@@ -1888,7 +1949,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "xi-an-cuisine",
     "restaurant_name": "Xi'an Cuisine",
     "beli_score": 7.3,
-    "beli_rank": 126,
+    "beli_rank": 128,
     "location": "West Loop, Chicago, IL",
     "cuisines": [
       "Chinese",
@@ -1908,8 +1969,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Mexican"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202405"
+    "caption": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese",
+    "date": "202405",
+    "notes": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese"
   },
   {
     "src": "images/202406_447368784_462526642990621_7149388458052644075_n_17856468765180574.jpg",
@@ -1931,15 +1993,16 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202406_448237332_1006663794154557_488540143838487358_n_17923939793798557.jpg",
     "restaurant_id": "piece-pizzeria-and-brewery",
     "restaurant_name": "Piece Pizzeria and Brewery",
-    "beli_score": 9.0,
+    "beli_score": 9,
     "beli_rank": 49,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Pizza",
       "Brewery"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202406"
+    "caption": "Beer flight of 4 craft brews (Mosa, Soul Punch, Currently Unavailable, Trippin)",
+    "date": "202406",
+    "notes": "Beer flight of 4 craft brews (Mosa, Soul Punch, Currently Unavailable, Trippin)"
   },
   {
     "src": "images/202406_448558579_439904112169472_6205918076673195966_n_17864750901152669.jpg",
@@ -1954,8 +2017,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Asian Fusion",
       "Korean"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202406"
+    "caption": "Nepalese feast: Aloo Gobi, Chicken Curry, Dal Tadka, Garlic Naan, and Bhatura",
+    "date": "202406",
+    "notes": "Nepalese feast: Aloo Gobi, Chicken Curry, Dal Tadka, Garlic Naan, and Bhatura"
   },
   {
     "src": "images/202407_450396562_1652900452209145_1434617071768184909_n_18065156176516797.jpg",
@@ -1969,8 +2033,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Mediterranean",
       "Middle Eastern"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202407"
+    "caption": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea",
+    "date": "202407",
+    "notes": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea"
   },
   {
     "src": "images/202407_452006738_453196414264010_32679866827093101_n_18033725639031124.jpg",
@@ -2011,8 +2076,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "cuisines": [
       "Mexican"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202409"
+    "caption": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese",
+    "date": "202409",
+    "notes": "Carne asada taco with salsa and guacamole, alongside adobada taco with melted cheese"
   },
   {
     "src": "images/202409_461350087_1076755430576769_2523585362513930422_n_18021519704582235.jpg",
@@ -2026,8 +2092,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Chinese",
       "Cocktail Bar"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202409"
+    "caption": "Craft cocktails: shishito pepper garnish cocktail and layered foam cocktail",
+    "date": "202409",
+    "notes": "Craft cocktails: shishito pepper garnish cocktail and layered foam cocktail"
   },
   {
     "src": "images/202410_461979786_555298643638845_4323014202330530986_n_17994981131694656.jpg",
@@ -2051,7 +2118,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "longman-eagle",
     "restaurant_name": "Longman & Eagle",
     "beli_score": 6.7,
-    "beli_rank": 153,
+    "beli_rank": 155,
     "location": "Logan Square, Chicago, IL",
     "cuisines": [
       "Gastropub",
@@ -2081,7 +2148,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "the-vig",
     "restaurant_name": "The VIG",
     "beli_score": 5.4,
-    "beli_rank": 174,
+    "beli_rank": 176,
     "location": "Near North Side, Chicago, IL",
     "cuisines": [
       "American"
@@ -2108,7 +2175,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202411_467958101_927976592595626_4568092802668981064_n_18064500508740998.jpg",
     "restaurant_id": "eat-fine-design-by-khun-kung",
     "restaurant_name": "Eat Fine Design By Khun Kung",
-    "beli_score": 10.0,
+    "beli_score": 10,
     "beli_rank": 2,
     "location": "Bucktown, Chicago, IL",
     "cuisines": [
@@ -2123,7 +2190,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202412_18050692928494578.jpg",
     "restaurant_id": "eat-fine-design-by-khun-kung",
     "restaurant_name": "Eat Fine Design By Khun Kung",
-    "beli_score": 10.0,
+    "beli_score": 10,
     "beli_rank": 2,
     "location": "Bucktown, Chicago, IL",
     "cuisines": [
@@ -2138,7 +2205,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202412_18067364293705608.jpg",
     "restaurant_id": "pizz-amici",
     "restaurant_name": "PIZZ'AMICI",
-    "beli_score": 9.0,
+    "beli_score": 9,
     "beli_rank": 48,
     "location": "West Town, Chicago, IL",
     "cuisines": [
@@ -2152,7 +2219,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202412_471600522_2003843353423950_416951679522981259_n_18050692928494578.jpg",
     "restaurant_id": "eat-fine-design-by-khun-kung",
     "restaurant_name": "Eat Fine Design By Khun Kung",
-    "beli_score": 10.0,
+    "beli_score": 10,
     "beli_rank": 2,
     "location": "Bucktown, Chicago, IL",
     "cuisines": [
@@ -2167,7 +2234,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202412_471670772_1333974348039534_3148339447565557499_n_18067364293705608.jpg",
     "restaurant_id": "pizz-amici",
     "restaurant_name": "PIZZ'AMICI",
-    "beli_score": 9.0,
+    "beli_score": 9,
     "beli_rank": 48,
     "location": "West Town, Chicago, IL",
     "cuisines": [
@@ -2203,8 +2270,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Indian",
       "Contemporary"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202511"
+    "caption": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi",
+    "date": "202511",
+    "notes": "Tasting Menu: Lamb Chop, Lentil Cake Pave, Tender Coconut Kharavas, Apricot Cassatta, Besan Barfi"
   },
   {
     "src": "images/202510_17887564599380990.jpg",
@@ -2218,8 +2286,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Mediterranean",
       "Middle Eastern"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202510"
+    "caption": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea",
+    "date": "202510",
+    "notes": "Pink strawberry milk tea with boba pearls and butterfly pea layered tea"
   },
   {
     "src": "images/202509_17923191204012235.jpg",
@@ -2263,8 +2332,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Ramen",
       "Japanese"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202509"
+    "caption": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions",
+    "date": "202509",
+    "notes": "Spicy tonkotsu ramen with chili powder, bean sprouts, soft-boiled egg, and scallions"
   },
   {
     "src": "images/202508_17924970306000094.jpg",
@@ -2279,23 +2349,25 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Dessert",
       "Bubble Tea"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202508"
+    "caption": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink",
+    "date": "202508",
+    "notes": "Tiramisu crepe mousse cake, matcha bubble tea, and fresh mango drink"
   },
   {
     "src": "images/202507_18028358285704797.jpg",
     "filename": "202507_18028358285704797.jpg",
     "restaurant_id": "taverna-1821",
     "restaurant_name": "Taverna 1821",
-    "beli_score": 8.0,
+    "beli_score": 8,
     "beli_rank": 94,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "Greek",
       "Mediterranean"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202507"
+    "caption": "Permanently closed",
+    "date": "202507",
+    "notes": "Permanently closed"
   },
   {
     "src": "images/202506_17913586221104361.jpg",
@@ -2317,7 +2389,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "filename": "202506_18067474958100637.jpg",
     "restaurant_id": "eat-fine-design-by-khun-kung",
     "restaurant_name": "Eat Fine Design By Khun Kung",
-    "beli_score": 10.0,
+    "beli_score": 10,
     "beli_rank": 2,
     "location": "Bucktown, Chicago, IL",
     "cuisines": [
@@ -2492,8 +2564,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_18048015851247836.jpg",
     "filename": "202502_18048015851247836.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2507,8 +2579,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_18065517262856497.jpg",
     "filename": "202502_18065517262856497.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2522,8 +2594,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_18071323996802182.jpg",
     "filename": "202502_18071323996802182.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2537,8 +2609,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_18116003971395017.jpg",
     "filename": "202502_18116003971395017.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2567,8 +2639,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_477941722_18486309664035847_1436245759597853090_n_18048015851247836.jpg",
     "filename": "202502_477941722_18486309664035847_1436245759597853090_n_18048015851247836.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2582,8 +2654,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/20250213_478346655_18486310402035847_4878745746204148996_n_18065517262856497.jpg",
     "filename": "20250213_478346655_18486310402035847_4878745746204148996_n_18065517262856497.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2597,8 +2669,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_479539403_18486307600035847_4968227450742899502_n_18071323996802182.jpg",
     "filename": "202502_479539403_18486307600035847_4968227450742899502_n_18071323996802182.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2612,8 +2684,8 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "src": "images/202502_479989232_18486308008035847_5025530639513296136_n_18116003971395017.jpg",
     "filename": "202502_479989232_18486308008035847_5025530639513296136_n_18116003971395017.jpg",
     "restaurant_id": "cari-o",
-    "restaurant_name": "Cari\u00f1o",
-    "beli_score": 10.0,
+    "restaurant_name": "Cariño",
+    "beli_score": 10,
     "beli_rank": 3,
     "location": "Uptown, Chicago, IL",
     "cuisines": [
@@ -2644,13 +2716,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "st-clair-supper-club",
     "restaurant_name": "St. Clair Supper Club",
     "beli_score": 7.6,
-    "beli_rank": 114,
+    "beli_rank": 115,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "American"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202501"
+    "caption": "Temporarily closed",
+    "date": "202501",
+    "notes": "Temporarily closed"
   },
   {
     "src": "images/202501_473161235_1167599581600065_1460838927198309479_n_18096972460500211.jpg",
@@ -2664,8 +2737,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Ethiopian",
       "Halal"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202501"
+    "caption": "Ethiopian combination platter on injera flatbread with doro wat, ayib, and gomen",
+    "date": "202501",
+    "notes": "Ethiopian combination platter on injera flatbread with doro wat, ayib, and gomen"
   },
   {
     "src": "images/202501_473745182_580021714829231_6522102983162042000_n_17886000933190684.jpg",
@@ -2673,13 +2747,14 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "st-clair-supper-club",
     "restaurant_name": "St. Clair Supper Club",
     "beli_score": 7.6,
-    "beli_rank": 114,
+    "beli_rank": 115,
     "location": "Fulton Market District, Chicago, IL",
     "cuisines": [
       "American"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202501"
+    "caption": "Temporarily closed",
+    "date": "202501",
+    "notes": "Temporarily closed"
   },
   {
     "src": "images/202501_474383538_1646103616338415_1261718695358955717_n_17946053729931246.jpg",
@@ -2693,8 +2768,9 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
       "Noodles",
       "Chinese"
     ],
-    "caption": "Food Journey Highlight",
-    "date": "202501"
+    "caption": "Indian street chaat spread: Bhelpuri, papdi, sprouted moong, chutneys, and sev",
+    "date": "202501",
+    "notes": "Indian street chaat spread: Bhelpuri, papdi, sprouted moong, chutneys, and sev"
   },
   {
     "src": "images/202410_461827494_1068617191299571_5143576592073167086_n_18010114889411855.jpg",
@@ -2702,7 +2778,7 @@ window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
     "restaurant_id": "output-lounge-sports-bar",
     "restaurant_name": "Output Lounge & Sports Bar",
     "beli_score": 7.5,
-    "beli_rank": 117,
+    "beli_rank": 119,
     "location": "West Town, Chicago, IL",
     "cuisines": [
       "Bar",
