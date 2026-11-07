@@ -5,7 +5,7 @@
 
 const App = {
   rankings: (typeof window !== "undefined" && window.BELI_RANKINGS) ? window.BELI_RANKINGS : ((typeof BELI_RANKINGS !== "undefined") ? BELI_RANKINGS : []),
-  photos: (typeof window !== "undefined" && window.PHOTOS) ? window.PHOTOS : ((typeof PHOTOS !== "undefined") ? PHOTOS : []),
+  photos: (typeof window !== "undefined" && (window.PHOTOS || window.FOOD_PHOTOS)) ? (window.PHOTOS || window.FOOD_PHOTOS) : ((typeof FOOD_PHOTOS !== "undefined") ? FOOD_PHOTOS : []),
   currentView: "unified",
   savedIds: new Set(),
   activeRestaurant: null,
@@ -1078,7 +1078,10 @@ const App = {
     const scoreEl = document.getElementById("story-score-badge");
     const progressContainer = document.getElementById("story-progress-bars");
 
-    if (imgEl) imgEl.src = photo.src;
+    if (imgEl) {
+      const prefix = window.location.pathname.endsWith("/picks/") && photo.src && !photo.src.startsWith("../") && !photo.src.startsWith("http") ? "../" : "";
+      imgEl.src = prefix + (photo.src || ("images/" + photo.filename));
+    }
     if (titleEl) titleEl.textContent = photo.restaurant_name;
     if (locEl) locEl.textContent = photo.location || "Chicago, IL";
     if (captionEl) captionEl.textContent = photo.caption || "Pratik’s Picks Story";

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <title>Picks Studio | Pratik’s Picks iPhone Admin</title>
+
+  <!-- iOS Home Screen Web App Meta Tags -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Picks Studio">
+  <meta name="theme-color" content="#070a12">
+  <link rel="apple-touch-icon" href="../images/pratik_food_avatar.jpg">
+  <link rel="icon" type="image/png" href="../images/favicon.png">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Studio CSS -->
+  <link rel="stylesheet" href="../css/admin.css?v=1.0">
+</head>
+<body>
+
+  <!-- TOP HEADER -->
+  <header class="studio-header">
+    <div class="studio-header-inner">
+      <div class="studio-brand">
+        <img src="../images/pratik_food_avatar.jpg" alt="Pratik" class="studio-avatar">
+        <div class="studio-title-wrap">
+          <h1>Picks Studio <span style="font-size: 0.68rem; background: rgba(56,189,248,0.18); color: #38bdf8; padding: 2px 7px; border-radius: 999px; font-weight: 700;">iOS</span></h1>
+          <div class="studio-subtitle">Rankings & Photo Manager</div>
+        </div>
+      </div>
+
+      <div class="studio-header-actions">
+        <a href="./" class="pill-btn" title="View Live Pratik's Picks">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> <span>Live Site</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="studio-toast" class="studio-toast"></div>
+
+  <!-- HIDDEN QUICK PHOTO INPUT (Used by 1-tap +Photo buttons) -->
+  <input type="file" id="quick-photo-file-input" accept="image/*" multiple style="display: none;">
+
+  <!-- MAIN CONTAINER -->
+  <main class="studio-container">
+
+    <!-- STATS STRIP -->
+    <div class="stats-strip">
+      <div class="stat-card">
+        <div class="stat-value" id="stat-spots-count">0</div>
+        <div class="stat-label">Ranked Spots</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-with-photos">0/0</div>
+        <div class="stat-label">Have Photos</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="stat-total-photos">0</div>
+        <div class="stat-label">Total Photos</div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         TAB 1: RANKINGS MANAGER
+         ==================================================================== -->
+    <section id="tab-rankings" class="studio-tab-panel active">
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="studio-search-input" class="studio-search-input" placeholder="Search name, #rank, neighborhood, cuisine...">
+        <button type="button" id="studio-search-clear" class="search-clear-btn"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <div class="filter-chips-row" id="rankings-filter-chips">
+        <button type="button" class="filter-chip active" data-filter="all">🏆 All Spots</button>
+        <button type="button" class="filter-chip" data-filter="top25">🔥 Top 25</button>
+        <button type="button" class="filter-chip" data-filter="missing_photos">📸 Needs Photo</button>
+        <button type="button" class="filter-chip" data-filter="has_photos">🖼️ Has Photos</button>
+        <button type="button" class="filter-chip" data-filter="elite">⭐ 9.0+ Club</button>
+        <button type="button" id="btn-auto-sort-score" class="filter-chip" style="border-color: rgba(251,191,36,0.35); color: var(--accent-gold);">
+          <i class="fa-solid fa-wand-magic-sparkles"></i> Sort by Score
+        </button>
+      </div>
+
+      <div style="font-size: 0.74rem; color: var(--text-secondary); margin-bottom: 0.55rem; display: flex; justify-content: space-between; align-items: center;">
+        <span>Tap <strong>#Rank</strong> to jump, <strong>▲/▼</strong> to nudge, or tap a card to edit</span>
+      </div>
+
+      <div id="studio-rankings-list" class="studio-list"></div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 2: ADD NEW SPOT
+         ==================================================================== -->
+    <section id="tab-add" class="studio-tab-panel">
+      <div class="studio-panel-card">
+        <div class="panel-section-title">
+          <i class="fa-solid fa-circle-plus" style="color: var(--accent-blue);"></i> Add New Restaurant
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">
+            <span>Restaurant Name</span>
+            <button type="button" id="add-autofill-geo-btn" class="pill-btn" style="padding: 2px 8px; font-size: 0.7rem; color: var(--accent-blue); border-color: rgba(56,189,248,0.4);">
+              <i class="fa-solid fa-location-crosshairs"></i> Auto-Fill Location
+            </button>
+          </label>
+          <input type="text" id="add-input-name" class="studio-input" placeholder="e.g. Kasama, Bavette's, Armitage Alehouse...">
+          <div id="add-geocode-results" class="geocode-results-list"></div>
+        </div>
+
+        <div class="form-row-2 form-group">
+          <div>
+            <label class="form-label">Beli Score (0–10)</label>
+            <div class="stepper-box">
+              <button type="button" class="stepper-btn" id="add-score-minus">−</button>
+              <input type="number" step="0.1" min="0" max="10" id="add-input-score" class="stepper-input" value="9.2">
+              <button type="button" class="stepper-btn" id="add-score-plus">+</button>
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Rank # Placement</label>
+            <div class="stepper-box">
+              <button type="button" class="stepper-btn" id="add-rank-minus">−</button>
+              <input type="number" step="1" min="1" id="add-input-rank" class="stepper-input" value="1">
+              <button type="button" class="stepper-btn" id="add-rank-plus">+</button>
+            </div>
+          </div>
+        </div>
+        <div id="add-rank-context-hint" style="font-size: 0.73rem; color: var(--accent-gold); margin-top: -0.5rem; margin-bottom: 0.85rem;"></div>
+
+        <div class="form-group">
+          <label class="form-label">Price Tier</label>
+          <div class="price-selector-group" id="add-price-group">
+            <button type="button" class="price-option-btn" data-price="$">$</button>
+            <button type="button" class="price-option-btn active" data-price="$$">$$</button>
+            <button type="button" class="price-option-btn" data-price="$$$">$$$</button>
+            <button type="button" class="price-option-btn" data-price="$$$$">$$$$</button>
+          </div>
+        </div>
+
+        <div class="form-row-2 form-group">
+          <div>
+            <label class="form-label">Neighborhood</label>
+            <input type="text" id="add-input-neighborhood" class="studio-input" placeholder="e.g. West Loop" list="neighborhood-suggestions">
+            <datalist id="neighborhood-suggestions">
+              <option value="West Loop">
+              <option value="Fulton Market">
+              <option value="River North">
+              <option value="Chinatown">
+              <option value="Wicker Park">
+              <option value="Logan Square">
+              <option value="Lincoln Park">
+              <option value="Lakeview">
+              <option value="Bucktown">
+              <option value="Pilsen">
+              <option value="West Town">
+              <option value="Gold Coast">
+            </datalist>
+          </div>
+          <div>
+            <label class="form-label">City</label>
+            <input type="text" id="add-input-city" class="studio-input" value="Chicago">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cuisines (Tap to select)</label>
+          <div id="add-cuisine-chips" class="cuisine-chips-picker"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dish Highlights / Notes</label>
+          <textarea id="add-input-notes" class="studio-textarea" placeholder="What did you order? Favorite dishes or vibe notes..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Food Photos (iPhone Camera Roll)</label>
+          <label class="photo-upload-dropzone" for="add-photo-file-input">
+            <i class="fa-solid fa-camera-retro" style="font-size: 1.5rem; color: var(--accent-blue);"></i>
+            <span style="font-weight: 800; font-size: 0.9rem; color: #fff;">Tap to Select Food Photos</span>
+            <span style="font-size: 0.72rem; color: var(--text-secondary);">Auto-compressed & resized for fast loading</span>
+          </label>
+          <input type="file" id="add-photo-file-input" accept="image/*" multiple style="display: none;">
+          <div id="add-photos-preview-grid" class="drawer-photos-grid"></div>
+        </div>
+
+        <!-- Hidden/Optional Coordinates -->
+        <input type="hidden" id="add-input-lat">
+        <input type="hidden" id="add-input-lng">
+
+        <button type="button" id="add-spot-submit-btn" class="btn-primary-full">
+          <i class="fa-solid fa-plus"></i> Add Restaurant to Rankings
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 3: PHOTOS HUB
+         ==================================================================== -->
+    <section id="tab-photos" class="studio-tab-panel">
+      <div class="filter-chips-row" id="photos-subtabs">
+        <button type="button" class="filter-chip active" data-subtab="missing">
+          📸 Missing Photos (<span id="missing-photos-count-badge">0</span>)
+        </button>
+        <button type="button" class="filter-chip" data-subtab="all">
+          🖼️ Spots With Photos
+        </button>
+      </div>
+
+      <div class="search-bar-wrap">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="photos-search-input" class="studio-search-input" placeholder="Filter spots in photo manager...">
+      </div>
+
+      <div id="photos-tab-content"></div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 4: BELI SYNC / SCREENSHOT & LIVE TEXT IMPORT
+         ==================================================================== -->
+    <section id="tab-beli" class="studio-tab-panel">
+      <div class="studio-panel-card">
+        <div class="panel-section-title">
+          <i class="fa-solid fa-bolt" style="color: var(--accent-gold);"></i> Beli Quick Sync
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.9rem;">
+          Rated several places on Beli? Upload screenshots of your Beli list OR copy-paste text using iPhone <strong>Live Text</strong> to bulk-update ranks and scores at once.
+        </p>
+
+        <label class="photo-upload-dropzone" for="beli-screenshot-input" style="margin-bottom: 0.75rem;">
+          <i class="fa-solid fa-mobile-screen-button" style="font-size: 1.4rem; color: var(--accent-gold);"></i>
+          <span style="font-weight: 800; font-size: 0.88rem; color: #fff;">Upload Beli Screenshot(s) for Auto-OCR</span>
+          <span style="font-size: 0.72rem; color: var(--text-secondary);">Reads ranks, names, and scores directly on your iPhone</span>
+        </label>
+        <input type="file" id="beli-screenshot-input" accept="image/*" multiple style="display: none;">
+        <div id="beli-ocr-status" style="font-size: 0.76rem; color: var(--accent-blue); margin-bottom: 0.65rem;"></div>
+
+        <div class="form-group">
+          <label class="form-label">Or Paste Beli List Text</label>
+          <textarea id="beli-import-textarea" class="studio-textarea" style="min-height: 130px; font-family: monospace; font-size: 14px;" placeholder="Example lines:&#10;1. Liuyishou Hotpot 10.0&#10;2. Eat Fine Design By Khun Kung 10.0&#10;3. Cariño 10.0&#10;4. Indienne 9.9"></textarea>
+        </div>
+
+        <button type="button" id="beli-parse-btn" class="pill-btn" style="width: 100%; justify-content: center; padding: 0.7rem; font-size: 0.88rem; margin-bottom: 0.85rem;">
+          <i class="fa-solid fa-magnifying-glass-chart"></i> Preview Rank & Score Updates
+        </button>
+
+        <div id="beli-parse-preview" style="margin-bottom: 0.85rem;"></div>
+
+        <button type="button" id="beli-apply-btn" class="btn-primary-full" style="display: none;">
+          <i class="fa-solid fa-check-double"></i> Apply Beli Updates
+        </button>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         TAB 5: PUBLISH TO GITHUB PAGES & SETTINGS
+         ==================================================================== -->
+    <section id="tab-publish" class="studio-tab-panel">
+      <div class="studio-panel-card">
+        <div class="panel-section-title">
+          <i class="fa-solid fa-cloud-arrow-up" style="color: var(--accent-emerald);"></i> Publish to pratikpa.tel
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.85rem;">
+          Pushes your updated rankings and compressed photos directly to <code>ppratik96/newsite</code> on GitHub Pages in a single atomic commit.
+        </p>
+
+        <div style="background: rgba(15, 23, 42, 0.8); border: 1px solid var(--glass-border); border-radius: 12px; padding: 0.75rem; margin-bottom: 0.9rem;">
+          <div style="font-size: 0.72rem; font-weight: 800; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 0.4rem;">Pending Changes</div>
+          <div id="publish-changes-list"></div>
+        </div>
+
+        <div id="publish-live-status" style="display: none; background: rgba(15, 23, 42, 0.95); border: 1px solid var(--glass-border-strong); border-radius: 12px; padding: 0.8rem; font-size: 0.82rem; margin-bottom: 0.9rem; line-height: 1.45;"></div>
+
+        <button type="button" id="btn-publish-live" class="btn-primary-full" style="background: linear-gradient(135deg, #10b981, #059669); margin-bottom: 0.65rem;">
+          <i class="fa-solid fa-rocket"></i> Publish Changes to Live Site
+        </button>
+
+        <div class="form-row-2" style="margin-top: 0.5rem;">
+          <button type="button" id="btn-pull-latest" class="pill-btn" style="justify-content: center; padding: 0.6rem;">
+            <i class="fa-solid fa-rotate"></i> Sync from GitHub
+          </button>
+          <button type="button" id="btn-discard-draft" class="pill-btn" style="justify-content: center; padding: 0.6rem; color: #fda4af;">
+            <i class="fa-solid fa-rotate-left"></i> Discard Draft
+          </button>
+        </div>
+      </div>
+
+      <!-- GITHUB TOKEN SETUP CARD -->
+      <div class="studio-panel-card">
+        <div class="panel-section-title">
+          <i class="fa-brands fa-github"></i> iPhone GitHub Connection
+        </div>
+        <p style="font-size: 0.78rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          Saved privately in your iPhone’s browser storage so you only have to enter it once.
+          <a href="https://github.com/settings/tokens/new?scopes=repo&description=Pratiks+Picks+iPhone+Studio" target="_blank" rel="noopener" style="color: var(--accent-blue); text-decoration: underline; font-weight: 700;">Tap here to generate a GitHub Token</a> (check <code>repo</code> scope).
+        </p>
+
+        <div class="form-group">
+          <label class="form-label">GitHub Personal Access Token</label>
+          <input type="password" id="github-token-input" class="studio-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx or github_pat_...">
+        </div>
+
+        <div class="form-row-2">
+          <button type="button" id="save-token-btn" class="pill-btn emerald" style="justify-content: center; padding: 0.65rem;">
+            <i class="fa-solid fa-key"></i> Save Token
+          </button>
+          <button type="button" id="test-github-btn" class="pill-btn" style="justify-content: center; padding: 0.65rem;">
+            <i class="fa-solid fa-plug-circle-check"></i> Test Connection
+          </button>
+        </div>
+        <div id="github-conn-status" style="font-size: 0.78rem; margin-top: 0.6rem;"></div>
+      </div>
+
+      <!-- ADD TO HOME SCREEN TIP & BACKUP -->
+      <div class="studio-panel-card">
+        <div class="panel-section-title">
+          <i class="fa-brands fa-apple"></i> Install as iPhone App
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.75rem;">
+          In Safari on your iPhone, tap the <strong>Share</strong> icon <i class="fa-solid fa-arrow-up-from-bracket"></i> at the bottom of the screen and choose <strong>Add to Home Screen</strong>. It will appear on your iPhone Home Screen as <strong>Picks Studio</strong>!
+        </p>
+        <button type="button" id="btn-export-backup" class="pill-btn" style="width: 100%; justify-content: center; padding: 0.65rem;">
+          <i class="fa-solid fa-download"></i> Download JSON Backup
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FLOATING PUBLISH BAR WHEN DRAFT HAS CHANGES -->
+  <div id="publish-floating-bar" class="publish-floating-bar">
+    <div>
+      <div class="publish-bar-info" id="publish-bar-title">Unpublished Changes Ready</div>
+      <div class="publish-bar-sub" id="publish-bar-subtitle">Tap Publish to push live to pratikpa.tel</div>
+    </div>
+    <button type="button" id="floating-publish-btn" class="publish-now-btn">
+      <i class="fa-solid fa-cloud-arrow-up"></i> Review & Publish
+    </button>
+  </div>
+
+  <!-- BOTTOM SHEET EDIT MODAL -->
+  <div id="edit-sheet-backdrop" class="sheet-backdrop">
+    <div class="bottom-sheet">
+      <div class="sheet-header">
+        <h3 id="sheet-title">Edit Restaurant</h3>
+        <button type="button" id="sheet-close-btn" class="pill-btn"><i class="fa-solid fa-xmark"></i> Close</button>
+      </div>
+
+      <div class="sheet-body">
+        <!-- Rank & Score Quick Bar -->
+        <div class="form-row-2 form-group">
+          <div>
+            <label class="form-label">Rank # (Auto-shifts list)</label>
+            <div class="stepper-box">
+              <button type="button" class="stepper-btn" id="drawer-rank-minus">−</button>
+              <input type="number" step="1" min="1" id="drawer-input-rank" class="stepper-input">
+              <button type="button" class="stepper-btn" id="drawer-rank-plus">+</button>
+            </div>
+          </div>
+          <div>
+            <label class="form-label">Beli Score (0–10)</label>
+            <div class="stepper-box">
+              <button type="button" class="stepper-btn" id="drawer-score-minus">−</button>
+              <input type="number" step="0.1" min="0" max="10" id="drawer-input-score" class="stepper-input">
+              <button type="button" class="stepper-btn" id="drawer-score-plus">+</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photos Manager First for Fast iPhone Access -->
+        <div class="form-group">
+          <label class="form-label">
+            <span>📸 Restaurant Photos</span>
+            <span style="font-size: 0.68rem; color: var(--accent-gold);">First photo = Cover</span>
+          </label>
+          <label class="photo-upload-dropzone" for="drawer-photo-file-input">
+            <i class="fa-solid fa-camera" style="font-size: 1.35rem; color: var(--accent-blue);"></i>
+            <span style="font-weight: 800; font-size: 0.86rem; color: #fff;">+ Add Photos from iPhone</span>
+            <span style="font-size: 0.7rem; color: var(--text-secondary);">Pick from Camera Roll or Take Photo</span>
+          </label>
+          <input type="file" id="drawer-photo-file-input" accept="image/*" multiple style="display: none;">
+          <div id="drawer-photos-grid" class="drawer-photos-grid"></div>
+        </div>
+
+        <!-- Restaurant Name & Location -->
+        <div class="form-group">
+          <label class="form-label">
+            <span>Restaurant Name</span>
+            <button type="button" id="drawer-geocode-btn" class="pill-btn" style="padding: 2px 8px; font-size: 0.68rem; color: var(--accent-blue);">
+              <i class="fa-solid fa-location-crosshairs"></i> Auto-Locate
+            </button>
+          </label>
+          <input type="text" id="drawer-input-name" class="studio-input">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Price Tier</label>
+          <div class="price-selector-group" id="drawer-price-group">
+            <button type="button" class="price-option-btn" data-price="$">$</button>
+            <button type="button" class="price-option-btn" data-price="$$">$$</button>
+            <button type="button" class="price-option-btn" data-price="$$$">$$$</button>
+            <button type="button" class="price-option-btn" data-price="$$$$">$$$$</button>
+          </div>
+        </div>
+
+        <div class="form-row-2 form-group">
+          <div>
+            <label class="form-label">Neighborhood</label>
+            <input type="text" id="drawer-input-neighborhood" class="studio-input" list="neighborhood-suggestions">
+          </div>
+          <div>
+            <label class="form-label">City</label>
+            <input type="text" id="drawer-input-city" class="studio-input">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Dish Notes / Caption</label>
+          <textarea id="drawer-input-notes" class="studio-textarea" placeholder="Favorite dishes, tasting notes, or caption..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Cuisines</label>
+          <div id="drawer-cuisine-chips" class="cuisine-chips-picker"></div>
+          <div style="display: flex; gap: 0.45rem; margin-top: 0.5rem;">
+            <input type="text" id="drawer-custom-cuisine" class="studio-input" placeholder="Add custom cuisine tag..." style="padding: 0.45rem 0.7rem;">
+            <button type="button" id="drawer-add-cuisine-btn" class="pill-btn">+ Tag</button>
+          </div>
+        </div>
+
+        <details style="margin-bottom: 1rem; background: rgba(15,23,42,0.6); border: 1px solid var(--glass-border); border-radius: 10px; padding: 0.55rem 0.75rem;">
+          <summary style="font-size: 0.75rem; font-weight: 700; color: var(--text-secondary); cursor: pointer;">Map Coordinates & Google Maps Link</summary>
+          <div class="form-row-2 form-group" style="margin-top: 0.65rem;">
+            <div>
+              <label class="form-label">Latitude</label>
+              <input type="number" step="any" id="drawer-input-lat" class="studio-input">
+            </div>
+            <div>
+              <label class="form-label">Longitude</label>
+              <input type="number" step="any" id="drawer-input-lng" class="studio-input">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom: 0;">
+            <label class="form-label">Google Maps URL</label>
+            <input type="url" id="drawer-input-maps" class="studio-input">
+          </div>
+        </details>
+
+        <button type="button" id="drawer-save-btn" class="btn-primary-full" style="margin-bottom: 0.75rem;">
+          <i class="fa-solid fa-floppy-disk"></i> Save Restaurant Changes
+        </button>
+
+        <button type="button" id="drawer-delete-btn" class="btn-danger-outline">
+          <i class="fa-solid fa-trash-can"></i> Delete Restaurant from Rankings
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM iOS NAVIGATION TAB BAR -->
+  <nav class="ios-tab-bar">
+    <div class="ios-tab-bar-inner">
+      <button type="button" class="ios-tab-btn active" data-tab="rankings">
+        <i class="fa-solid fa-trophy"></i>
+        <span>Rankings</span>
+      </button>
+      <button type="button" class="ios-tab-btn" data-tab="add">
+        <i class="fa-solid fa-circle-plus"></i>
+        <span>Add Spot</span>
+      </button>
+      <button type="button" class="ios-tab-btn" data-tab="photos">
+        <i class="fa-solid fa-camera"></i>
+        <span>Photos</span>
+      </button>
+      <button type="button" class="ios-tab-btn" data-tab="beli">
+        <i class="fa-solid fa-bolt"></i>
+        <span>Beli Sync</span>
+      </button>
+      <button type="button" class="ios-tab-btn" data-tab="publish">
+        <span id="publish-tab-badge" class="tab-badge-dot">!</span>
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <span>Publish</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Data & Studio Scripts -->
+  <script src="../js/beli_data.js?v=98.0"></script>
+  <script src="../js/restaurants.js?v=98.0"></script>
+  <script src="../js/photos.js?v=98.0"></script>
+  <script src="../js/admin.js?v=1.0"></script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-window.FOOD_PHOTOS = FOOD_PHOTOS = [
+window.PHOTOS = window.FOOD_PHOTOS = FOOD_PHOTOS = [
   {
     "filename": "liuyishou_primary_hotpot.jpg",
     "src": "images/liuyishou_primary_hotpot.jpg",
