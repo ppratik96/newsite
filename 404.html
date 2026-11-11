@@ -8,7 +8,9 @@
     // If the path ends with /picks (no trailing slash), redirect to /picks/
     var path = window.location.pathname;
     if (path === '/picks' || path.endsWith('/picks')) {
-      window.location.replace('/picks/');
+      window.location.replace('/picks/' + window.location.search);
+    } else if (path === '/kick' || path.endsWith('/kick')) {
+      window.location.replace('/kick/' + window.location.search);
     } else {
       window.location.replace('/');
     }
